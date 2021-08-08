@@ -48,8 +48,8 @@ $ rails s
 
 #### ER図
 
-[ER図](https://user-images.githubusercontent.com/73353020/128624353-90350f26-ea0b-4bac-b970-e2fa6debda90.png "ER")
+<img width="1075" alt="ER図" src="https://user-images.githubusercontent.com/73353020/128624878-95feef13-ff0f-496c-b7a7-dc685008240c.png">
 
 #### 画面遷移図
 
-[画面遷移図](https://user-images.githubusercontent.com/73353020/128624356-e588bffc-37d9-48f8-84eb-ab0ab9bea684.png "画面遷移図")
+<img width="1347" alt="画面遷移図" src="https://user-images.githubusercontent.com/73353020/128624889-65b20b37-da76-4b54-9146-48d8c9aa5c54.png">
