@@ -36,11 +36,11 @@ $ rails s
 
 #### カタログ設計:
 
-[カタログ設計共有リンク](https://docs.google.com/spreadsheets/d/1AY3INxswIw8aCZM5NPOUZ_2eTNjEHSc35VDY_JFjl58/edit?usp=sharing)
+[カタログ設計共有リンク](https://docs.google.com/spreadsheets/d/1AY3INxswIw8aCZM5NPOUZ_2eTNjEHSc35VDY_JFjl58/edit?usp=sharing "Googleスプレッドシートへ")
 
 #### テーブル定義書:
 
-[テーブル定義書共有リンク](https://docs.google.com/spreadsheets/d/1AY3INxswIw8aCZM5NPOUZ_2eTNjEHSc35VDY_JFjl58/edit?usp=sharing)
+[テーブル定義書共有リンク](https://docs.google.com/spreadsheets/d/1AY3INxswIw8aCZM5NPOUZ_2eTNjEHSc35VDY_JFjl58/edit?usp=sharing "Googleスプレッドシートへ")
 
 #### ワイヤーフレーム:
 
@@ -48,7 +48,7 @@ $ rails s
 
 #### ER図
 
-<img width="1075" alt="ER図" src="https://user-images.githubusercontent.com/73353020/128624878-95feef13-ff0f-496c-b7a7-dc685008240c.png">
+<img width="1063" alt="ER図" src="https://user-images.githubusercontent.com/73353020/128625279-c52ef111-a40a-4a70-acfe-68da1e4ddadd.png">
 
 #### 画面遷移図
 
