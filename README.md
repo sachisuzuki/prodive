@@ -49,7 +49,7 @@ $ rails s
 
 #### ER図
 
-<img width="1063" alt="ER図" src="https://user-images.githubusercontent.com/73353020/128625279-c52ef111-a40a-4a70-acfe-68da1e4ddadd.png">
+<img width="1140" alt="ER図" src="https://user-images.githubusercontent.com/73353020/128877721-d46a5f84-7e1e-4d42-b995-82f6e6337382.png">
 
 #### 画面遷移図
 
