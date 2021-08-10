@@ -18,7 +18,8 @@
 
 ## カリキュラム外の技術
 
-* Google API
+* Geocoding API
+* Maps JavaScript API
 
 
 
@@ -44,7 +45,7 @@ $ rails s
 
 #### ワイヤーフレーム:
 
-[ワイヤーフレーム共有リンク](https://cacoo.com/diagrams/xto9GIk9M80VectF/B3049)
+[ワイヤーフレーム共有リンク](https://cacoo.com/diagrams/xto9GIk9M80VectF/B3049 "Cacooのサイトへ")
 
 #### ER図
 
