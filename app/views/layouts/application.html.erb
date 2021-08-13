@@ -10,6 +10,36 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="sticky-top">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 col-md-2">
+          </div>
+          <div class="col-xs-12 col-sm-8 col-md-8">
+            <div class="d-flex bd-highlight">
+              <div class="mr-auto bd-highlight align-self-center">
+                <%= link_to image_tag("/images/LOGO.png", height: 65), root_path %>
+              </div>
+              <div class="mt-1 p-3 bd-highlight align-self-center">
+
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-2">
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container-fluid">
+      <div class="">
+        <% flash.each do |key, value| %>
+          <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+        <% end %>
+      </div>
+      <div class="row main">
+        <%= yield %>
+      </div>
+    </div>
+    <footer></footer>
   </body>
 </html>
