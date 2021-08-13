@@ -1,0 +1,43 @@
+.background {
+  background-image: url("/images/background_image.jpg");
+  background-size: cover;
+}
+.top-logo {
+  display: block;
+  width: 50%;
+  padding-top: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+h1 {
+  font-size:1.5rem;
+  text-align: center;
+  text-transform: uppercase;display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 0;
+  color: #fff;
+  filter: drop-shadow(1px 1px 1px #021B21);
+  // mix-blend-mode: color-dodge;
+}
+
+h5 {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 20px;
+  margin: 0;
+  color: #fff;
+  filter: drop-shadow(1px 1px 1px #021B21);
+  // mix-blend-mode: color-dodge;
+
+}
+
+.translucent-box {
+
+}
