@@ -8,3 +8,24 @@ header {
   background-color: #fff;
   /* box-shadow: 0px 1px 1px 0px #B6B6B6; */
 }
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+
+li a {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  font-weight: 700;
+  text-align: center;
+}
+
+li a span {
+  color: #053e62;
+  font-size: 13px;
+}
