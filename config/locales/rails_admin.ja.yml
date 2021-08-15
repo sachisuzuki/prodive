@@ -53,6 +53,7 @@ ja:
       noaction: "操作を取り消しました"
       model_not_found: "モデル'%{model}'はありません"
       object_not_found: "'ID:%{id}'の%{model}はありません"
+      not_found: "お探しのページは見つかりませんでした"
     table_headers:
       model_name: "モデル名"
       last_used: "最終アクセス日"
