@@ -1,0 +1,41 @@
+<div class="container-fluid mypage-top-wrap">
+  <div class="row mypage-top">
+    <h3><span style="font-size:1.2em;"><%= "#{@user.name} " %></span></h3>
+    <aside class="col-sm-4 col-lg-2">
+      <div class="avatar-image">
+      </div>
+      <nav class="side-menu">
+        <ul>
+          <li class="p-4"><%= link_to 'プロフィール', mypage_user_path(current_user.id) %></li>
+          <li class="p-4"><%= link_to 'お気に入り', mypage_user_path(current_user.id) %></li>
+          <li class="p-4"><%= link_to '投稿一覧', mypage_user_path(current_user.id) %></li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+</div>
+<div class="container-fluid wrapper">
+  <div class="row">
+    <div class="col-sm-5 col-lg-3 empty-element"></div>
+    <article class="col-sm-7 col-lg-9 maypage-content">
+      <h3 class="p-5">プロフィール</h3>
+      <div class="profile">
+        <table>
+          <tr>
+            <td>ユーザ名</td>
+            <td><%= @user.name %></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= @user.email %></td>
+          </tr>
+          <tr>
+            <td>所属しているダイビングショップ</td>
+            <td><%= @user.shop %></td>
+          </tr>
+
+        </table>
+      </div>
+    </article>
+  </div>
+</div>
