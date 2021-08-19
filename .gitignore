@@ -25,3 +25,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# dotenv-rails
+.env
+
+# public/uploads
+public/uploads/
