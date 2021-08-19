@@ -1,3 +1,4 @@
+// users/show
 .maypage-top-wrap {
   position: relative;
   width: 100%;
@@ -5,34 +6,54 @@
 }
 
 .mypage-top {
+  position: relative;
   height: 250px;
-  background-color: #4682b4;
-  h3 {
+  width: 100%;
+  .avatar-image-top {
+    position: relative;
+    height: 250px;
+    object-fit: cover;
+    width: 100%;
+    z-index: 10;
+    filter: grayscale(100%) contrast(0.9);
+    }
+  h2 {
     position: absolute;
-    top: 300px;
-    left: 50%;
+    top: 200px;
+    left: 40%;
+    z-index: 30;
   }
   .col-sm-4 {
     padding: 0;
   }
 }
 
+.mask-gradation {
+  position: absolute;
+  height: 250px;
+  width: 100%;
+  z-index: 20;
+  opacity: 0.55;
+  background-image: linear-gradient(45deg, #00ffff, #351586);
+}
+
 aside {
   position: absolute;
-  top: 80px;
+  top: -150px;
   left: 5%;
   padding: 0;
-  width: 250px;
-  height: 550px;
-  z-index: 1;
+  width: 100%;
+  height: 500px;
+  z-index: 40;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .avatar-image {
   padding: 0;
+  height: 250px;
+  object-fit: cover;
   width: 100%;
-  height: 280px;
-  background-color: #b0c4de;
+  background-color: #fff;
 }
 
 .side-menu {
@@ -40,11 +61,10 @@ aside {
   ul {
     padding-top: 20px;
     padding-bottom: 33px;
-    background-color: #fffafa;
+    background-color: #F2F2F2;
   }
   li {
     width: 100%
-
   }
 }
 
@@ -65,4 +85,16 @@ aside {
     text-align: left;
     vertical-align: middle;
   }
+}
+
+#empty-caution {
+  font-size: 0.8em;
+  color: #0B346E;
+  animation: PuruPuru 2s forwards, fadeOut 10s linear forwards;
+}
+
+// users/edit
+#img_prev {
+  width: 240px;
+  height: 100%;
 }

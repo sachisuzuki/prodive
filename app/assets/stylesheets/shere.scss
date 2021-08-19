@@ -1,3 +1,13 @@
+// #4A225D
+// #261E47
+// #4E4F97
+// #81C7D4
+// #00ffff
+// #A5DEE4
+// #1199c4
+// #351586
+
+
 header {
   display: flex;
   align-items: center;
@@ -24,7 +34,13 @@ li {
   list-style-type: none;
 }
 
+.container-fluid {
+  padding: 0;
+}
 
+.row {
+  margin: 0;
+}
 
 
 

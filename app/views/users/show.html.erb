@@ -1,8 +1,11 @@
 <div class="container-fluid mypage-top-wrap">
   <div class="row mypage-top">
-    <h3><span style="font-size:1.2em;"><%= "#{@user.name} " %></span></h3>
+      <%= image_tag set_avatar, class: 'avatar-image-top'%>
+      <div class="mask-gradation"></div>
+    <h2><span style="font-size:1.2em;"><%= "#{@user.name} " %></span></h2>
     <aside class="col-sm-4 col-lg-2">
-      <div class="avatar-image">
+      <div class="">
+        <%= image_tag set_avatar, class: 'avatar-image'%>
       </div>
       <nav class="side-menu">
         <ul>
@@ -18,8 +21,10 @@
   <div class="row">
     <div class="col-sm-5 col-lg-3 empty-element"></div>
     <article class="col-sm-7 col-lg-9 maypage-content">
-      <h3 class="p-5">プロフィール</h3>
       <div class="profile">
+        <p id="empty-caution"><%= complete_profile %></p>
+
+        <h3 class="">プロフィール</h3>
         <table>
           <tr>
             <td>ユーザ名</td>
@@ -33,8 +38,11 @@
             <td>所属しているダイビングショップ</td>
             <td><%= @user.shop %></td>
           </tr>
-
         </table>
+      </div>
+      <div class="pt-3">
+        <%= link_to 'プロフィール編集', edit_user_registration_path(@user) %>
+        <%= link_to 'アカウント削除', user_registration_path(@user), method: :delete, data: { confirm: 'アカウントを削除しますか？' } %>
       </div>
     </article>
   </div>
