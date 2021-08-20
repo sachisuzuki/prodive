@@ -46,6 +46,7 @@ gem 'rails_admin', '~> 2.0'
 gem 'cancancan'
 gem 'omniauth', '1.9.1'
 gem 'omniauth-google-oauth2'
+gem 'faker'
 
 # Image Upload
 gem 'carrierwave'
