@@ -7,7 +7,7 @@ module UsersHelper
     end
   end
   def complete_profile
-    if current_user.avatar.presence or current_user.shop.presence
+    if current_user.avatar.blank? || current_user.shop.blank?
       'プロフィールを完成するには『プロフィール編集』'
     end
   end
