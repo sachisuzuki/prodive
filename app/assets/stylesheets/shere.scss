@@ -42,14 +42,14 @@ li {
   margin: 0;
 }
 
-
-
 .alert {
-position: relative;
-float: right;
+position: fixed;
+top: 100px;
+right: 0;
 margin-right: 15px;
 margin-bottom: 0;
 text-align: center;
+z-index: 40;
 animation: PuruPuru 2s forwards, fadeOut 10s linear forwards;
 }
 

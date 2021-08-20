@@ -44,8 +44,10 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'rails_admin', '~> 2.0'
 gem 'cancancan'
+gem 'omniauth', '1.9.1'
+gem 'omniauth-google-oauth2'
 
-#Image Upload
+# Image Upload
 gem 'carrierwave'
 gem 'mini_magick'
 
