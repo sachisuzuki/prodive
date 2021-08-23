@@ -10,17 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_19_144014) do
+ActiveRecord::Schema.define(version: 2021_08_21_054514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "divesites", force: :cascade do |t|
+    t.integer "area", default: 0, null: false
+    t.integer "zone", default: 0, null: false
+    t.string "name", default: "", null: false
+    t.string "address", default: "", null: false
+    t.string "phone", default: "", null: false
+    t.string "service", default: "", null: false
+    t.text "discription", default: "", null: false
+    t.float "latitude", default: 35.6813363998796, null: false
+    t.float "longitude", default: 139.76714625537713, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.text "avatar"
-    t.string "shop"
+    t.text "avatar", default: "", null: false
+    t.string "shop", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

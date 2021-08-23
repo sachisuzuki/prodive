@@ -1,0 +1,53 @@
+
+<div class="container-fluid sea-condition-map">
+  <div class="row">
+    <aside class="col-sm-4 col-lg-2 floating-board">
+      <nav class="select-map-range">
+        <h5>地図を表示させたい<br>エリアを選択</h5>
+        <% @areas.each.with_index(1) do |area, index| %>
+        <ul>
+          <li>
+            <i class="before-click"></i>
+            <h3 class="select-area"><%= area %></h3>
+            <% @divesites.where(area: area).pluck(:zone).uniq.each do |zone| %>
+            <ul class="zone-list">
+              <li><%= link_to zone %></li>
+            </ul>
+            <% end %>
+          </li>
+        </ul>
+        <% end %>
+      </nav>
+    </aside>
+    <div class="container-fluid wrapper">
+      <div class="row">
+        <div class="col-sm-5 col-lg-3 empty-element"></div>
+        <article class="col-sm-7 col-lg-9">
+          <div class="map-image">
+            <h1 class="p-2">海況MAP</h1>
+          </div>
+          <div class="map-content">
+            <% @kanto_divesites.each do |kanto| %>
+            <table class="table">
+              <tr>
+                <th rowspan="4" scope="rowgroup" class="table-col-1"><%= kanto.name %></th>
+                <td scope="row" class="table-col-2">紹介</td>
+                <td class="table-col-3"><%= kanto.discription %></td>
+              </tr>
+              <tr>
+                <td scope="row" class="table-col-2">管理しているしている<br>サービス</td>
+                <td class="table-col-3"><%= kanto.service %></td>
+
+              </tr>
+              <tr>
+                <td scope="row" class="table-col-2">連絡先</td>
+                <td class="table-col-3"><%= kanto.phone %></td>
+              </tr>
+            </table>
+            <% end %>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
