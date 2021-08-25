@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
@@ -35,7 +36,8 @@
       <% end %>
     </div>
       <%= yield %>
-      <%= javascript_include_tag 'users', 'divesites' %>
+      <%= javascript_include_tag 'users', 'divesites', 'map' %>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwZEHSacqV8SYTnZaKXGc7xFdyqZXkNwE&callback=initMap" async defer></script>
     <footer></footer>
   </body>
 </html>

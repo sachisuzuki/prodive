@@ -19,9 +19,9 @@
     background-color: $lightgrey;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   }
-  .wrapper {
-    padding-top: 10px;
-  }
+  // .wrapper {
+  //   padding-top: 10px;
+  // }
   h1 {
     letter-spacing: 5px;
   }
@@ -49,6 +49,7 @@
     letter-spacing: 15px;
     display: block;
     margin: 0;
+    z-index: 1100;
     cursor: pointer;
   }
   a {
@@ -162,6 +163,13 @@
 
 // map表示
 #map {
+  // height: 100%;
   height: 600px;
   width: 600px;
+}
+
+#zone_map {
+  // height: 100%;
+  height: 200px;
+  width: 200px;
 }

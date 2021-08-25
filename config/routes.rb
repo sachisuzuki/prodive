@@ -11,5 +11,9 @@ Rails.application.routes.draw do
       get 'mypage', to: 'users#show', as: :mypage
     end
   end
-  resources :divesites, only: %i[ index show]
+  resources :divesites, only: %i[ index show] do
+    collection do
+      get 'select_map'
+    end
+  end
 end

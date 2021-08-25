@@ -11,7 +11,7 @@
             <h3 class="select-area"><%= area %></h3>
             <% @divesites.where(area: area).pluck(:zone).uniq.each do |zone| %>
             <ul class="zone-list">
-              <li><%= link_to zone %></li>
+              <li class="zone"><%= link_to zone, select_map_divesites_path(zone: zone), remote: true %></li>
             </ul>
             <% end %>
           </li>
@@ -27,13 +27,11 @@
           <div class="map-image">
             <div id='map'></div>
           </div>
-          <div class="map-content">
-
-
+          <div class="map-contents">
+            <p>テンプレート</p>
           </div>
         </article>
       </div>
     </div>
   </div>
 </div>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwZEHSacqV8SYTnZaKXGc7xFdyqZXkNwE&callback=initMap" async defer></script>
