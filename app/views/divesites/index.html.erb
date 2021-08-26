@@ -9,9 +9,10 @@
           <li>
             <i class="before-click"></i>
             <h3 class="select-area"><%= area %></h3>
-            <% @divesites.where(area: area).pluck(:zone).uniq.each do |zone| %>
+            <% @zones = @divesites.where(area: area) %>
+            <% @zones.pluck(:zone).uniq.each do |zone| %>
             <ul class="zone-list">
-              <li class="zone"><%= link_to zone, select_map_divesites_path(zone: zone), remote: true %></li>
+              <li ><%= link_to zone, select_map_divesites_path(zone: zone), data: {lat: "#{@zones.find_by(zone: zone).latitude}", lng: "#{@zones.find_by(zone: zone).longitude}"}, class: "zone", remote: true %></li>
             </ul>
             <% end %>
           </li>

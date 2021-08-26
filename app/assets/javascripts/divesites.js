@@ -5,3 +5,11 @@ $('.select-area').click(function(){
   $('.select-area').not($(this)).siblings('ul').slideUp();
   $('.select-area').not($(this)).siblings('i').addClass('before-click');
 });
+
+$('.zone').click(function(){
+  var zoneLat = $(this).data('lat');
+  var zoneLng = $(this).data('lng');
+  console.log(zoneLat);
+
+  setZone(zoneLat, zoneLng);
+});
