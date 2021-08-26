@@ -2,6 +2,7 @@ class DivesitesController < ApplicationController
   def index
     @divesites = Divesite.all
     @areas = @divesites.pluck(:area).uniq
+    gon.divesites = @divesites
   end
 
   def show

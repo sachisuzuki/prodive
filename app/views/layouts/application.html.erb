@@ -5,8 +5,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= Gon::Base.render_data %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' %>
 
   </head>
 
@@ -37,8 +38,6 @@
     </div>
       <%= yield %>
       <%= javascript_include_tag 'users', 'divesites', 'map' %>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwZEHSacqV8SYTnZaKXGc7xFdyqZXkNwE&callback=initMap" async defer></script>
-      <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwZEHSacqV8SYTnZaKXGc7xFdyqZXkNwE" async defer></script> -->
     <footer></footer>
   </body>
 </html>

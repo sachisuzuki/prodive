@@ -7,8 +7,8 @@ $('.select-area').click(function(){
 });
 
 $('.zone').click(function(){
-  var zoneLat = $(this).data('lat');
-  var zoneLng = $(this).data('lng');
+  let zoneLat = $(this).data('lat');
+  let zoneLng = $(this).data('lng');
   console.log(zoneLat);
 
   setZone(zoneLat, zoneLng);
