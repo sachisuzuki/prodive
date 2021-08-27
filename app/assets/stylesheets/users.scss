@@ -1,3 +1,5 @@
+@import "variables";
+
 // users/show
 .maypage-top-wrap {
   position: relative;
@@ -34,7 +36,7 @@
   width: 100%;
   z-index: 20;
   opacity: 0.55;
-  background-image: linear-gradient(45deg, #00ffff, #351586);
+  background-image: linear-gradient(45deg, $aqua, $violet);
 }
 
 .floating-board {
@@ -53,7 +55,7 @@
   height: 250px;
   object-fit: cover;
   width: 100%;
-  background-color: #fff;
+  background-color: $white;
 }
 
 .side-menu {
@@ -61,7 +63,7 @@
   ul {
     padding-top: 20px;
     padding-bottom: 33px;
-    background-color: #F2F2F2;
+    background-color: $lightgrey;
   }
   li {
     width: 100%
@@ -73,7 +75,7 @@
   width: 100%;
   height: 100%;
   padding-top: 50px;
-  background-color: #FCFAF2;
+  background-color: $kinari;
 }
 
 .profile {

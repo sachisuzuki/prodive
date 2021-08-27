@@ -1,19 +1,2 @@
 // ajax
 $(".map-contents").html("<%= j(render 'select_zone', zones: @zones) %>");
-
-
-
-
-// // map
-// function changeCenter(){
-//
-//     let lat = <%= @zones.first.latitude %>;
-//     let lng = <%= @zones.first.longitude %>;
-//
-//     map.panTo(new google.maps.LatLng( lat, lng ));
-//
-//     marker = new google.maps.Marker({
-//       position:  latLng,
-//       map: map
-//     });
-// }

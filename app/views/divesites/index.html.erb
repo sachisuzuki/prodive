@@ -1,13 +1,12 @@
-
 <div class="container-fluid sea-condition-map">
   <div class="row">
     <aside class="col-sm-4 col-lg-2 floating-board">
       <nav class="select-map-range">
-        <h5>地図を表示させたい<br>エリアを選択</h5>
+        <h5 class="heading01"><span>地図を</span><span>表示させたい</span><span>エリアを選択</h5>
         <% @areas.each do |area| %>
         <ul>
           <li>
-            <i class="before-click"></i>
+            <i class="sidebar_icon before-click"></i>
             <h3 class="select-area"><%= area %></h3>
             <% @zones = @divesites.where(area: area) %>
             <% @zones.pluck(:zone).uniq.each do |zone| %>
@@ -20,18 +19,29 @@
         <% end %>
       </nav>
     </aside>
-    <div class="container-fluid wrapper">
+    <div class="wrapper">
       <div class="row">
         <div class="col-sm-5 col-lg-3 empty-element"></div>
-        <article class="col-sm-7 col-lg-9">
-            <h2 class="p-2">海況MAP</h2>
-          <div class="map-image">
-            <div id='map'></div>
+        <div class="col-sm-7 col-lg-9 row">
+          <article class="col-sm-12 col-md-12 col-lg-7">
+              <h2 class="p-2">海況MAP</h2>
+            <div class="map-image">
+              <div id='map'></div>
+            </div>
+          </article>
+          <div class="col-sm-0 col-md-0 col-lg-4 map-contents">
+            <p>エリアを選択すると、こちらにそのエリアのダイブサイトが表示されます</p>
+            <div class="cards">
+              <div class="card">
+                <div class="card_inner">
+                  <span><i class="fas fa-fish"></i>Divsite</span>
+                </div>
+
+              </div>
+            </div>
           </div>
-          <div class="map-contents">
-            <p>テンプレート</p>
-          </div>
-        </article>
+        </div>
+
       </div>
     </div>
   </div>
