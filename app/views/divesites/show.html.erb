@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="divesite-top">
+    <%= image_tag('/images/divesites/osezaki.jpg', class: "divesite-top-image") %>
+    <div class="mask-gradation"></div>
+  </div>
+  <div class="divesites-contents row">
+    <div class="wrapper">
+      <h1 class="divesite-name" data-detail="<%= "#{@divesite.area} / #{@divesite.zone}" %>"><%= @divesite.name %></h1>
+
+      <div class="divesite-info">
+        <span class="box-title">info</span>
+        <table class="divesite-table">
+          <tbody>
+            <tr>
+              <th><span>ダイブサイト</span><span>紹介</span></th>
+              <td><%= @divesite.discription %></td>
+            </tr>
+            <tr>
+              <th>所在地</th>
+              <td><%= @divesite.address %></td>
+            </tr>
+            <tr>
+              <th>☎︎</th>
+              <td id="telephone"><%= link_to @divesite.phone, "tel:#{@divesite.phone.delete("-")}" %></td>
+            </tr>
+            <tr>
+              <th>管理サービス</th>
+              <td><%= @divesite.service %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+</div>

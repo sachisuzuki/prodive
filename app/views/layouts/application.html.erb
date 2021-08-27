@@ -5,8 +5,10 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= Gon::Base.render_data %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' %>
+    <script src="https://kit.fontawesome.com/27e4cb0d9e.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -16,9 +18,10 @@
       </div>
       <nav class="header-menu">
         <ul>
+          <li><%= link_to '海況MAP', divesites_path, class: 'order-1 pr-2 bd-highlight' %></li>
           <% if user_signed_in? %>
-            <li><%= link_to 'マイページ', mypage_user_path(current_user.id), class: 'order-1 pr-2 bd-highlight' %></li>
-            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'order-2 pr-2 bd-highlight' %></li>
+            <li><%= link_to 'マイページ', mypage_user_path(current_user.id), class: 'order-2 pr-2 bd-highlight' %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'order-3 pr-2 bd-highlight' %></li>
           <% else %>
             <li><%= link_to 'ログイン', new_user_session_path, class: 'pr-2 bd-highlight' %></li>
             <li><%= link_to 'サインアップ', new_user_registration_path, class: 'pr-2 bd-highlight' %></li>
@@ -34,7 +37,7 @@
       <% end %>
     </div>
       <%= yield %>
-      <%= javascript_include_tag 'users' %>
+      <%= javascript_include_tag 'users', 'divesites', 'map' %>
     <footer></footer>
   </body>
 </html>

@@ -1,0 +1,13 @@
+<div class="change-map-contents">
+  <h6>選択したエリアにあるダイブサイト一覧</h6>
+
+  <% zones.each do |zone| %>
+  <div class="cards">
+    <div class="card">
+      <div class="card-inner">
+        <%= link_to zone.name, divesite_path(zone) %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

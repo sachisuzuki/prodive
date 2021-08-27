@@ -1,18 +1,16 @@
-// #4A225D
-// #261E47
-// #4E4F97
-// #81C7D4
-// #00ffff
-// #A5DEE4
-// #1199c4
-// #351586
+@import "variables";
 
+
+html, body {
+  height: 100%;
+  background-color: $kinari;
+}
 
 header {
   display: flex;
   align-items: center;
   height: 100px;
-  background-color: #fff;
+  background-color: $white;
 }
 
 .header-menu {
