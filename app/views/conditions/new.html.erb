@@ -1,0 +1,48 @@
+
+<%= form_with(model: @condition, local: true) do |form| %>
+  <% if @condition.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@condition.errors.count, "error") %> prohibited this condition from being saved:</h2>
+
+      <ul>
+      <% @condition.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>本日<% "#{@today}" %>の海況</p>
+  <div class="field">
+    <%= form.label :divepoint %>
+    <%= form.text_field :divepoint %>
+  </div>
+
+  <div class="field">
+    <%= form.radio_button :status, :open, checked: true %>
+    <%= form.label :status_open, 'OPEN' %>
+    <%= form.radio_button :status, :warning %>
+    <%= form.label :status_warning, '潜水注意' %>
+    <%= form.radio_button :status, :close %>
+    <%= form.label :status_close, 'CLOSE' %>
+  </div>
+  <div class="field">
+    <%= form.label :temperature %>
+    <%= form.number_field :temperature, value: "25" %><span> ℃</span>
+  </div>
+  <div class="field">
+    <%= form.label :visibility %>
+    <%= form.number_field :visibility, value: "10" %><span> m</span>
+  </div>
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+  <div class="field">
+    <%= image_tag("default_image.png", class: "condition_img" ) %>
+    <%= f.file_field :image,accept: 'image/jpeg,image/gif,image/png,video/*', id: "select_img" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

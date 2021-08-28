@@ -1,0 +1,20 @@
+
+<div class="">
+  <h4><%= "本日#{@condition.created_at.strftime("%m月%e日")}の海況情報" %></h4>
+  <p><%= @condition.created_at.strftime("%Y年%m月%d日 %k:%M") %></p>
+  <p><%= @condition.divepoint %></p>
+  <p><%= t("status.#{@condition.status}") %></p>
+  <p><%= @condition.temperature %><span> ℃</span></p>
+  <p><%= @condition.visibility %><span> m</span></p>
+  <p><%= @condition.content %></p>
+  <div class="">
+    <%= image_tag(@condition.image.url) if @condition.image? %>
+  </div>
+  <div class="">
+    <%= image_tag(@condition.video.url) if @condition.video? %>
+  </div>
+</div>
+<div class="">
+  <%= link_to '削除', condition_path(@condition), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+</div>

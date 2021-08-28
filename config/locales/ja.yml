@@ -1,5 +1,10 @@
 ---
 ja:
+  view:
+  status:
+    open: OPEN
+    warning: 潜水注意
+    close: CLOSE
   activerecord:
     errors:
       messages:
