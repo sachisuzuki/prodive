@@ -6,7 +6,7 @@
   <div class="field ">
     <%= image_tag set_avatar, id: "img_prev" %>
     <div class="pt-2">
-      <%= f.file_field :avatar, id: "select_img" %>
+      <%= f.file_field :avatar, accept: 'image/jpeg,image/png', id: "select_img" %>
     </div>
   </div>
 

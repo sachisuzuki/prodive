@@ -38,8 +38,8 @@
     <%= form.text_area :content %>
   </div>
   <div class="field">
-    <%= image_tag("default_image.png", class: "condition_img" ) %>
-    <%= f.file_field :image,accept: 'image/jpeg,image/gif,image/png,video/*', id: "select_img" %>
+    <%= image_tag "/images/default_image.png", class: "condition_img", id: "img_prev" %>
+    <%= form.file_field :image, accept: 'image/jpeg,image/png,video/*', id: "select_img" %>
   </div>
 
   <div class="actions">

@@ -1,4 +1,5 @@
 class ConditionsController < ApplicationController
+  include ConditionsHelper
   before_action :set_condition, only: %i[ show destroy ]
   def index
     @conditions = Condition.all
@@ -40,6 +41,6 @@ class ConditionsController < ApplicationController
     @condition = Condition.find(params[:id])
   end
   def condition_params
-    params.require(:condition).permit(:divepoint, :status, :temperature, :visibility, :content, :image, :video,)
+    params.require(:condition).permit(:divepoint, :status, :temperature, :visibility, :content, :image, :image_cache,)
   end
 end
