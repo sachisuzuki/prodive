@@ -11,7 +11,7 @@
     <% if @condition.image? && @condition.image.file.content_type.include?('image/') %>
       <%= image_tag @condition.image.original.url %>
     <% elsif @condition.image? && @condition.image.file.content_type.include?('video/') %>
-      <%= video_tag @condition.image, width: "300px", height: "100%", controls: true, autobuffer: true, mute: false %>
+      <%= video_tag @condition.image, width: "300px", height: "100%", controls: true, controlsList: "nodownload", autobuffer: true, mute: false %>
     <% end %>
   </div>
 </div>

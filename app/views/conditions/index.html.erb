@@ -1,2 +1,32 @@
-<h1>Conditions#index</h1>
-<p>Find me in app/views/conditions/index.html.erb</p>
+<div class="">
+  <div class="">
+    <h4><%= "本日#{Date.current.strftime("%m月%e日")}の海況情報" %></h4>
+    <div class="">
+      <% @conditions.each do |condition| %>
+      <div class="">
+        <p><%= condition.user.name %></p>
+        <p><small><%= "#{condition.created_at.strftime("%Y年%m月%d日 %k:%M")}" %></small></p>
+
+        <p><small><%= condition.divesite.area %> / <%= condition.divesite.zone %></small></p>
+        <div class="">
+          <%= link_to condition.divesite.name, divesite_path(condition.divesite.id) %>
+        </div>
+
+        <p><%= condition.divepoint %></p>
+        <p><%= t("status.#{condition.status}") %></p>
+        <p><%= condition.temperature %><span> ℃</span></p>
+        <p><%= condition.visibility %><span> m</span></p>
+        <p><%= condition.content %></p>
+
+        <div class="">
+          <% if condition.image? && condition.image.file.content_type.include?('image/') %>
+            <%= image_tag condition.image.original.url %>
+          <% elsif condition.image? && condition.image.file.content_type.include?('video/') %>
+            <%= video_tag condition.image, width: "300px", height: "100%", controls: true, controlsList: "nodownload", autobuffer: true, mute: false %>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

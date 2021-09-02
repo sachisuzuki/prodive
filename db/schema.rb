@@ -22,10 +22,13 @@ ActiveRecord::Schema.define(version: 2021_08_28_044234) do
     t.integer "visibility"
     t.text "content"
     t.text "image"
-    t.text "video"
+    t.bigint "user_id"
+    t.bigint "divesite_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["divesite_id"], name: "index_conditions_on_divesite_id"
     t.index ["status"], name: "index_conditions_on_status"
+    t.index ["user_id"], name: "index_conditions_on_user_id"
   end
 
   create_table "divesites", force: :cascade do |t|
@@ -61,4 +64,6 @@ ActiveRecord::Schema.define(version: 2021_08_28_044234) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "conditions", "divesites"
+  add_foreign_key "conditions", "users"
 end

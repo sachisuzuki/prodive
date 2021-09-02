@@ -7,8 +7,8 @@ class CreateConditions < ActiveRecord::Migration[5.2]
       t.integer :visibility
       t.text :content
       t.text :image
-      t.text :video
-
+      t.references :user, foreign_key: true
+      t.references :divesite, foreign_key: true
       t.timestamps
     end
     add_index :conditions, :status

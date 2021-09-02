@@ -8,7 +8,39 @@ class ConditionsController < ApplicationController
   end
   def new
     @condition = Condition.new
-    @today = Date.current
+    divesites = Divesite.select(:id, :name, :area, :zone)
+    zones = divesites.pluck(:zone).uniq
+    # ゾーン名
+    areas = divesites.pluck(:area).uniq
+    # エリア名
+    # ds_areas = areas.map do |area|
+    #   divesites.where(area: area)
+    # end
+
+    ds = areas.map do |area|
+      area_arr = divesites.where(area: area)
+      zones.map do |zone|
+        area_arr.where(zone: zone)
+      end
+    end
+
+    @divesites = ds.map do |ds|
+      ds.delete_if(&:empty?)
+    end
+
+
+    # @ds = zones.map do |zone|
+    #   divesites.where(zone: zone)
+    # end
+    # @ds = []
+    # @ds = zones.map.with_index do |zone, index|
+    #   ds_areas[index].where(zone: zone)
+    # end
+    #
+    # @ds = zones.map do |zone|
+    #   area = ds_area.map do ||
+    # end
+
     # respond_to do |format|
     #   format.html { redirect_to @condition, notice: "@@@" }
     #   format.js { render :new }
