@@ -11,9 +11,10 @@ Rails.application.routes.draw do
       get 'mypage', to: 'users#show', as: :mypage
     end
   end
-  resources :divesites, only: %i[ index show] do
+  resources :divesites, only: %i[ index show ] do
     collection do
       get 'select_map'
     end
   end
+  resources :conditions, only: %i[ index show new create destroy ]
 end

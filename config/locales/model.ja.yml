@@ -2,6 +2,8 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      divesite: ダイブサイト
+      condition: 海況情報
     attributes:
       user:
         name: 名前
@@ -12,3 +14,15 @@ ja:
         password_confirmation: 確認用パスワード
         remember_me: ログインを記憶
         are_you_sure: アカウントを削除しても宜しいですか？
+      divesite:
+        name: ダイブサイト名
+        address: 所在地
+        phone: 問い合わせ
+        servise: 管理サービス
+        discription: 紹介
+      condition:
+        divepoint: ダイブポイント
+        status: 海況
+        temperature: 水温
+        visibility: 透明度
+        content: 内容

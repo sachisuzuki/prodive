@@ -15,8 +15,8 @@ class Area
   def self.options_for_area
     area_list = []
     self.options_for_enum.each do | key, value |
-      area_list.push([ key, key ])
+      area_list.push(key)
     end
-    return area_list
+    area_list
   end
 end

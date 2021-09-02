@@ -25,6 +25,11 @@
         <div class="col-sm-7 col-lg-9 row">
           <article class="col-sm-12 col-md-12 col-lg-7">
               <h2 class="p-2">海況MAP</h2>
+              <%= link_to '海況を投稿する', new_condition_path, class: "goto-new" %>
+              <div id="new-condition-modal" class="modal">
+
+              </div>
+              <%= link_to '本日投稿された海況をみる', conditions_path %>
             <div class="map-image">
               <div id='map'></div>
             </div>

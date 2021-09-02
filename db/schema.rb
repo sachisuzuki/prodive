@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_21_054514) do
+ActiveRecord::Schema.define(version: 2021_08_28_044234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "conditions", force: :cascade do |t|
+    t.string "divepoint", default: "", null: false
+    t.integer "status", default: 0, null: false
+    t.integer "temperature"
+    t.integer "visibility"
+    t.text "content"
+    t.text "image"
+    t.bigint "user_id"
+    t.bigint "divesite_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["divesite_id"], name: "index_conditions_on_divesite_id"
+    t.index ["status"], name: "index_conditions_on_status"
+    t.index ["user_id"], name: "index_conditions_on_user_id"
+  end
 
   create_table "divesites", force: :cascade do |t|
     t.integer "area", default: 0, null: false
@@ -48,4 +64,6 @@ ActiveRecord::Schema.define(version: 2021_08_21_054514) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "conditions", "divesites"
+  add_foreign_key "conditions", "users"
 end

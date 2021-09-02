@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  divepoint: MyString
+  status: 1
+  temperrature: 1
+  visibility: 1
+  content: MyText
+  image: MyText
+  video: MyText
+
+two:
+  divepoint: MyString
+  status: 1
+  temperrature: 1
+  visibility: 1
+  content: MyText
+  image: MyText
+  video: MyText
