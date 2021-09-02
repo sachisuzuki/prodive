@@ -49,7 +49,5 @@ $('#grandchildren').on('click', 'button', function() {
 
   var dsName = $(this).text()
 
-  $('.h4').text(`${dsName}`)
-
   $("input[name='condition[divesite_id]']").val(`${dsId}`)
 });

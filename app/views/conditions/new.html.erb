@@ -129,7 +129,7 @@
         </div>
       <% end %>
       <% 2.times do |n| %>
-        <div class="grandchild hidden kyusyu_zone<%= "#{n.to_s}" %>">
+        <div class="grandchild hidden kyushu_zone<%= "#{n.to_s}" %>">
           <% @divesites[8][n].each do |kyushu_ds| %>
             <%= button_tag kyushu_ds.name, type: "button", name: "#{kyushu_ds.id}" %>
           <% end %>
@@ -144,7 +144,6 @@
       <% end %>
     </div>
   </div>
-  <p></p>
   <div class="field">
     <%= form.hidden_field :divesite_id, value: "" %>
   </div>
