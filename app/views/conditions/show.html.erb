@@ -2,11 +2,13 @@
 <div class="">
   <h4><%= "本日#{@condition.created_at.strftime("%m月%e日")}の海況情報" %></h4>
   <p><%= @condition.created_at.strftime("%Y年%m月%d日 %k:%M") %></p>
-  <p><%= @condition.divepoint %></p>
-  <p><%= t("status.#{@condition.status}") %></p>
-  <p><%= @condition.temperature %><span> ℃</span></p>
-  <p><%= @condition.visibility %><span> m</span></p>
-  <p><%= @condition.content %></p>
+  <div id="js-copytext">
+    <p>ポイント名: <%= @condition.divepoint %></p>
+    <p>海況: <%= t("status.#{@condition.status}") %></p>
+    <p>水温: <%= @condition.temperature %><span> ℃</span></p>
+    <p>透明度: <%= @condition.visibility %><span> m</span></p>
+    <p>info: <%= @condition.content %></p>
+  </div>
   <div class="">
     <% if @condition.image? && @condition.image.file.content_type.include?('image/') %>
       <%= image_tag @condition.image.original.url %>
@@ -15,7 +17,11 @@
     <% end %>
   </div>
 </div>
+<button type="button" id="js-copybtn">海況情報をコピー！</button>
+<p id="js-copyalert" class="copy_alert">コピーできました！このままtwitterにも投稿しよう！！</p>
+<div class="">
+  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="<%= "#{@condition.divesite.name}の本日の海況" %>" data-hashtags="PRODIVE" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
 <div class="">
   <%= link_to '削除', condition_path(@condition), method: :delete, data: { confirm: 'Are you sure?' } %>
-
 </div>
