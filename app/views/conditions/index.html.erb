@@ -25,6 +25,9 @@
             <%= video_tag condition.image, width: "300px", height: "100%", controls: true, controlsList: "nodownload", autobuffer: true, mute: false %>
           <% end %>
         </div>
+        <div class="">
+          <%= link_to '詳細', condition_path(condition) %>
+        </div>
       </div>
       <% end %>
     </div>
