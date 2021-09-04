@@ -5,8 +5,18 @@
   </div>
   <div class="divesites-contents row">
     <div class="wrapper">
-      <h1 class="divesite-name" data-detail="<%= "#{@divesite.area} / #{@divesite.zone}" %>"><%= @divesite.name %></h1>
-
+      <h1 class="divesite-name" data-detail="<%= "#{@divesite.area} / #{@divesite.zone}" %>"><%= @divesite.name %>
+      <span>
+        <% if @favorite.present? %>
+          <%= link_to favorite_path(id: @favorite.id), method: :delete do %>
+            <i class="fas fa-laugh-squint"></i>
+          <% end %>
+        <% else %>
+          <%= link_to favorites_path(divesite_id: @divesite.id), method: :post do%>
+            <i class="far fa-meh"></i>
+          <% end %>
+        <% end %>
+      </span></h1>
       <div class="divesite-info">
         <span class="box-title">info</span>
         <table class="divesite-table">
