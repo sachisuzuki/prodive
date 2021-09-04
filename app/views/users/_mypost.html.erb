@@ -1,0 +1,12 @@
+<h3 class="pt-5 pb-4">自分の投稿一覧</h3>
+<div class="">
+  <h4>
+    <% conditions.each do |condition| %>
+    <div class="pb-3">
+      <%= link_to condition_path(condition.id) do %>
+        <i class="fas fa-angle-double-right"><%= " #{condition.created_at.strftime("%-m月%e日")} / #{condition.divesite.zone} / #{condition.divesite.name}" %></i>
+      <% end %>
+    </div>
+    <% end %>
+  </h4>
+</div>

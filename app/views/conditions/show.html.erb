@@ -1,7 +1,7 @@
 
 <div class="">
-  <h4><%= "本日#{@condition.created_at.strftime("%m月%e日")}の海況情報" %></h4>
-  <p><%= @condition.created_at.strftime("%Y年%m月%d日 %k:%M") %></p>
+  <h4><%= "本日#{@condition.created_at.strftime("%-m月%e日")}の海況情報" %></h4>
+  <p><%= @condition.created_at.strftime("%Y年%-m月%e日 %k:%M") %></p>
   <div id="js-copytext">
     <p>ポイント名: <%= @condition.divepoint %></p>
     <p>海況: <%= t("status.#{@condition.status}") %></p>
