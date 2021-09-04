@@ -17,4 +17,5 @@ Rails.application.routes.draw do
     end
   end
   resources :conditions, only: %i[ index show new create destroy ]
+  resources :favorites, only: %i[ create destroy ]
 end

@@ -7,6 +7,7 @@ class DivesitesController < ApplicationController
 
   def show
     @divesite = Divesite.find(params[:id])
+    @favorite = current_user.favorites.find_by(divesite_id: @divesite.id)
   end
 
   def select_map

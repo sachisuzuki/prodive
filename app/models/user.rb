@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   has_many :conditions
+  has_many :favorites, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 30 }
 
