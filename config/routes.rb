@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get 'mypage', to: 'users#show', as: :mypage
+      get 'myfavorite'
+      get 'mypost'
     end
   end
   resources :divesites, only: %i[ index show ] do

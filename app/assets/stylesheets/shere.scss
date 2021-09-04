@@ -30,6 +30,15 @@ ul {
 
 li {
   list-style-type: none;
+  
+}
+
+a {
+  color: $black;
+  display: block;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .container-fluid {
