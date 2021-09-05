@@ -6,13 +6,13 @@
   <div class="divesites-contents row">
     <div class="wrapper">
       <h1 class="divesite-name" data-detail="<%= "#{@divesite.area} / #{@divesite.zone}" %>"><%= @divesite.name %>
-      <span>
+      <span id="favorite-btn">
         <% if @favorite.present? %>
-          <%= link_to favorite_path(id: @favorite.id), method: :delete do %>
+          <%= link_to favorite_path(id: @favorite.id), method: :delete, remote: true do %>
             <i class="fas fa-laugh-squint"></i>
           <% end %>
         <% else %>
-          <%= link_to favorites_path(divesite_id: @divesite.id), method: :post do %>
+          <%= link_to favorites_path(divesite_id: @divesite.id), method: :post, remote: true do %>
             <i class="far fa-meh"></i>
           <% end %>
         <% end %>

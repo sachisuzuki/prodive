@@ -1,0 +1,22 @@
+<div class="profile">
+  <p id="empty-caution"><%= complete_profile %></p>
+  <h3 class="pt-4 pb-4 my-profile">プロフィール</h3>
+  <table>
+    <tr>
+      <td>ユーザ名</td>
+      <td><h5><%= user.name %></h5></td>
+    </tr>
+    <tr>
+      <td>メールアドレス</td>
+      <td><h5><%= user.email %></h5></td>
+    </tr>
+    <tr>
+      <td>所属しているダイビングショップ</td>
+      <td><h5><%= user.shop %></h5></td>
+    </tr>
+  </table>
+  <div class="pt-3">
+    <%= link_to 'プロフィール編集', edit_user_registration_path(user) %>
+    <%= link_to 'アカウント削除', user_registration_path(user), method: :delete, data: { confirm: 'アカウントを削除しますか？' } %>
+  </div>
+</div>

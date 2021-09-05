@@ -1,12 +1,14 @@
-<h3 class="pt-5 pb-4 my-favorite">お気に入りダイブサイト</h3>
-<div class="">
-  <h4>
-    <% favorites.each do |favorite| %>
-    <div class="pb-3">
-      <%= link_to divesite_path(favorite.divesite.id) do %>
-        <i class="fas fa-angle-double-right"><%= " #{favorite.divesite.name}" %></i>
+<div class="myfavorite">
+  <h3 class="pt-5 pb-4 my-favorite">お気に入りダイブサイト</h3>
+  <div class="">
+    <h4>
+      <% favorites.each do |favorite| %>
+      <div class="pb-3">
+        <%= link_to divesite_path(favorite.divesite.id) do %>
+          <i class="fas fa-angle-double-right" data-toggle="tooltip" data-placement="right" title="詳細ページへ"><%= " #{favorite.divesite.name}" %></i>
+        <% end %>
+      </div>
       <% end %>
-    </div>
-    <% end %>
-  </h4>
+    </h4>
+  </div>
 </div>

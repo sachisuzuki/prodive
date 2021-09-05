@@ -30,12 +30,12 @@ ul {
 
 li {
   list-style-type: none;
-  
+
 }
 
 a {
   color: $black;
-  display: block;
+  // display: block;
   &:hover {
     text-decoration: none;
   }

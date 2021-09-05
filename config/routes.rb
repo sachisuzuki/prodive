@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get 'mypage', to: 'users#show', as: :mypage
+      get 'myprofile'
       get 'myfavorite'
       get 'mypost'
     end

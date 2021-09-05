@@ -5,6 +5,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @favorites = current_user.favorites.all
   end
+  def myprofile
+    @user = User.find(params[:id])
+    respond_to do |format|
+      format.js { render :myprofile }
+      format.html { redirect_to mypage_user_path(current_user.id) }
+    end
+  end
   def myfavorite
     @favorites = current_user.favorites.all
     respond_to do |format|
