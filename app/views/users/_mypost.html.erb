@@ -4,7 +4,7 @@
     <% conditions.each do |condition| %>
     <div class="pb-3">
       <%= link_to condition_path(condition.id) do %>
-        <i class="fas fa-angle-double-right"><%= " #{condition.created_at.strftime("%-m月%e日")} / #{condition.divesite.zone} / #{condition.divesite.name}" %></i>
+        <i class="fas fa-angle-double-right" data-toggle="tooltip" data-placement="right" title="投稿詳細へ"><%= " #{condition.created_at.strftime("%-m月%e日")} / #{condition.divesite.zone} / #{condition.divesite.name}" %></i>
       <% end %>
     </div>
     <% end %>
