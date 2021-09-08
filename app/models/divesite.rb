@@ -10,4 +10,8 @@ class Divesite < ApplicationRecord
   require './app/commonclass/zone'
   enum zone: Zone.options_for_enum
 
+  def added_to_favorites?(divesite)
+    favorites.find_by(divesite_id: divesite.id)
+  end
+
 end

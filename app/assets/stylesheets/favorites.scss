@@ -1,9 +1,17 @@
 @import "variables";
 
-.fa-meh {
-  color: $grey;
-}
 
+
+#favorite-part {
+  .favorite-icon {
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+  .fa-meh {
+    color: $grey;
+  }
+}
 .fa-laugh-squint {
   color: $red;
 }

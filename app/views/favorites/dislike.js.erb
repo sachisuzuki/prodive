@@ -1,2 +1,2 @@
-$("#favorite-btn").html("<%= j(render 'dislike', favorite: @favorite ) %>");
-$(".flash_messages").html('<div class="alert alert-warning"><%= @msg %></div>')
+$("#favorite-part").html("<%= j(render 'like', {favorite: @favorite, divesite: @divesite} ) %>");
+$(".flash_messages").html('<div class="alert alert-secondary"><%= @msg %></div>')

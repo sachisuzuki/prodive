@@ -1,7 +1,7 @@
 <div class="myfavorite">
-  <h3 class="pt-5 pb-4 my-favorite">お気に入りダイブサイト</h3>
+  <h3 class="pt-5 pb-4 my-favorite"><i class="fas fa-laugh-squint"></i> お気に入りダイブサイト</h3>
   <div class="">
-    <h4>
+    <h5 class="pl-4">
       <% favorites.each do |favorite| %>
       <div class="pb-3">
         <%= link_to divesite_path(favorite.divesite.id) do %>
@@ -9,6 +9,18 @@
         <% end %>
       </div>
       <% end %>
-    </h4>
+    </h5>
+  </div>
+  <h3 class="pt-5 pb-4 my-favorite"><i class="fas fa-thumbs-up follow"></i> フォロー中のアカウント</h3>
+  <div class="">
+    <h5 class="pl-4">
+      <% followed.each do |follow| %>
+      <div class="pb-3">
+        <%= link_to user_path(follow.followed_id) do %>
+          <i class="fas fa-angle-double-right" data-toggle="tooltip" data-placement="right" title="詳細ページへ"><%= " #{follow.followed.name}" %></i>
+        <% end %>
+      </div>
+      <% end %>
+    </h5>
   </div>
 </div>

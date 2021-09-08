@@ -1,12 +1,22 @@
-// Place all the styles related to the conditions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables";
 
-
+// new
 .hidden {
   display: none;
 }
 
+// show
 .copy_alert {
   display: none;
+}
+
+// index
+.post-index {
+  p {
+    margin: 0;
+  }
+}
+.post-user-avatar {
+  border-radius: 100%;
+  // border: solid 1px $black;
 }
