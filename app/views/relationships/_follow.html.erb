@@ -1,0 +1,11 @@
+<div id="follow_form_<%= user.id %>">
+  <% unless current_user.following?(user) %>
+    <h3><%= link_to follow_relationships_path(id: user.id), method: :post, remote: true do %>
+      <i class="far fa-thumbs-up unfollow"><strong> フォローする</strong></i>
+    <% end %></h3>
+  <% else %>
+    <h3><%= link_to unfollow_relationship_path(id: user.id), method: :delete, remote: true do %>
+      <i class="fas fa-thumbs-up follow"> フォロー中</i>
+    <% end %></h3>
+  <% end %>
+</div>

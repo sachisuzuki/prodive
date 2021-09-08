@@ -1,29 +1,49 @@
-<div class="container-fluid mypage-top-wrap">
-  <div class="row mypage-top">
-      <%= image_tag set_avatar, class: 'avatar-image-top'%>
-      <div class="mask-gradation"></div>
-    <h2><span style="font-size:1.2em;"><%= "#{@user.name} " %></span></h2>
-    <aside class="col-sm-4 col-lg-2 floating-board">
-      <div class="">
-        <%= image_tag set_avatar, class: 'avatar-image'%>
-      </div>
-      <nav class="side-menu">
-        <ul>
-          <li class="p-4"><%= link_to 'プロフィール', myprofile_user_path(current_user.id), remote: true %></li>
-          <li class="p-4"><%= link_to 'お気に入り', myfavorite_user_path(current_user.id), remote: true %></li>
-          <li class="p-4"><%= link_to '投稿一覧', mypost_user_path(current_user.id), remote: true %></li>
-        </ul>
-      </nav>
-    </aside>
-  </div>
-</div>
-<div class="container-fluid wrapper">
+<div class="container-fluid user-show-top-wrap">
   <div class="row">
-    <div class="col-sm-5 col-lg-3 empty-element"></div>
-    <article class="col-sm-7 col-lg-9">
-      <div id="maypage-content">
-        <%= render 'myprofile', user: @user %>
+    <div class="col-sm-1 col-lg-2"></div>
+    <div class="col-sm-10 col-md-12 col-lg-8 row">
+      <div class="col-sm-6 col-md-6 col-lg-6 user-show-left">
+        <% if @user.avatar? %>
+          <%= image_tag @user.avatar.url, class: "avatar-image-top" %>
+        <% else %>
+          <%= image_tag '/images/default-avatar.png', class: "avatar-image-top" %>
+        <% end %>
       </div>
-    </article>
+      <div class="col-sm-6 ccol-md-6 col-lg-6 user-show-right">
+        <h2 class="pb-3"><span style="font-size:1.2em;"><%= "#{@user.name} " %></span></h2>
+        <div class="">
+          <h5><%= @user.shop %></h5>
+          <span id="follow-part">
+            <%= render 'relationships/follow', user: @user %>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-1 col-lg-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-1 col-lg-2"></div>
+    <div class="col-sm-10 col-md-12 col-lg-8 user-show-bottom">
+      <div class="user-show-post">
+        <div class="post-index">
+          <h3 class="pt-5 pb-4"><%= "#{@user.name}" %>さんの投稿一覧</h3>
+          <% if @conditions.present? %>
+            <% @conditions.each do |condition| %>
+            <div class="pb-3">
+              <h4>
+                <%= link_to condition_path(condition.id) do %>
+                  <i class="fas fa-angle-double-right" data-toggle="tooltip" data-placement="right" title="投稿詳細へ"><%= " #{condition.created_at.strftime("%-m月%e日")} / #{condition.divesite.zone} / #{condition.divesite.name}" %></i>
+                <% end %>
+              </h4>
+            </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="">
+        <%= link_to '本日の海況投稿一覧へ戻る', conditions_path %>
+      </div>
+    </div>
+    <div class="col-sm-1 col-lg-2"></div>
   </div>
 </div>

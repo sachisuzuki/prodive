@@ -1,10 +1,17 @@
 <div class="">
   <div class="">
     <h4><%= "本日#{Date.current.strftime("%m月%e日")}の海況情報" %></h4>
-    <div class="">
+    <div class="post-index">
       <% @conditions.each do |condition| %>
       <div class="">
-        <p><%= condition.user.name %></p>
+        <span>
+          <% if condition.user.avatar? %>
+            <%= link_to image_tag(condition.user.avatar.thumb.url, class: "post-user-avatar"), user_path(condition.user.id) %>
+          <% else %>
+            <%= link_to image_tag('/images/default-avatar.png', class: "post-user-avatar"), user_path(condition.user.id) %>
+          <% end %>
+          <strong><%= condition.user.name %></strong>
+        </span>
         <p><small><%= "#{condition.created_at.strftime("%Y年%m月%d日 %k:%M")}" %></small></p>
 
         <p><small><%= condition.divesite.area %> / <%= condition.divesite.zone %></small></p>

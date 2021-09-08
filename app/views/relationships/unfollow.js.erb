@@ -1,0 +1,2 @@
+$("#follow_form_"+"<%= @user.id %>").html("<%= j(render 'follow', user: @user ) %>");
+$(".flash_messages").html('<div class="alert alert-secondary"><%= @msg %></div>')
