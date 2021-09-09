@@ -3,15 +3,21 @@
 $('#parent').on('click', 'button', function() {
   var otherParents = $('#parent').children('button').not(this);
 
-  otherParents.css('color', 'black');
+  otherParents.css('background-color', 'rgba(220,231,235,1)');
+  otherParents.css('color', 'rgba(48,69,92,0.9)');
 
-  $(this).css('color', 'blue');
+  $(this).css('background-color', 'rgb(58, 171, 210)');
+  $(this).css('color', '#FCFAF2');
 
   var thisIdName = $(this).attr('id');
 
   var otherChildren = $('#children').children('div').not(`.${thisIdName}`);
 
   otherChildren.addClass('hidden');
+
+  $('.note01').removeClass('hidden');
+
+  $('.note02').addClass('hidden');
 
   $(`.${thisIdName}`).toggleClass('hidden');
 
@@ -24,15 +30,19 @@ $('#parent').on('click', 'button', function() {
 $('#children').on('click', 'button', function() {
   var otherParents = $('.child').children('button').not(this);
 
-  otherParents.css('color', 'black');
+  otherParents.css('background-color', 'rgba(220,231,235,1)');
+  otherParents.css('color', 'rgba(48,69,92,0.9)');
 
-  $(this).css('color', 'blue');
+  $(this).css('background-color', 'rgb(58, 171, 210)');
+  $(this).css('color', '#FCFAF2');
 
   var thisIdName = $(this).attr('id');
 
   var otherChildren = $('#grandchildren').children('div').not(`.${thisIdName}`);
 
   otherChildren.addClass('hidden');
+
+  $('.note02').removeClass('hidden');
 
   $(`.${thisIdName}`).toggleClass('hidden');
 });
@@ -41,13 +51,17 @@ $('#children').on('click', 'button', function() {
 $('#grandchildren').on('click', 'button', function() {
   var otherParents = $('.grandchild').children('button').not(this);
 
-  otherParents.css('color', 'black');
+  otherParents.css('background-color', 'rgba(220,231,235,1)');
+  otherParents.css('color', 'rgba(48,69,92,0.9)');
 
-  $(this).css('color', 'blue');
+  $(this).css('background-color', 'rgb(58, 171, 210)');
+  $(this).css('color', '#FCFAF2');
 
   var dsId = $(this).attr('name')
 
   var dsName = $(this).text()
+
+  $('.h3').text(`${dsName}`)
 
   $("input[name='condition[divesite_id]']").val(`${dsId}`)
 });

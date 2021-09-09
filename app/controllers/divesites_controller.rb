@@ -1,4 +1,5 @@
 class DivesitesController < ApplicationController
+  before_action :authenticate_user!,only: %i[ show ]
   def index
     @divesites = Divesite.all
     @areas = @divesites.pluck(:area).uniq

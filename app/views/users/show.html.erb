@@ -13,9 +13,11 @@
         <h2 class="pb-3"><span style="font-size:1.2em;"><%= "#{@user.name} " %></span></h2>
         <div class="">
           <h5><%= @user.shop %></h5>
-          <span id="follow-part">
-            <%= render 'relationships/follow', user: @user %>
-          </span>
+          <% unless current_user.id == @user.id %>
+            <span id="follow-part">
+              <%= render 'relationships/follow', user: @user %>
+            </span>
+          <% end %>
         </div>
       </div>
     </div>

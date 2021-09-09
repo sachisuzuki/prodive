@@ -1,6 +1,6 @@
 <div class="">
   <div class="">
-    <h4><%= "本日#{Date.current.strftime("%m月%e日")}の海況情報" %></h4>
+    <h4 class=""><%= "本日#{Date.current.strftime("%-m月%e日")}の海況情報" %></h4>
     <div class="post-index">
       <% @conditions.each do |condition| %>
       <div class="">

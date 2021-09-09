@@ -1,8 +1,9 @@
 class ConditionsController < ApplicationController
   include ConditionsHelper
+  before_action :authenticate_user!
   before_action :set_condition, only: %i[ show destroy ]
   def index
-    @conditions = Condition.all
+    @conditions = Condition.where(created_at: Time.zone.now.all_day)
   end
   def show
   end
@@ -34,14 +35,6 @@ class ConditionsController < ApplicationController
       end
     end
   end
-  #
-  # def edit
-  # end
-  # def update
-  #   @condition.update(condition_params)
-  #   redirect_to @condition
-  #   flash[:notice] = "本日の海況情報を編集しました！"
-  # end
   def destroy
     @condition.destroy
     redirect_to conditions_url

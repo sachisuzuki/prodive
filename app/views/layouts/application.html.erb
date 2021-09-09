@@ -24,7 +24,7 @@
             <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'order-3 pr-2 bd-highlight' %></li>
           <% else %>
             <li><%= link_to 'ログイン', new_user_session_path, class: 'pr-2 bd-highlight' %></li>
-            <li><%= link_to 'サインアップ', new_user_registration_path, class: 'pr-2 bd-highlight' %></li>
+            <li><%= link_to 'アカウント登録', new_user_registration_path, class: 'pr-2 bd-highlight' %></li>
           <% end %>
         </ul>
       </nav>
@@ -32,7 +32,7 @@
     <div class="flash_messages">
       <% flash.each do |key, value| %>
         <% key = 'info' if key == 'notice' %>
-        <% key = 'warning' if key == 'alert' %>
+        <% key = 'secondary' if key == 'alert' %>
         <%= content_tag(:div, value, class: "alert alert-#{key}") %>
       <% end %>
     </div>

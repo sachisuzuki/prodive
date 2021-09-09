@@ -21,8 +21,8 @@ ja:
         servise: 管理サービス
         discription: 紹介
       condition:
-        divepoint: ダイブポイント
+        divepoint: ダイブポイント名
         status: 海況
         temperature: 水温
         visibility: 透明度
-        content: 内容
+        content: コメント
