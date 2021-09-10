@@ -305,28 +305,6 @@
 .divesites-contents {
   width: 100%;
   height: 100%;
-  h1 {
-    text-align: center;
-    letter-spacing: 5px;
-  }
-  .wrapper {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  .divesite-name {
-    position: relative;
-  	padding-bottom: 50px;
-  	font-size: 36px;
-  	text-align: center;
-    z-index: 20;
-  }
-  .divesite-name::before {
-  	content: attr(data-detail);
-  	display: block;
-  	color: $deepgrey;
-  	font-size: 20px;
-  	font-style: italic;
-  }
 }
 
 .divesite-info {
