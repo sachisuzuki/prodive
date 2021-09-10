@@ -256,7 +256,6 @@
   }
 }
 
-
 // show
 .divesite-top {
   position: relative;
@@ -265,7 +264,6 @@
     object-fit: cover;
     width: 100%;
     height: 250px;
-    // filter: grayscale(100%) contrast(0.9);
   }
   .mask-gradation {
     position: absolute;
@@ -273,9 +271,34 @@
     left: 0;
     height: 250px;
     width: 100%;
-    z-index: 10;
     opacity: 0.55;
-    background-image: linear-gradient(45deg, $black, $deepblue);
+  }
+  .divesite-top-value {
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    top: 80px;
+    padding: 20px 0;
+    background-color: $kinari;
+    h1 {
+      position: relative;
+      text-align: center;
+      letter-spacing: 8px;
+      z-index: 20;
+    }
+    .divesite-name {
+    	font-size: 36px;
+      margin: 0 auto;
+    }
+    .divesite-name::before {
+    	content: attr(data-detail);
+    	display: block;
+    	color: $grey;
+    	font-size: 20px;
+    	font-style: italic;
+      position: relative;
+      text-align: center;
+    }
   }
 }
 
@@ -291,10 +314,11 @@
     padding-right: 20px;
   }
   .divesite-name {
-	position: relative;
-	padding-bottom: 50px;
-	font-size: 36px;
-	text-align: center;
+    position: relative;
+  	padding-bottom: 50px;
+  	font-size: 36px;
+  	text-align: center;
+    z-index: 20;
   }
   .divesite-name::before {
   	content: attr(data-detail);

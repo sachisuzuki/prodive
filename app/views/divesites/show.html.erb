@@ -2,11 +2,13 @@
   <div class="divesite-top">
     <%= image_tag('/images/divesites/divesite_image.jpg', class: "divesite-top-image") %>
     <div class="mask-gradation"></div>
+    <div class="divesite-top-value">
+      <h1 class="divesite-name" data-detail="<%= "#{@divesite.area} / #{@divesite.zone}" %>"><%= @divesite.name %>
+      <span id="favorite-part"><%= render 'favorites/like', { favorite: @favorite, divesite: @divesite } %></span></h1>
+    </div>
   </div>
   <div class="divesites-contents row">
     <div class="wrapper">
-      <h1 class="divesite-name" data-detail="<%= "#{@divesite.area} / #{@divesite.zone}" %>"><%= @divesite.name %>
-      <span id="favorite-part"><%= render 'favorites/like', { favorite: @favorite, divesite: @divesite } %></span></h1>
       <div class="divesite-info">
         <span class="box-title">info</span>
         <table class="divesite-table">
