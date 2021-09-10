@@ -16,7 +16,7 @@ class DivesitesController < ApplicationController
       if params[:zone]
         @divesites = Divesite.all
         @zones = @divesites.where(zone: params[:zone])
-        format.js { render :select_map }
+        format.js { render :select_zone }
       else
         format.html { redirect_to divesites_url, notice: '表示したいエリアを選択してください' }
       end

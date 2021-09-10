@@ -35,7 +35,7 @@ function initMap(){
       title: markerData[i]['name'],
       animation: google.maps.Animation.DROP,
       icon: {
-        url: "/images/close.png",
+        url: "/images/divesites/noinfo.png",
         scaledSize: new google.maps.Size(60, 60)
       }
     });
