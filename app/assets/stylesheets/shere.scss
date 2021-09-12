@@ -1,9 +1,9 @@
 @import "variables";
 
-
 html, body {
   height: 100%;
   background-color: $kinari;
+  color: $black;
 }
 
 header {
@@ -38,6 +38,7 @@ a {
   // display: block;
   &:hover {
     text-decoration: none;
+    color: $red;
   }
 }
 
@@ -58,6 +59,30 @@ margin-bottom: 0;
 text-align: center;
 z-index: 40;
 animation: PuruPuru 2s forwards, fadeOut 10s linear forwards;
+}
+
+.transition-btn {
+  letter-spacing: 3px;
+  padding: 10px 12px;
+  border-style: none;
+  border-radius: 5px;
+  background-color: $grey;
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.unobtrusive {
+  letter-spacing: 3px;
+  padding: 10px 12px;
+  color: $deepgrey;
+  display: block;
+  &:hover {
+    transform: translateX(5px);
+  }
+  i {
+    margin-left: 10px;
+  }
 }
 
 @keyframes PuruPuru {

@@ -1,13 +1,13 @@
 <div class="change-map-contents">
-  <h6>選択したエリアにあるダイブサイト一覧</h6>
-
-  <% zones.each do |zone| %>
-  <div class="cards">
-    <div class="card">
-      <div class="card-inner">
-        <%= link_to zone.name, divesite_path(zone) %>
-      </div>
+  <h5 class="pb-1"><span>選択した区域にある</span><span>ダイブサイト一覧</span></h5>
+  <div class="card-wrap">
+    <% zones.each do |zone| %>
+    <div class="item">
+      <%= image_tag '/images/divesites/airtank.png', class: "diving-icon" %>
+      <%= link_to divesite_path(zone) do %>
+        <span><%= zone.name %><i class="fas fa-angle-right"></i></span>
+      <% end %>
     </div>
+    <% end %>
   </div>
-  <% end %>
 </div>

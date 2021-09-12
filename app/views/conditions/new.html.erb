@@ -1,184 +1,216 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-1 col-md-1 col-lg-2"></div>
+    <div class="col-sm-10 col-md-10 col-lg-8">
+      <%= form_with(model: @condition, local: true) do |form| %>
+        <% if @condition.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@condition.errors.count, "error") %> prohibited this condition from being saved:</h2>
+            <ul>
+            <% @condition.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
 
-<%= form_with(model: @condition, local: true) do |form| %>
-  <% if @condition.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@condition.errors.count, "error") %> prohibited this condition from being saved:</h2>
-      <ul>
-      <% @condition.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <div class="select_divesite-wrap">
+          <h4 class="headding"><%= "本日#{Date.current.strftime("%-m月%e日")}の海況情報投稿フォーム" %></h4>
+          <div class="select_divesite">
+            <p><small>エリアを選択すると対応する区域が表示されます</small></p>
+            <div class="pt-1 pb-2" id="parent">
+              <% Area.options_for_area.each.with_index(1) do |area, index| %>
+                <%= button_tag area.to_s, type: "button", id: "area#{index}" %>
+              <% end %>
+            </div>
+
+            <div class="pt-1 pb-2" id="children">
+              <p class="note01 hidden"><small>区域を選択すると対応するダイブサイトが表示されます</small></p>
+              <div class="child hidden area1">
+                <% Zone.options_for_kanto_zone.each.with_index do |kanto_zone, index| %>
+                  <%= button_tag kanto_zone.to_s, type: "button", id: "kanto_zone#{index}" %>
+                <% end %>
+              </div>
+              <div class="child hidden area2">
+                <% Zone.options_for_hokkaido_zone.each.with_index do |hokkaido_zone, index| %>
+                  <%= button_tag hokkaido_zone, type: "button", id: "hokkaido_zone#{index}" %>
+                <% end %>
+              </div>
+              <div class="child hidden area3">
+                <% Zone.options_for_tohoku_zone.each.with_index do |tohoku_zone, index| %>
+                  <%= button_tag tohoku_zone, type: "button", id: "tohoku_zone#{index}" %>
+                <% end %>
+              </div>
+              <div class="child hidden area4">
+                <%Zone.options_for_hokuriku_zone.each.with_index do |hokuriku_zone, index| %>
+                  <%= button_tag hokuriku_zone, type: "button", id: "hokuriku_zone#{index}" %>
+                <% end %>
+              </div>
+              <div class="child hidden area5">
+                <% Zone.options_for_chubu_zone.each.with_index do |chubu_zone, index| %>
+                  <%= button_tag chubu_zone, type: "button", id: "chubu_zone#{index}" %>
+                <% end %>
+              </div>
+              <div class="child hidden area6">
+                <% Zone.options_for_kansai_zone.each.with_index do |kansai_zone, index| %>
+                  <%= button_tag kansai_zone, type: "button", id: "kansai_zone#{index}" %>
+                <% end %>
+              </div>
+              <div class="child hidden area7">
+                <% Zone.options_for_sanin_zone.each.with_index do |sanin_zone, index| %>
+                  <%= button_tag sanin_zone, type: "button", id: "sanin_zone#{index}" %>
+                <% end %>
+              </div>
+              <div class="child hidden area8">
+                <% Zone.options_for_shikoku_zone.each.with_index do |shikoku_zone, index| %>
+                  <%= button_tag shikoku_zone, type: "button", id: "shikoku_zone#{index}" %>
+                <% end %>
+              </div>
+              <div class="child hidden area9">
+                <% Zone.options_for_kyushu_zone.each.with_index do |kyushu_zone, index| %>
+                  <%= button_tag kyushu_zone, type: "button", id: "kyushu_zone#{index}" %>
+                <% end %>
+              </div>
+              <div class="child hidden area10">
+                <% Zone.options_for_okinawa_zone.each.with_index do |okinawa_zone, index| %>
+                  <%= button_tag okinawa_zone, type: "button", id: "okinawa_zone#{index}" %>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="pt-1 pb-2" id="grandchildren">
+              <p class="note02 hidden"><small>海況投稿したいダイブサイトを選択してください</small></p>
+              <% 6.times do |n| %>
+                <div class="grandchild hidden kanto_zone<%= "#{n.to_s}" %>">
+                  <% @divesites[0][n].each do |kanto_ds| %>
+                    <%= button_tag kanto_ds.name, type: "button", name: "#{kanto_ds.id}" %>
+                  <% end %>
+                </div>
+              <% end %>
+              <% 2.times do |n| %>
+                <div class="grandchild hidden hokkaido_zone<%= "#{n.to_s}" %>">
+                  <% @divesites[1][n].each do |hokkaido_ds| %>
+                    <%= button_tag hokkaido_ds.name, type: "button", name: "#{hokkaido_ds.id}" %>
+                  <% end %>
+                </div>
+              <% end %>
+              <% 2.times do |n| %>
+                <div class="grandchild hidden tohoku_zone<%= "#{n.to_s}" %>">
+                  <% @divesites[2][n].each do |tohoku_ds| %>
+                    <%= button_tag tohoku_ds.name, type: "button", name: "#{tohoku_ds.id}" %>
+                  <% end %>
+                </div>
+              <% end %>
+              <% 2.times do |n| %>
+                <div class="grandchild hidden hokuriku_zone<%= "#{n.to_s}" %>">
+                  <% @divesites[3][n].each do |hokuriku_ds| %>
+                    <%= button_tag hokuriku_ds.name, type: "button", name: "#{hokuriku_ds.id}" %>
+                  <% end %>
+                </div>
+              <% end %>
+              <% 2.times do |n| %>
+                <div class="grandchild hidden chubu_zone<%= "#{n.to_s}" %>">
+                  <% @divesites[4][n].each do |chubu_ds| %>
+                    <%= button_tag chubu_ds.name, type: "button", name: "#{chubu_ds.id}" %>
+                  <% end %>
+                </div>
+              <% end %>
+              <% 2.times do |n| %>
+                <div class="grandchild hidden kansai_zone<%= "#{n.to_s}" %>">
+                  <% @divesites[5][n].each do |kansai_ds| %>
+                    <%= button_tag kansai_ds.name, type: "button", name: "#{kansai_ds.id}" %>
+                  <% end %>
+                </div>
+              <% end %>
+              <% 2.times do |n| %>
+                <div class="grandchild hidden sanin_zone<%= "#{n.to_s}" %>">
+                  <% @divesites[6][n].each do |sanin_ds| %>
+                    <%= button_tag sanin_ds.name, type: "button", name: "#{sanin_ds.id}" %>
+                  <% end %>
+                </div>
+              <% end %>
+              <% 2.times do |n| %>
+                <div class="grandchild hidden shikoku_zone<%= "#{n.to_s}" %>">
+                  <% @divesites[7][n].each do |shikoku_ds| %>
+                    <%= button_tag shikoku_ds.name, type: "button", name: "#{shikoku_ds.id}" %>
+                  <% end %>
+                </div>
+              <% end %>
+              <% 2.times do |n| %>
+                <div class="grandchild hidden kyushu_zone<%= "#{n.to_s}" %>">
+                  <% @divesites[8][n].each do |kyushu_ds| %>
+                    <%= button_tag kyushu_ds.name, type: "button", name: "#{kyushu_ds.id}" %>
+                  <% end %>
+                </div>
+              <% end %>
+              <% 2.times do |n| %>
+                <div class="grandchild hidden okinawa_zone<%= "#{n.to_s}" %>">
+                  <% @divesites[9][n].each do |okinawa_ds| %>
+                    <%= button_tag okinawa_ds.name, type: "button", name: "#{okinawa_ds.id}" %>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+        <div class="input-field-wrap">
+          <div class="field">
+            <%= form.hidden_field :divesite_id, value: "" %>
+          </div>
+          <div class="">
+            <p class="headding"><span class="h3"><%= "_ _ _ _" %></span>
+            <span class="h5">の海況投稿</span></p>
+          </div>
+          <div class="input-field">
+            <table>
+              <tbody>
+                <tr class="field">
+                  <th><%= form.label :divepoint %></th>
+                  <td><%= form.text_field :divepoint, class: "form-control" %></td>
+                </tr>
+                <tr class="field">
+                  <th><%= form.label :status %></th>
+                  <td><%= form.radio_button :status, :open, checked: true %>
+                  <%= form.label :status_open, 'OPEN', class: "status-radio-btn" %>
+                  <%= form.radio_button :status, :warning %>
+                  <%= form.label :status_warning, '潜水注意', class: "status-radio-btn" %>
+                  <%= form.radio_button :status, :close %>
+                  <%= form.label :status_close, 'CLOSE' %></td>
+                </tr>
+                <tr class="field">
+                  <th><%= form.label :temperature %></th>
+                  <td class="temp"><%= form.number_field :temperature, value: "25", class: "form-control" %><span> ℃</span></td>
+                </tr>
+                <tr class="field">
+                  <th><%= form.label :visibility %></th>
+                  <td class="visib"><%= form.number_field :visibility, value: "10", class: "form-control" %><span> m</span></td>
+                </tr>
+                <tr class="field">
+                  <th><%= form.label :content %></th>
+                  <td><%= form.text_area :content, class: "form-control input-content" %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="field">
+            <%= image_tag "/images/default_image.png", class: "condition_img", id: "img_prev" %>
+            <div class="pt-2">
+              <%= form.file_field :image, accept: 'image/jpeg,image/png,video/*', id: "select_img" %>
+            </div>
+          </div>
+          <div class="actions">
+            <%= form.submit "投稿する", class: "submit-btn" %>
+          </div>
+          <div class="pt-2">
+            <%= link_to conditions_path, class: "unobtrusive" do %>
+              <%= "海況投稿一覧へ戻る" %><i class="fas fa-angle-right"></i>
+            <% end %>
+          </div>
+        </div>
       <% end %>
-      </ul>
     </div>
-  <% end %>
-  <p>本日<% "#{@today}" %>の海況</p>
-
-  <div class="select_divesite">
-    <div id="parent">
-      <% Area.options_for_area.each.with_index(1) do |area, index| %>
-        <%= button_tag area.to_s, type: "button", id: "area#{index}" %>
-      <% end %>
-    </div>
-    <div id="children">
-      <div class="child hidden area1">
-        <% Zone.options_for_kanto_zone.each.with_index do |kanto_zone, index| %>
-          <%= button_tag kanto_zone.to_s, type: "button", id: "kanto_zone#{index}" %>
-        <% end %>
-      </div>
-      <div class="child hidden area2">
-        <% Zone.options_for_hokkaido_zone.each.with_index do |hokkaido_zone, index| %>
-          <%= button_tag hokkaido_zone, type: "button", id: "hokkaido_zone#{index}" %>
-        <% end %>
-      </div>
-      <div class="child hidden area3">
-        <% Zone.options_for_tohoku_zone.each.with_index do |tohoku_zone, index| %>
-          <%= button_tag tohoku_zone, type: "button", id: "tohoku_zone#{index}" %>
-        <% end %>
-      </div>
-      <div class="child hidden area4">
-        <%Zone.options_for_hokuriku_zone.each.with_index do |hokuriku_zone, index| %>
-          <%= button_tag hokuriku_zone, type: "button", id: "hokuriku_zone#{index}" %>
-        <% end %>
-      </div>
-      <div class="child hidden area5">
-        <% Zone.options_for_chubu_zone.each.with_index do |chubu_zone, index| %>
-          <%= button_tag chubu_zone, type: "button", id: "chubu_zone#{index}" %>
-        <% end %>
-      </div>
-      <div class="child hidden area6">
-        <% Zone.options_for_kansai_zone.each.with_index do |kansai_zone, index| %>
-          <%= button_tag kansai_zone, type: "button", id: "kansai_zone#{index}" %>
-        <% end %>
-      </div>
-      <div class="child hidden area7">
-        <% Zone.options_for_sanin_zone.each.with_index do |sanin_zone, index| %>
-          <%= button_tag sanin_zone, type: "button", id: "sanin_zone#{index}" %>
-        <% end %>
-      </div>
-      <div class="child hidden area8">
-        <% Zone.options_for_shikoku_zone.each.with_index do |shikoku_zone, index| %>
-          <%= button_tag shikoku_zone, type: "button", id: "shikoku_zone#{index}" %>
-        <% end %>
-      </div>
-      <div class="child hidden area9">
-        <% Zone.options_for_kyushu_zone.each.with_index do |kyushu_zone, index| %>
-          <%= button_tag kyushu_zone, type: "button", id: "kyushu_zone#{index}" %>
-        <% end %>
-      </div>
-      <div class="child hidden area10">
-        <% Zone.options_for_okinawa_zone.each.with_index do |okinawa_zone, index| %>
-          <%= button_tag okinawa_zone, type: "button", id: "okinawa_zone#{index}" %>
-        <% end %>
-      </div>
-    </div>
-
-    <div id="grandchildren">
-      <% 6.times do |n| %>
-        <div class="grandchild hidden kanto_zone<%= "#{n.to_s}" %>">
-          <% @divesites[0][n].each do |kanto_ds| %>
-            <%= button_tag kanto_ds.name, type: "button", name: "#{kanto_ds.id}" %>
-          <% end %>
-        </div>
-      <% end %>
-      <% 2.times do |n| %>
-        <div class="grandchild hidden hokkaido_zone<%= "#{n.to_s}" %>">
-          <% @divesites[1][n].each do |hokkaido_ds| %>
-            <%= button_tag hokkaido_ds.name, type: "button", name: "#{hokkaido_ds.id}" %>
-          <% end %>
-        </div>
-      <% end %>
-      <% 2.times do |n| %>
-        <div class="grandchild hidden tohoku_zone<%= "#{n.to_s}" %>">
-          <% @divesites[2][n].each do |tohoku_ds| %>
-            <%= button_tag tohoku_ds.name, type: "button", name: "#{tohoku_ds.id}" %>
-          <% end %>
-        </div>
-      <% end %>
-      <% 2.times do |n| %>
-        <div class="grandchild hidden hokuriku_zone<%= "#{n.to_s}" %>">
-          <% @divesites[3][n].each do |hokuriku_ds| %>
-            <%= button_tag hokuriku_ds.name, type: "button", name: "#{hokuriku_ds.id}" %>
-          <% end %>
-        </div>
-      <% end %>
-      <% 2.times do |n| %>
-        <div class="grandchild hidden chubu_zone<%= "#{n.to_s}" %>">
-          <% @divesites[4][n].each do |chubu_ds| %>
-            <%= button_tag chubu_ds.name, type: "button", name: "#{chubu_ds.id}" %>
-          <% end %>
-        </div>
-      <% end %>
-      <% 2.times do |n| %>
-        <div class="grandchild hidden kansai_zone<%= "#{n.to_s}" %>">
-          <% @divesites[5][n].each do |kansai_ds| %>
-            <%= button_tag kansai_ds.name, type: "button", name: "#{kansai_ds.id}" %>
-          <% end %>
-        </div>
-      <% end %>
-      <% 2.times do |n| %>
-        <div class="grandchild hidden sanin_zone<%= "#{n.to_s}" %>">
-          <% @divesites[6][n].each do |sanin_ds| %>
-            <%= button_tag sanin_ds.name, type: "button", name: "#{sanin_ds.id}" %>
-          <% end %>
-        </div>
-      <% end %>
-      <% 2.times do |n| %>
-        <div class="grandchild hidden shikoku_zone<%= "#{n.to_s}" %>">
-          <% @divesites[7][n].each do |shikoku_ds| %>
-            <%= button_tag shikoku_ds.name, type: "button", name: "#{shikoku_ds.id}" %>
-          <% end %>
-        </div>
-      <% end %>
-      <% 2.times do |n| %>
-        <div class="grandchild hidden kyushu_zone<%= "#{n.to_s}" %>">
-          <% @divesites[8][n].each do |kyushu_ds| %>
-            <%= button_tag kyushu_ds.name, type: "button", name: "#{kyushu_ds.id}" %>
-          <% end %>
-        </div>
-      <% end %>
-      <% 2.times do |n| %>
-        <div class="grandchild hidden okinawa_zone<%= "#{n.to_s}" %>">
-          <% @divesites[9][n].each do |okinawa_ds| %>
-            <%= button_tag okinawa_ds.name, type: "button", name: "#{okinawa_ds.id}" %>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+    <div class="col-sm-1 col-md-1 col-lg-2"></div>
   </div>
-  <div class="field">
-    <%= form.hidden_field :divesite_id, value: "" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :divepoint %>
-    <%= form.text_field :divepoint %>
-  </div>
-
-  <div class="field">
-    <%= form.radio_button :status, :open, checked: true %>
-    <%= form.label :status_open, 'OPEN' %>
-    <%= form.radio_button :status, :warning %>
-    <%= form.label :status_warning, '潜水注意' %>
-    <%= form.radio_button :status, :close %>
-    <%= form.label :status_close, 'CLOSE' %>
-  </div>
-  <div class="field">
-    <%= form.label :temperature %>
-    <%= form.number_field :temperature, value: "25" %><span> ℃</span>
-  </div>
-  <div class="field">
-    <%= form.label :visibility %>
-    <%= form.number_field :visibility, value: "10" %><span> m</span>
-  </div>
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-  <div class="field">
-    <%= image_tag "/images/default_image.png", class: "condition_img", id: "img_prev" %>
-    <%= form.file_field :image, accept: 'image/jpeg,image/png,video/*', id: "select_img" %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

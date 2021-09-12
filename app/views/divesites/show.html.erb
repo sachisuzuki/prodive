@@ -1,37 +1,105 @@
 <div class="container-fluid">
   <div class="divesite-top">
-    <%= image_tag('/images/divesites/osezaki.jpg', class: "divesite-top-image") %>
+    <%= image_tag('/images/divesites/divesite_image.jpg', class: "divesite-top-image") %>
     <div class="mask-gradation"></div>
-  </div>
-  <div class="divesites-contents row">
-    <div class="wrapper">
+    <div class="divesite-top-value">
       <h1 class="divesite-name" data-detail="<%= "#{@divesite.area} / #{@divesite.zone}" %>"><%= @divesite.name %>
       <span id="favorite-part"><%= render 'favorites/like', { favorite: @favorite, divesite: @divesite } %></span></h1>
-      <div class="divesite-info">
-        <span class="box-title">info</span>
-        <table class="divesite-table">
-          <tbody>
-            <tr>
-              <th><span>ダイブサイト</span><span>紹介</span></th>
-              <td><%= @divesite.discription %></td>
-            </tr>
-            <tr>
-              <th>所在地</th>
-              <td><%= @divesite.address %></td>
-            </tr>
-            <tr>
-              <th>☎︎</th>
-              <td id="telephone"><%= link_to @divesite.phone, "tel:#{@divesite.phone.delete("-")}" %></td>
-            </tr>
-            <tr>
-              <th>管理サービス</th>
-              <td><%= @divesite.service %></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
     </div>
-
   </div>
-
+  <div class="divesites-contents row">
+    <div class="col-sm-1 col-md-1 col-lg-2"></div>
+    <div class="col-sm-10 col-md-10 col-lg-8">
+      <div class="post-index wrapper">
+        <div class="card-wrap">
+          <% @conditions.each do |condition| %>
+          <div class="card-item">
+            <div class="d-flex justify-content-between">
+              <h4><%= "#{condition.created_at.strftime("%Y年%m月%d日")}" %></h4>
+              <p class="card-date"><small><%= "#{condition.created_at.strftime("%k:%M")}" %></small></p>
+            </div>
+            <div class="card-item-inner">
+              <%# <%= link_to "", condition_path(condition), class: "card-link" %>
+              <div class="card-title">
+                <% if condition.user.avatar? %>
+                  <%= link_to image_tag(condition.user.avatar.thumb.url, class: "post-user-avatar"), user_path(condition.user.id) %>
+                <% else %>
+                  <%= link_to image_tag('/images/default-avatar.png', class: "post-user-avatar"), user_path(condition.user.id) %>
+                <% end %>
+                <strong class="pl-2"><%= link_to condition.user.name, user_path(condition.user.id) %></strong>
+              </div>
+              <div class="card-table">
+                <table>
+                  <tbody>
+                    <tr>
+                      <th>ポイント名<i class="fas fa-caret-right"></i></th>
+                      <td><%= condition.divepoint %></td>
+                    </tr>
+                    <tr>
+                      <th>海況<i class="fas fa-caret-right"></i></th>
+                      <td><%= t("status.#{condition.status}") %></td>
+                    </tr>
+                    <tr>
+                      <th>水温<i class="fas fa-caret-right"></i></th>
+                      <td><%= condition.temperature %><span> ℃</span></td>
+                    </tr>
+                    <tr>
+                      <th>透明度<i class="fas fa-caret-right"></i></th>
+                      <td><%= condition.visibility %><span> m</span></td>
+                    </tr>
+                    <tr>
+                      <th  class="card-comment">コメント<i class="fas fa-caret-down"></i></th>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" class="card-comment02"><%= condition.content %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="card-content">
+                <div class="card-image">
+                  <% if condition.image? && condition.image.file.content_type.include?('image/') %>
+                    <%= image_tag condition.image.thumb.url %>
+                  <% elsif condition.image? && condition.image.file.content_type.include?('video/') %>
+                    <%= video_tag condition.image, controls: true, controlsList: "nodownload", autobuffer: true, mute: true %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+          <div class="pt-2 unobtrusive">
+            <%= link_to conditions_path, class: "unobtrusive" do %>
+              <%= "海況投稿一覧へ戻る" %><i class="fas fa-angle-right"></i>
+            <% end %>
+          </div>
+        </div>
+        <div class="divesite-info">
+          <span class="box-title">info</span>
+          <table class="divesite-table">
+            <tbody>
+              <tr>
+                <th>特徴</th>
+                <td><%= @divesite.discription %></td>
+              </tr>
+              <tr>
+                <th>所在地</th>
+                <td><%= @divesite.address %></td>
+              </tr>
+              <tr>
+                <th>☎︎</th>
+                <td id="telephone"><%= link_to @divesite.phone, "tel:#{@divesite.phone.delete("-")}" %></td>
+              </tr>
+              <tr>
+                <th>管理サービス</th>
+                <td><%= @divesite.service %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-sm-1 col-md-1 col-lg-2"></div>
+    </div>
+  </div>
 </div>

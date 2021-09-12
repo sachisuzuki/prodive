@@ -12,11 +12,19 @@
     </tr>
     <tr>
       <td>所属しているダイビングショップ</td>
-      <td><h5><%= user.shop %></h5></td>
+      <% if user.shop.present? %>
+        <td><h5><%= user.shop %></h5></td>
+      <% else %>
+        <td><h6>未設定</h6></td>
+      <% end %>
     </tr>
   </table>
-  <div class="pt-3">
-    <%= link_to 'プロフィール編集', edit_user_registration_path(user) %>
-    <%= link_to 'アカウント削除', user_registration_path(user), method: :delete, data: { confirm: 'アカウントを削除しますか？' } %>
+  <div class="pt-3 d-flex justify-content-around">
+    <div class="transition-btn"><%= link_to 'プロフィール編集', edit_user_registration_path(user), class: "" %></div>
+    <div class="">
+      <%= link_to user_registration_path(user), method: :delete, data: { confirm: 'アカウントを削除しますか？' }, class: "unobtrusive" do %>
+        <%= "アカウント削除" %><i class="fas fa-angle-right"></i>
+      <% end %>
+    </div>
   </div>
 </div>
