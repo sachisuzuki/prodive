@@ -42,8 +42,10 @@
           <% end %>
         </div>
       </div>
-      <div class="">
-        <%= link_to '本日の海況投稿一覧へ戻る', conditions_path %>
+      <div class="pt-2 unobtrusive">
+        <%= link_to conditions_path, class: "unobtrusive" do %>
+          <%= "海況投稿一覧へ戻る" %><i class="fas fa-angle-right"></i>
+        <% end %>
       </div>
     </div>
     <div class="col-sm-1 col-lg-2"></div>

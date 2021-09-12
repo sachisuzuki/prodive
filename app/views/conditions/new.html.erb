@@ -203,6 +203,11 @@
           <div class="actions">
             <%= form.submit "投稿する", class: "submit-btn" %>
           </div>
+          <div class="pt-2">
+            <%= link_to conditions_path, class: "unobtrusive" do %>
+              <%= "海況投稿一覧へ戻る" %><i class="fas fa-angle-right"></i>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>

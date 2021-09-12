@@ -1,28 +1,66 @@
-
-<div class="">
-  <h4><%= "本日#{@condition.created_at.strftime("%-m月%e日")}の海況情報" %></h4>
-  <p><%= @condition.created_at.strftime("%Y年%-m月%e日 %k:%M") %></p>
-  <div id="js-copytext">
-    <p>ポイント名: <%= @condition.divepoint %></p>
-    <p>海況: <%= t("status.#{@condition.status}") %></p>
-    <p>水温: <%= @condition.temperature %><span> ℃</span></p>
-    <p>透明度: <%= @condition.visibility %><span> m</span></p>
-    <p>info: <%= @condition.content %></p>
+<div class="container-fluid">
+  <div class="row pt-5 pb-5 post-show">
+    <div class="col-sm-1 col-md-1 col-lg-2"></div>
+    <div class="col-sm-10 col-md-10 col-lg-8 post-index">
+      <h4><%= "#{@condition.user.name}さんが投稿した" %></h4>
+      <h4 class="headding"><%= "本日#{@condition.created_at.strftime("%-m月%e日")}の海況情報" %></h4>
+      <div class="card-wrap">
+        <div class="card-item">
+          <div class="card-item-inner">
+            <p class="card-date"><small><%= "#{@condition.created_at.strftime("%Y年%m月%d日 %k:%M")}" %></small></p>
+            <p><small><%= @condition.divesite.area %> / <%= @condition.divesite.zone %></small></p>
+            <div class="card-title" data-toggle="tooltip" data-placement="right" title="ダイブサイトページへ" >
+              <div class="h4">
+                <%= link_to @condition.divesite.name, divesite_path(@condition.divesite.id) %>
+                <small><%= @condition.divepoint %></small>
+              </div>
+              <span data-toggle="tooltip" data-placement="right" title="ユーザ詳細ページへ" >
+                <% if @condition.user.avatar? %>
+                  <%= link_to image_tag(@condition.user.avatar.thumb.url, class: "post-user-avatar"), user_path(@condition.user.id) %>
+                <% else %>
+                  <%= link_to image_tag('/images/default-avatar.png', class: "post-user-avatar"), user_path(@condition.user.id) %>
+                <% end %>
+                <strong class="pl-2"><%= link_to @condition.user.name, user_path(@condition.user.id) %></strong>
+              </span>
+            </div>
+            <div class="card-table">
+              <div id="js-copytext">
+                <p>海況: <%= t("status.#{@condition.status}") %></p>
+                <br>
+                <p><%= @condition.content %></p>
+                <br>
+                <p>水温: <%= @condition.temperature %><span> ℃</span> / 透明度: <%= @condition.visibility %><span> m</span></p>
+              </div>
+            </div>
+            <div class="copy-btns">
+              <button type="button" id="js-copybtn">点線内のテキストをコピー</button>
+              <p id="js-copyalert" class="copy_alert">コピーできました！このままtwitterにも投稿しよう！！</p>
+              <div class="headding"></div>
+              <div class="tweet-btn">
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="<%= "#{@condition.divesite.name}の本日の海況" %>" data-hashtags="PRODIVE" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+              </div>
+            </div>
+            <div class="card-image">
+              <% if @condition.image? && @condition.image.file.content_type.include?('image/') %>
+                <%= image_tag @condition.image.original.url %>
+              <% elsif @condition.image? && @condition.image.file.content_type.include?('video/') %>
+                <%= video_tag @condition.image, controls: true, controlsList: "nodownload", autobuffer: true, mute: false %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pt-3 d-flex justify-content-around show-last-btns">
+        <div class="transition-btn">
+          <%= link_to 'マイページへ戻る', mypage_user_path(@condition.user.id) %>
+        </div>
+        <div class="">
+          <%= link_to condition_path(@condition), method: :delete, data: { confirm: 'この投稿を削除しますか？' }, class: "unobtrusive" do %>
+            <%= '投稿を削除' %><i class="fas fa-angle-right"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-1 col-md-1 col-lg-2"></div>
   </div>
-  <div class="">
-    <% if @condition.image? && @condition.image.file.content_type.include?('image/') %>
-      <%= image_tag @condition.image.original.url %>
-    <% elsif @condition.image? && @condition.image.file.content_type.include?('video/') %>
-      <%= video_tag @condition.image, width: "300px", height: "100%", controls: true, controlsList: "nodownload", autobuffer: true, mute: false %>
-    <% end %>
-  </div>
-</div>
-<button type="button" id="js-copybtn">海況情報をコピー！</button>
-<p id="js-copyalert" class="copy_alert">コピーできました！このままtwitterにも投稿しよう！！</p>
-<div class="">
-  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="<%= "#{@condition.divesite.name}の本日の海況" %>" data-hashtags="PRODIVE" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div class="">
-  <%= link_to '一覧へ戻る', conditions_path %>
-  <%= link_to '削除', condition_path(@condition), method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>

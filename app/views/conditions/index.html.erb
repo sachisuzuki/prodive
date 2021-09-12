@@ -1,42 +1,75 @@
-<div class="">
-  <div class="">
-    <h4 class=""><%= "本日#{Date.current.strftime("%-m月%e日")}の海況情報" %></h4>
-    <div class="post-index">
-      <% @conditions.each do |condition| %>
-      <div class="">
-        <span>
-          <% if condition.user.avatar? %>
-            <%= link_to image_tag(condition.user.avatar.thumb.url, class: "post-user-avatar"), user_path(condition.user.id) %>
-          <% else %>
-            <%= link_to image_tag('/images/default-avatar.png', class: "post-user-avatar"), user_path(condition.user.id) %>
-          <% end %>
-          <strong><%= condition.user.name %></strong>
-        </span>
-        <p><small><%= "#{condition.created_at.strftime("%Y年%m月%d日 %k:%M")}" %></small></p>
-
-        <p><small><%= condition.divesite.area %> / <%= condition.divesite.zone %></small></p>
-        <div class="">
-          <%= link_to condition.divesite.name, divesite_path(condition.divesite.id) %>
+<div class="container-fluid">
+  <div class="row pt-5 pb-5">
+    <div class="col-sm-1 col-md-1 col-lg-2"></div>
+    <div class="col-sm-10 col-md-10 col-lg-8 post-index">
+      <h1 class="pb-4 headding"><span><%= "#{Date.current.strftime("%-m月%e日")}" %></span><small> 本日の海況情報一覧</small></h1>
+      <div class="card-wrap">
+        <% @conditions.each do |condition| %>
+        <div class="card-item">
+          <div class="card-item-inner">
+            <%= link_to "", condition_path(condition), class: "card-link" %>
+            <p class="card-date"><small><%= "#{condition.created_at.strftime("%Y年%m月%d日 %k:%M")}" %></small></p>
+            <p><small><%= condition.divesite.area %> / <%= condition.divesite.zone %></small></p>
+            <div class="card-title" data-toggle="tooltip" data-placement="right" title="ダイブサイトページへ" >
+              <div class="h4">
+                <%= link_to condition.divesite.name, divesite_path(condition.divesite.id) %>
+                <span class="pl-4 status-icon"><%= image_tag set_status_pin_helper(condition.status), width: '50px' %></span>
+              </div>
+              <span data-toggle="tooltip" data-placement="right" title="ユーザ詳細ページへ" >
+                <% if condition.user.avatar? %>
+                  <%= link_to image_tag(condition.user.avatar.thumb.url, class: "post-user-avatar"), user_path(condition.user.id) %>
+                <% else %>
+                  <%= link_to image_tag('/images/default-avatar.png', class: "post-user-avatar"), user_path(condition.user.id) %>
+                <% end %>
+                <strong class="pl-2"><%= link_to condition.user.name, user_path(condition.user.id) %></strong>
+              </span>
+            </div>
+            <div class="accordion-wrap">
+              <p class="accordion-header">see more<i class="fas fa-angle-up before-click" aria-hidden="true" ></i></p>
+              <div class="accordion-inner">
+                <div class="card-table">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <th>ポイント名<i class="fas fa-caret-right"></i></th>
+                        <td><%= condition.divepoint %></td>
+                      </tr>
+                      <tr>
+                        <th>海況<i class="fas fa-caret-right"></i></th>
+                        <td><%= t("status.#{condition.status}") %></td>
+                      </tr>
+                      <tr>
+                        <th>水温<i class="fas fa-caret-right"></i></th>
+                        <td><%= condition.temperature %><span> ℃</span></td>
+                      </tr>
+                      <tr>
+                        <th>透明度<i class="fas fa-caret-right"></i></th>
+                        <td><%= condition.visibility %><span> m</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="card-comment">コメント<i class="fas fa-caret-down"></i></p>
+                <%= condition.content %>
+                <div class="card-image">
+                  <% if condition.image? && condition.image.file.content_type.include?('image/') %>
+                    <%= image_tag condition.image.original.url %>
+                  <% elsif condition.image? && condition.image.file.content_type.include?('video/') %>
+                    <%= video_tag condition.image, controls: true, controlsList: "nodownload", autobuffer: true, mute: false %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <p><%= condition.divepoint %></p>
-        <p><%= t("status.#{condition.status}") %></p>
-        <p><%= condition.temperature %><span> ℃</span></p>
-        <p><%= condition.visibility %><span> m</span></p>
-        <p><%= condition.content %></p>
-
-        <div class="">
-          <% if condition.image? && condition.image.file.content_type.include?('image/') %>
-            <%= image_tag condition.image.original.url %>
-          <% elsif condition.image? && condition.image.file.content_type.include?('video/') %>
-            <%= video_tag condition.image, width: "300px", height: "100%", controls: true, controlsList: "nodownload", autobuffer: true, mute: false %>
-          <% end %>
-        </div>
-        <div class="">
-          <%= link_to '詳細', condition_path(condition) %>
-        </div>
+        <% end %>
       </div>
-      <% end %>
+      <div class="pt-2 unobtrusive">
+        <%= link_to divesites_path, class: "unobtrusive" do %>
+          <%= "海況MAPへ戻る" %><i class="fas fa-angle-right"></i>
+        <% end %>
+      </div>
     </div>
+    <div class="col-sm-1 col-md-1 col-lg-2"></div>
   </div>
 </div>

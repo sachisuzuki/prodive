@@ -12,11 +12,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :original, if: :is_image? do
-    process resize_to_fill: [300, 300, "Center"]
+    process resize_to_fill: [300, 200, "Center"]
   end
 
   version :thumb, if: :is_image? do
-    process resize_to_fill: [250, 250, "Center"]
+    process resize_to_fill: [250, 180, "Center"]
   end
 
   def extension_allowlist

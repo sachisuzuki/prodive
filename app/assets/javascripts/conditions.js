@@ -84,3 +84,17 @@ $('#js-copybtn').on('click', function(){
     // アラート文の表示
     $('#js-copyalert').show().delay(2000).fadeOut(400);
   });
+
+  $('.accordion-header').click(function(){
+      if ( $(this).next().is( ":hidden" ) ) {
+        let notThisI =　$('.accordion-header').not($(this))
+        $('.accordion-inner').slideUp('selected');
+        notThisI.children('i').addClass('before-click');
+        $(this).children('i').toggleClass('before-click');
+        $(this).next().slideDown('selected');
+
+      } else {
+        $(this).next().slideUp('selected');
+        $(this).children('i').addClass('before-click');
+      };
+  });

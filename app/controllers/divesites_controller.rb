@@ -9,6 +9,7 @@ class DivesitesController < ApplicationController
   def show
     @divesite = Divesite.find(params[:id])
     @favorite = current_user.favorites.find_by(divesite_id: @divesite.id)
+    @conditions = Condition.where(divesite_id: @divesite.id).order(created_at: :DESC)
   end
 
   def select_map

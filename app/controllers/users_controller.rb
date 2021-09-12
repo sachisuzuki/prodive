@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   end
   def mypage
     unless current_user.id == params[:id].to_i
-      binding.pry
       redirect_to mypage_user_path(current_user.id)
       flash[:alert] = "お探しのページは見つかりません"
     else
