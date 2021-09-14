@@ -2,9 +2,15 @@ var mapDiv
 var map;
 var tokyoSt;
 var marker = [];
+var markers = [];
+var imagePath = "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m";
+var markerCluster;
+var openImgUrl = "/images/conditions/OPEN-PIN.png";
+var warningImgUrl = "/images/conditions/WARNING-PIN.png";
+var closeImgUrl = "/images/conditions/CLOSE-PIN.png";
+var noinfoImgUrl = "/images/conditions/NOINFO-PIN.png";
 var infoWindow = [];
 var markerData = gon.divesites;
-// var image
 
 
 function initMap(){
@@ -13,7 +19,7 @@ function initMap(){
 
   let opts = {
     center: tokyoSt,
-    zoom: 11,
+    zoom: 6,
     mapTypeControl: false,
     streetViewControl: false,
   };
@@ -40,19 +46,26 @@ function initMap(){
       }
     });
 
+    markers.push(marker[i]);
+
     infoWindow[i] = new google.maps.InfoWindow({
-      content: `<a href='/divesites/${ id }'>${ markerData[i]['name'] }の情報</a>`
+      content: `<a href='/divesites/${ id }'>${ markerData[i]['name'] }のページへ</a>`
     });
 
     markerEvent(i);
-
   }
+  markerCluster = new MarkerClusterer(map, markers, {
+    imagePath: imagePath,
+    gridSize: 40,
+    maxZoom: 15,
+  });
 }
 
 function setZone(setlat, setlng){
   if (setlat === undefined) { setlat = 35.6813363998796; }
   if (setlng === undefined) { setlng = 139.76714625537713; }
   map.setCenter(new google.maps.LatLng( setlat, setlng ));
+  map.setZoom(11)
 }
 
 function markerEvent(i) {
