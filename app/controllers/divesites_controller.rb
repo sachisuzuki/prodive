@@ -1,9 +1,24 @@
 class DivesitesController < ApplicationController
-  before_action :authenticate_user!,only: %i[ show ]
+  before_action :authenticate_user!, only: %i[ show ]
+
   def index
     @divesites = Divesite.all
     @areas = @divesites.pluck(:area).uniq
-    gon.divesites = @divesites
+
+    gon.divesites = @divesites.map do |ds|
+      co = ds.conditions.where(created_at:Time.zone.now.all_day).last
+      if co == nil
+        st = "noinfo"
+      else
+        st = co.status
+      end
+      { id: ds.id,
+        name: ds.name,
+        latitude: ds.latitude,
+        longitude: ds.longitude,
+        status: st,
+       }
+    end
   end
 
   def show
