@@ -67,25 +67,33 @@
   text-align: center;
   vertical-align: middle;
   margin: 100px auto;
-  .fa-thumbs-up {
+  }
+
+  .follow-btn {
+    text-align: center;
     background-color: $grey;
     border-radius: 5px;
-    padding: 10px;
+    width: 70%;
+    margin: 0 auto;
+    img {
+      width: 65px;
+    }
+    .unfollow {
+      padding: 10px;
+      span a {
+        display: block;
+      }
+    }
+    .follow {
+      padding: 10px;
+      a {
+        display: block;
+      }
     &:hover {
       transform: translateY(-5px);
     }
   }
 }
-
-.follow {
-  color: $red;
-}
-
-.unfollow {
-  color: $bluegreen;
-}
-
-
 
 .user-show-bottom {
   width: 100%;
@@ -137,6 +145,7 @@
   background-color: $kinari;
 }
 
+// myprofile
 .profile {
   th {
   text-align: left;
@@ -154,6 +163,15 @@
   font-size: 0.8em;
   color: #0B346E;
   animation: PuruPuru 2s forwards, fadeOut 10s linear forwards;
+}
+
+// myfavorite
+.fas.fa-laugh-squint {
+  color: $red;
+  padding-right: 8px;
+}
+.follow {
+  width: 40px;
 }
 
 // users/edit

@@ -9,9 +9,9 @@
       </div>
       <nav class="side-menu">
         <ul>
-          <li class="p-4"><%= link_to 'プロフィール', myprofile_user_path(current_user.id), remote: true %></li>
           <li class="p-4"><%= link_to 'お気に入り / フォロー中', myfavorite_user_path(current_user.id), remote: true %></li>
-          <li class="p-4"><%= link_to '投稿一覧', mypost_user_path(current_user.id), remote: true %></li>
+          <li class="p-4"><%= link_to '自分の投稿一覧', mypost_user_path(current_user.id), remote: true %></li>
+          <li class="p-4"><%= link_to 'プロフィール', myprofile_user_path(current_user.id), remote: true %></li>
         </ul>
       </nav>
     </aside>
@@ -22,7 +22,7 @@
     <div class="col-sm-5 col-md-5 col-lg-4 empty-element"></div>
     <article class="col-sm-7 col-md-6 col-lg-6">
       <div id="maypage-content">
-        <%= render 'myprofile', user: @user %>
+        <%= render 'myfavorite', {user: @user, favorites: @favorites, followed: @followed} %>
       </div>
     </article>
     <div class="col-md-1 col-lg-2"></div>
