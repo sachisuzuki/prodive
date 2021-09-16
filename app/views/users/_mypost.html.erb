@@ -1,12 +1,18 @@
-<h3 class="pt-5 pb-4">自分の投稿一覧</h3>
-<div class="">
-  <h4>
-    <% conditions.each do |condition| %>
-    <div class="pb-3">
-      <%= link_to condition_path(condition.id) do %>
-        <i class="fas fa-angle-double-right" data-toggle="tooltip" data-placement="right" title="投稿詳細へ"><%= " #{condition.created_at.strftime("%-m月%e日")} / #{condition.divesite.zone} / #{condition.divesite.name}" %></i>
+<div class="mypost-wrap">
+  <div class="mypost-title  d-flex">
+    <span><h4 class="pt-1 pb-4">自分の投稿一覧</h4></span>
+    <span><%= link_to "投稿する", new_condition_path, class: "transition-btn ml-4" %></span>
+  </div>
+
+  <div class="">
+    <p>
+      <% conditions.each do |condition| %>
+      <div class="pb-3">
+        <%= link_to condition_path(condition.id) do %>
+          <i class="fas fa-angle-double-right" data-toggle="tooltip" data-placement="right" title="投稿詳細へ"><%= " #{condition.created_at.strftime("%-m月%e日")} / #{condition.divesite.zone} / #{condition.divesite.name}" %></i>
+        <% end %>
+      </div>
       <% end %>
-    </div>
-    <% end %>
-  </h4>
+    </p>
+  </div>
 </div>

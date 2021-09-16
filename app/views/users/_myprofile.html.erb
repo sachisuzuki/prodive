@@ -1,21 +1,21 @@
-<div class="profile">
+<div class="myprofile">
   <p id="empty-caution"><%= complete_profile_helper %></p>
-  <h3 class="pt-4 pb-4 my-profile">プロフィール</h3>
+  <h4 class="pt-2 pb-2 my-profile">プロフィール</h4>
   <table>
     <tr>
-      <td>ユーザ名</td>
-      <td><h5><%= user.name %></h5></td>
+      <th>ユーザ名</th>
+      <td><p><%= user.name %></p></td>
     </tr>
     <tr>
-      <td>メールアドレス</td>
-      <td><h5><%= user.email %></h5></td>
+      <th>メールアドレス</th>
+      <td><p><%= user.email %></p></td>
     </tr>
     <tr>
-      <td>所属しているダイビングショップ</td>
+      <th>所属店</th>
       <% if user.shop.present? %>
-        <td><h5><%= user.shop %></h5></td>
+        <td><p><%= user.shop %></p></td>
       <% else %>
-        <td><h6>未設定</h6></td>
+        <td><p>未設定</p></td>
       <% end %>
     </tr>
   </table>

@@ -11,13 +11,17 @@
       </div>
       <div class="col-sm-6 ccol-md-6 col-lg-6 user-show-right">
         <h2 class="pb-3"><span style="font-size:1.2em;"><%= "#{@user.name} " %></span></h2>
-        <div class="">
-          <h5><%= @user.shop %></h5>
-          <% unless current_user.id == @user.id %>
-            <span id="follow-part">
-              <%= render 'relationships/follow', user: @user %>
-            </span>
-          <% end %>
+        <div class="user-info">
+          <div class="">
+            <h5><small>所属店: </small><%= @user.shop %></h5>
+          </div>
+          <div class="follow-part">
+            <% unless current_user.id == @user.id %>
+              <span id="follow-part">
+                <%= render 'relationships/follow', user: @user %>
+              </span>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
@@ -28,18 +32,20 @@
     <div class="col-sm-10 col-md-12 col-lg-8 user-show-bottom">
       <div class="user-show-post">
         <div class="post-index">
-          <h3 class="pt-5 pb-4"><%= "#{@user.name}" %>さんの投稿一覧</h3>
-          <% if @conditions.present? %>
-            <% @conditions.each do |condition| %>
-            <div class="pb-3">
-              <h4>
-                <%= link_to condition_path(condition.id) do %>
-                  <i class="fas fa-angle-double-right" data-toggle="tooltip" data-placement="right" title="投稿詳細へ"><%= " #{condition.created_at.strftime("%-m月%e日")} / #{condition.divesite.zone} / #{condition.divesite.name}" %></i>
-                <% end %>
-              </h4>
-            </div>
+          <h3 class="pt-5 pb-4 headding"><%= "#{@user.name}" %>さんの投稿一覧</h3>
+          <div class="mt-5">
+            <% if @conditions.present? %>
+              <% @conditions.each do |condition| %>
+              <div class="pb-3">
+                <h4>
+                  <%= link_to condition_path(condition.id) do %>
+                    <i class="fas fa-angle-double-right" data-toggle="tooltip" data-placement="right" title="投稿詳細へ"><%= " #{condition.created_at.strftime("%-m月%e日")} / #{condition.divesite.zone} / #{condition.divesite.name}" %></i>
+                  <% end %>
+                </h4>
+              </div>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
         </div>
       </div>
       <div class="pt-2 unobtrusive">

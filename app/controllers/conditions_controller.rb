@@ -6,7 +6,6 @@ class ConditionsController < ApplicationController
     @conditions = Condition.where(created_at: Time.zone.now.all_day)
   end
   def show
-    flash[:notice] = "Twitterでも海況を投稿しよう！"
   end
   def new
     @condition = current_user.conditions.new
@@ -30,7 +29,7 @@ class ConditionsController < ApplicationController
     else
       if @condition.save
         redirect_to @condition
-        flash[:notice] = "本日の海況情報を投稿しました！"
+        flash[:notice] = "本日の海況情報を投稿しました！Twitterでも海況を投稿しよう！"
       else
         render :new
       end

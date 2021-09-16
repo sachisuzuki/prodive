@@ -6,6 +6,12 @@ html, body {
   color: $black;
 }
 
+.outermost {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 header {
   display: flex;
   align-items: center;
@@ -82,6 +88,25 @@ animation: PuruPuru 2s forwards, fadeOut 10s linear forwards;
   }
   i {
     margin-left: 10px;
+  }
+}
+
+footer {
+  margin-top: auto;
+  .footer-wrap {
+    height: 100px;
+    width: 100%;
+  }
+  .footer-dividing-line  {
+    width: 100%;
+    min-width: 1400px;
+    overflow: hidden;
+  }
+  p {
+    margin-top: 32px;
+    font-size: 12px;
+    text-align: center;
+    vertical-align: bottom;
   }
 }
 

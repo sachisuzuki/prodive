@@ -34,6 +34,9 @@
   .wrapper {
     padding-top: 20px;
   }
+  article {
+    min-height: 670px;
+  }
 }
 
 // sidebar
@@ -190,9 +193,13 @@
 }
 
 // map表示
-#map {
-  height: 450px;
-  width: 100%;
+
+.map-image {
+  // padding-bottom: 80px;
+  #map {
+    height: 450px;
+    width: 100%;
+  }
 }
 
 .fukidashi01 {
@@ -201,7 +208,15 @@
   margin-left: 10px;
 }
 
-// map-contents内
+.pin-discription {
+  .sample-pin {
+    width: 20px;
+    height: 27px;
+  }
+  span {
+    margin-right: 5px;
+  }
+}
 .map-contents {
   margin-top: 30px;
   margin-bottom: 100px;
