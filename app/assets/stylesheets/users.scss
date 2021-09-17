@@ -61,6 +61,7 @@
     z-index: 10;
     border-radius: 100%;
   }
+
 }
 .user-show-right {
   position: relative;
@@ -203,7 +204,49 @@
 }
 
 // users/edit
+.user-edit-title {
+  margin-top: 50px;
+}
+.user-edit {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  .user-show-right {
+    margin-top: 30px;
+  }
+  .signup-in-wrap {
+    padding: 0;
+  }
+  .field {
+    input {
+      width: 300px;
+      padding: 10px;
+      &+ i.fa {
+      color: $kinari;
+      font-size: 1em;
+      position: absolute;
+      margin-top: 18px;
+      opacity: 0;
+      right: 0px;
+      transition: all 0.1s ease-in;
+      }
+      &:focus {
+        border: 2px solid $black;
+        border-radius: 5px;
+        border-left-width: 40px;
+        outline: none;
+        &+ i.fa {
+        opacity: 1;
+        left: -260px;
+        transition: all 0.25s ease-out;
+        }
+      }
+    }
+  }
+}
+
 #img_prev {
-  width: 240px;
+  width: 100%;
+  max-width: 250px;
   height: 100%;
 }
