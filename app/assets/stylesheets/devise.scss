@@ -1,0 +1,95 @@
+@import "variables";
+
+//アカウント登録
+.signup-in-wrap {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 50px 0;
+  h2 {
+    text-align: center;
+  }
+  .form-box {
+    position: relative;
+    padding: 50px;
+    width: 400px;
+    height: 100%;
+    border-radius: 5px;
+    background-color: $grey;
+    a {
+      color: $blue;
+      text-shadow: 1px 1px 2px $kinari;
+      i {
+        margin-left: 10px;
+      }
+      &:hover {
+        // transform: scale(1.1);
+        animation: PuruPuru 2s;
+      }
+    }
+  }
+  .field {
+    margin-top: 20px;
+    input {
+      width: 100%;
+      padding: 10px;
+      &+ i.fa {
+      color: $kinari;
+      font-size: 1em;
+      position: absolute;
+      margin-top: 18px;
+      opacity: 0;
+      right: 0px;
+      transition: all 0.1s ease-in;
+      }
+      &:focus {
+        border: 2px solid $black;
+        border-radius: 5px;
+        border-left-width: 40px;
+        outline: none;
+        &+ i.fa {
+        opacity: 1;
+        left: 63px;
+        transition: all 0.25s ease-out;
+        }
+      }
+    }
+  }
+  .remenber {
+    padding:10px;
+    height: 50px;
+  }
+
+  input[type="submit"] {
+    display: block;
+    background-color: $black;
+    color: $kinari;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  a.oauth-google {
+    display: block;
+    background-color: $black;
+    color: $kinari;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-shadow: 0px 0px 0px $kinari;
+    &:hover {
+      transform: scale(1.1);
+      animation: PuruPuru 0s;
+    }
+  }
+  .links {
+    display: block;
+    &:hover {
+      transform: translateX(5px);
+    }
+  }
+}
