@@ -10,8 +10,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 30 }
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i(google)
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i(google)
 
   def self.create_unique_string
     SecureRandom.uuid
