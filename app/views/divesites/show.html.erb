@@ -19,7 +19,7 @@
               <p class="card-date"><small><%= "#{condition.created_at.strftime("%k:%M")}" %></small></p>
             </div>
             <div class="card-item-inner">
-              <%# <%= link_to "", condition_path(condition), class: "card-link" %>
+              <%= link_to "", condition_path(condition), class: "card-link" %>
               <div class="card-title">
                 <% if condition.user.avatar? %>
                   <%= link_to image_tag(condition.user.avatar.thumb.url, class: "post-user-avatar"), user_path(condition.user.id) %>

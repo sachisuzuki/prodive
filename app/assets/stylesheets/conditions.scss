@@ -114,6 +114,10 @@ table {
 .post-show {
   .card-item {
     width: 100%;
+    &:hover {
+      border: none;
+      transform: scale(1.0);
+    }
   }
   .card-item-inner {
     padding: 30px;
@@ -188,7 +192,7 @@ table {
   }
 }
 .card-wrap {
-  margin: 20px 0 100px 0;
+  margin: 30px 0 100px 0;
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
@@ -201,9 +205,10 @@ table {
   align-self: flex-start;
   width: calc((100% - 30px) / 2);
   background-color: $grey;
-  // &:hover {
-  //   transform: translateY(-8px);
-  // }
+  &:hover {
+    border: solid 2px $blue;
+    transform: scale(1.05);
+  }
   .card-item-inner {
     position: relative;
     display: block;

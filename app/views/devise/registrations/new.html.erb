@@ -1,34 +1,40 @@
-<h2><%= t('.sign_up') %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-<div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+<div class="signup-in-wrap">
+  <div class="form-box">
+    <h2 class="pb-2"class><%= t('.sign_up') %></h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="field">
+        <%= f.text_field :name, autofocus: true, placeholder: "お名前 or ダイビングショップ名" %>
+        <i class="fa fa-user"></i>
+      </div>
+      <div class="field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
+        <i class="fa fa-envelope"></i>
+      </div>
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード(6文字以上)※変更しない場合は空欄" %>
+        <i class="fa fa-key"></i>
+      </div>
+      <div class="field">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認用パスワード" %>
+        <i class="fa fa-key"></i>
+      </div>
+      <div class="pt-4 actions d-flex justify-content-center">
+        <%= f.submit t('.sign_up') %>
+      </div>
+    <% end %>
+    <div class="pt-4 d-flex justify-content-around">
+      <%- if controller_name != 'sessions' %>
+        <%= link_to t(".sign_in"), new_session_path(resource_name) %><br />
+      <% end %>
+      <%- if devise_mapping.omniauthable? %>
+        <%- resource_class.omniauth_providers.each do |provider| %>
+          <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+            <%= t('.sign_in_with_provider', provider: OmniAuth::Utils.camelize(provider)) %><i class="fas fa-angle-right"></i>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit t('.sign_up') %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

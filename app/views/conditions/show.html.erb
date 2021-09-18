@@ -3,7 +3,7 @@
     <div class="col-sm-1 col-md-1 col-lg-2"></div>
     <div class="col-sm-10 col-md-10 col-lg-8 post-index">
       <h4><%= "#{@condition.user.name}さんが投稿した" %></h4>
-      <h4 class="headding"><%= "本日#{@condition.created_at.strftime("%-m月%e日")}の海況情報" %></h4>
+      <h4 class="headding"><%= "#{@condition.created_at.strftime("%-m月%e日")}の海況情報" %></h4>
       <div class="card-wrap">
         <div class="card-item">
           <div class="card-item-inner">
@@ -23,6 +23,31 @@
                 <strong class="pl-2"><%= link_to @condition.user.name, user_path(@condition.user.id) %></strong>
               </span>
             </div>
+            <div class="card-table" style="border: none;">
+              <table>
+                <tbody>
+                  <tr>
+                    <th>ポイント名<i class="fas fa-caret-right"></i></th>
+                    <td><%= @condition.divepoint %></td>
+                  </tr>
+                  <tr>
+                    <th>海況<i class="fas fa-caret-right"></i></th>
+                    <td><%= t("status.#{@condition.status}") %></td>
+                  </tr>
+                  <tr>
+                    <th>水温<i class="fas fa-caret-right"></i></th>
+                    <td><%= @condition.temperature %><span> ℃</span></td>
+                  </tr>
+                  <tr>
+                    <th>透明度<i class="fas fa-caret-right"></i></th>
+                    <td><%= @condition.visibility %><span> m</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="card-comment">コメント<i class="fas fa-caret-down"></i></p>
+            <%= @condition.content %>
+            <% if current_user.id == @condition.user_id %>
             <div class="card-table">
               <div id="js-copytext">
                 <p>海況: <%= t("status.#{@condition.status}") %></p>
@@ -32,14 +57,15 @@
                 <p>水温: <%= @condition.temperature %><span> ℃</span> / 透明度: <%= @condition.visibility %><span> m</span></p>
               </div>
             </div>
-            <div class="copy-btns">
-              <button type="button" id="js-copybtn">点線内のテキストをコピー</button>
-              <p id="js-copyalert" class="copy_alert">コピーできました！このままtwitterにも投稿しよう！！</p>
-              <div class="headding"></div>
-              <div class="tweet-btn">
-                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="<%= "#{@condition.divesite.name}の本日の海況" %>" data-hashtags="PRODIVE" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+              <div class="copy-btns">
+                <button type="button" id="js-copybtn">点線内のテキストをコピー</button>
+                <p id="js-copyalert" class="copy_alert">コピーできました！このままtwitterにも投稿しよう！！</p>
+                <div class="headding"></div>
+                <div class="tweet-btn">
+                  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="<%= "#{@condition.divesite.name}の本日の海況" %>" data-hashtags="PRODIVE" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
               </div>
-            </div>
+            <% end %>
             <div class="card-image">
               <% if @condition.image? && @condition.image.file.content_type.include?('image/') %>
                 <%= image_tag @condition.image.original.url %>
@@ -52,13 +78,15 @@
       </div>
       <div class="pt-3 d-flex justify-content-around show-last-btns">
         <div class="transition-btn">
-          <%= link_to 'マイページへ戻る', mypage_user_path(@condition.user.id) %>
+          <%= link_to '本日の海況情報へ戻る', conditions_path %>
         </div>
-        <div class="">
-          <%= link_to condition_path(@condition), method: :delete, data: { confirm: 'この投稿を削除しますか？' }, class: "unobtrusive" do %>
-            <%= '投稿を削除' %><i class="fas fa-angle-right"></i>
-          <% end %>
-        </div>
+        <% if current_user.id == @condition.user_id %>
+          <div class="">
+            <%= link_to condition_path(@condition), method: :delete, data: { confirm: 'この投稿を削除しますか？' }, class: "unobtrusive" do %>
+              <%= '投稿を削除' %><i class="fas fa-angle-right"></i>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="col-sm-1 col-md-1 col-lg-2"></div>

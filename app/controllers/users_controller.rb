@@ -6,6 +6,8 @@ class UsersController < ApplicationController
     @conditions = Condition.where(user_id: @user.id).order(created_at: :DESC)
   end
   def mypage
+    @favorites = current_user.favorites.all
+    @followed = Relationship.where(follower_id: @user.id)
     unless current_user.id == params[:id].to_i
       redirect_to mypage_user_path(current_user.id)
       flash[:alert] = "お探しのページは見つかりません"

@@ -1,5 +1,5 @@
 <div class="myfavorite">
-  <h3 class="pt-5 pb-4 my-favorite"><i class="fas fa-laugh-squint"></i> お気に入りダイブサイト</h3>
+  <h4 class="pt-5 pb-4 my-favorite"><i class="fas fa-laugh-squint"></i> お気に入りダイブサイト</h4>
   <div class="">
     <h5 class="pl-4">
       <% favorites.each do |favorite| %>
@@ -11,7 +11,7 @@
       <% end %>
     </h5>
   </div>
-  <h3 class="pt-5 pb-4 my-favorite"><i class="fas fa-thumbs-up follow"></i> フォロー中のアカウント</h3>
+  <h4 class="pt-5 pb-4 my-favorite"><%= image_tag "/images/users/like.svg", class: "follow" %> フォロー中のアカウント</h4>
   <div class="">
     <h5 class="pl-4">
       <% followed.each do |follow| %>

@@ -9,36 +9,45 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application' %>
     <script src="https://kit.fontawesome.com/27e4cb0d9e.js" crossorigin="anonymous"></script>
-
   </head>
-
   <body>
-    <header class="sticky-top">
-      <div class="logo">
-        <%= link_to image_tag("/images/LOGO.png", height: 65), root_path, class: 'pl-2' %>
-      </div>
-      <nav class="header-menu">
-        <ul>
-          <li><%= link_to '海況MAP', divesites_path, class: 'order-1 pr-2 bd-highlight' %></li>
-          <% if user_signed_in? %>
-            <li><%= link_to 'マイページ', mypage_user_path(current_user.id), class: 'order-2 pr-2 bd-highlight' %></li>
-            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'order-3 pr-2 bd-highlight' %></li>
-          <% else %>
-            <li><%= link_to 'ログイン', new_user_session_path, class: 'pr-2 bd-highlight' %></li>
-            <li><%= link_to 'アカウント登録', new_user_registration_path, class: 'pr-2 bd-highlight' %></li>
+    <div class="outermost">
+      <header class="sticky-top">
+        <div class="logo">
+          <%= link_to image_tag("/images/LOGO.png", height: 65), root_path, class: 'pl-2' %>
+        </div>
+        <nav class="header-menu">
+          <ul>
+            <li><%= link_to '海況MAP', divesites_path, class: 'order-1 pr-2 bd-highlight' %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to '本日の海況情報', conditions_path, class: 'order-2 pr-2 bd-highlight' %></li>
+              <li><%= link_to '新規投稿', new_condition_path, class: 'order-2 pr-2 bd-highlight' %></li>
+              <li><%= link_to 'マイページ', mypage_user_path(current_user.id), class: 'order-2 pr-2 bd-highlight' %></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'order-3 pr-2 bd-highlight' %></li>
+            <% else %>
+              <li><%= link_to 'ログイン', new_user_session_path, class: 'pr-2 bd-highlight' %></li>
+              <li><%= link_to 'アカウント登録', new_user_registration_path, class: 'pr-2 bd-highlight' %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="flash_messages">
+          <% flash.each do |key, value| %>
+            <% key = 'info' if key == 'notice' %>
+            <% key = 'secondary' if key == 'alert' %>
+            <%= content_tag(:div, value, class: "alert alert-#{key}") %>
           <% end %>
-        </ul>
-      </nav>
-    </header>
-    <div class="flash_messages">
-      <% flash.each do |key, value| %>
-        <% key = 'info' if key == 'notice' %>
-        <% key = 'secondary' if key == 'alert' %>
-        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-      <% end %>
+        </div>
+          <%= yield %>
+          <%= javascript_include_tag 'common', 'divesites', 'map', 'conditions' %>
+      </main>
+      <footer>
+        <div class="footer-wrap">
+          <%= image_tag "/images/footer-line-cutout.png", class: "footer-dividing-line" %>
+          <p>© 2021 PRODIVE All rights reserved.</p>
+        </div>
+      </footer>
     </div>
-      <%= yield %>
-      <%= javascript_include_tag 'common', 'divesites', 'map', 'conditions' %>
-    <footer></footer>
   </body>
 </html>
