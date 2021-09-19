@@ -9,7 +9,12 @@
         <h2 class="pb-3"><span style="font-size:1.2em;"><%= "#{@user.name} " %></span></h2>
         <div class="user-info">
           <div class="">
+          <% if @user.shop.present? %>
             <h5><small>所属店: </small><%= @user.shop %></h5>
+            <% else %>
+              <h5><small>所属店: </small><span>未設定</span></h5>
+            <% end %>
+            </h5>
           </div>
           <div class="follow-part">
             <% unless current_user.id == @user.id %>

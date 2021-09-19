@@ -17,6 +17,9 @@ header {
   align-items: center;
   height: 100px;
   background-color: $white;
+  .fas {
+    font-size: 0.9rem;
+  }
 }
 
 .header-menu {
