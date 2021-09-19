@@ -28,6 +28,12 @@
         <%= f.submit t('.sign_in') %>
       </div>
     <% end %>
+    <div class="d-flex justify-content-center">
+      <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: 'm-2 guest-login' %>
+    </div>
+    <div class="d-flex justify-content-center">
+      <%= link_to 'ゲストログイン(管理者)', users_guest_admin_sign_in_path, method: :post, class: 'm-2 guest-login' %>
+    </div>
     <div class="pt-3">
       <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
         <%= link_to t(".forgot_your_password"), new_password_path(resource_name), class: "links" %>

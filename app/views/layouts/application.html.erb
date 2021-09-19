@@ -18,15 +18,50 @@
         </div>
         <nav class="header-menu">
           <ul>
-            <li><%= link_to '海況MAP', divesites_path, class: 'order-1 pr-2 bd-highlight' %></li>
+            <li>
+              <%= link_to divesites_path, class: 'order-1 pr-2 bd-highlight' do %>
+                <i class="fas fa-map-marked-alt"> 海況MAP</i>
+              <% end %>
+            </li>
             <% if user_signed_in? %>
-              <li><%= link_to '本日の海況情報', conditions_path, class: 'order-2 pr-2 bd-highlight' %></li>
-              <li><%= link_to '新規投稿', new_condition_path, class: 'order-2 pr-2 bd-highlight' %></li>
-              <li><%= link_to 'マイページ', mypage_user_path(current_user.id), class: 'order-2 pr-2 bd-highlight' %></li>
-              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'order-3 pr-2 bd-highlight' %></li>
+              <li>
+                <%= link_to conditions_path, class: 'order-2 pr-2 bd-highlight' do %>
+                  <i class="fas fa-water"> 本日の海況</i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_condition_path, class: 'order-2 pr-2 bd-highlight' do %>
+                  <i class="fas fa-plus"> 海況投稿</i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to mypage_user_path(current_user.id), class: 'order-2 pr-2 bd-highlight' do %>
+                  <i class="fas fa-portrait"> マイページ</i>
+                <% end %>
+              </li>
+              <% if current_user.try(:admin?) %>
+                <li>
+                  <%= link_to rails_admin_path, class: 'order-3 pr-2 bd-highlight' do %>
+                    <i class="fas fa-user-cog"> 管理者画面</i>
+                  <% end %>
+                </li>
+              <% end %>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete, class: 'order-3 pr-2 bd-highlight' do %>
+                  <i class="fas fa-sign-out-alt"> ログアウト</i>
+                <% end %>
+              </li>
             <% else %>
-              <li><%= link_to 'ログイン', new_user_session_path, class: 'pr-2 bd-highlight' %></li>
-              <li><%= link_to 'アカウント登録', new_user_registration_path, class: 'pr-2 bd-highlight' %></li>
+              <li>
+                <%= link_to new_user_session_path, class: 'pr-2 bd-highlight' do %>
+                  <i class="fas fa-sign-in-alt"> ログイン</i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_user_registration_path, class: 'pr-2 bd-highlight' do %>
+                  <i class="fas fa-user-plus">アカウント登録</i>
+                <% end %>
+              </li>
             <% end %>
           </ul>
         </nav>

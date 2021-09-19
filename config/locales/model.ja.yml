@@ -4,6 +4,8 @@ ja:
       user: ユーザー
       divesite: ダイブサイト
       condition: 海況情報
+      favorite: お気に入り
+      relationshio: フォロー
     attributes:
       user:
         name: 名前
