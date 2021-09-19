@@ -37,10 +37,6 @@
               <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認用パスワード" %>
               <i class="fa fa-key"></i>
             </div>
-            <div class="field">
-              <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
-              <%= f.password_field :current_password, autocomplete: "current-password" %>
-            </div>
             <div class="pt-4 d-flex justify-content-around">
               <%= f.submit t('.update') %>
             </div>
