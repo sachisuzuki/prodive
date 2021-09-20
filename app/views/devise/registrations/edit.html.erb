@@ -7,8 +7,11 @@
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
         <div class="pt-4">
-          <%= image_tag set_avatar_helper, class: "avatar-image-top", id: "img_prev" %>
-          <%= f.file_field :avatar, accept: 'image/jpeg,image/png', id: "select_img" %>
+          <p>アバター画像変更</p>
+          <%= f.label :avatar, class: "edit-image" do %>
+            <%= image_tag set_avatar_helper, class: "avatar-image-top", id: "img_prev", onClick:"$('#select_img').click()" %>
+            <%= f.file_field :avatar, style: 'display:none', accept: 'image/jpeg,image/png', id: "select_img" %>
+          <% end %>
         </div>
       </div>
       <div class="col-sm-0 col-md-6 col-lg-6 user-show-right">
