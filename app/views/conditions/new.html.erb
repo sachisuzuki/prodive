@@ -13,9 +13,12 @@
             </ul>
           </div>
         <% end %>
-
+          <span></span>
         <div class="select_divesite-wrap">
-          <h4 class="headding"><%= "本日#{Date.current.strftime("%-m月%e日")}の海況情報投稿フォーム" %></h4>
+          <h4 class="headding">
+            <%= "本日#{Date.current.strftime("%-m月%e日")}の" %>
+            <div>海況情報投稿フォーム</div>
+          </h4>
           <div class="select_divesite">
             <p><small>エリアを選択すると対応する区域が表示されます</small></p>
             <div class="pt-1 pb-2" id="parent">
@@ -161,7 +164,7 @@
           </div>
           <div class="">
             <p class="headding"><span class="h3"><%= "_ _ _ _" %></span>
-            <span class="h5">の海況投稿</span></p>
+            <span class="h5">の海況投稿 </span><%= image_tag '/images/divesites/fukidashi02.png', class: "fukidashi01" %></p>
           </div>
           <div class="input-field">
             <table>
@@ -195,10 +198,10 @@
             </table>
           </div>
           <div class="field">
-            <%= image_tag "/images/default_image.png", class: "condition_img", id: "img_prev" %>
-            <div class="pt-2">
-              <%= form.file_field :image, accept: 'image/jpeg,image/png,video/*', id: "select_img" %>
-            </div>
+            <%= form.label :avatar, class: "edit-image" do %>
+              <%= image_tag "/images/default_image.png", class: "condition_img", id: "img_prev", onClick:"$('.uploader').click()" %>
+              <%= form.file_field :image, accept: 'image/jpeg,image/png,video/*', class: "uploader", id: "select_img", style: 'display:none' %>
+            <% end %>
           </div>
           <div class="actions">
             <%= form.submit "投稿する", class: "submit-btn" %>
