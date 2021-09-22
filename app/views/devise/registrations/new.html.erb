@@ -26,7 +26,7 @@
     <% end %>
     <div class="pt-4 d-flex justify-content-around">
       <%- if controller_name != 'sessions' %>
-        <%= link_to t(".sign_in"), new_session_path(resource_name) %><br />
+        <span class="login-btn"><%= link_to t(".sign_in"), new_session_path(resource_name) %></span><br />
       <% end %>
       <%- if devise_mapping.omniauthable? %>
         <%- resource_class.omniauth_providers.each do |provider| %>
