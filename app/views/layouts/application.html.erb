@@ -75,14 +75,16 @@
           <% end %>
         </div>
           <%= yield %>
-          <%= javascript_include_tag 'common', 'divesites', 'map', 'conditions' %>
+          <%= javascript_include_tag 'common', 'home', 'divesites', 'map', 'conditions' %>
       </main>
-      <footer>
-        <div class="footer-wrap">
-          <%= image_tag "/images/footer-line-cutout.png", class: "footer-dividing-line" %>
-          <p>© 2021 PRODIVE All rights reserved.</p>
-        </div>
-      </footer>
+      <% if controller.controller_name != 'home' %>
+        <footer>
+          <div class="footer-wrap">
+            <%= image_tag "/images/footer-line-cutout.png", class: "footer-dividing-line" %>
+            <p>© 2021 PRODIVE All rights reserved.</p>
+          </div>
+        </footer>
+      <% end %>
     </div>
   </body>
 </html>
