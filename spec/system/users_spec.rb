@@ -149,4 +149,19 @@ RSpec.describe "Users", type: :system do
       end
     end
   end
+  describe '管理者機能' do
+    let!(:admin_user){ FactoryBot.create(:admin_user) }
+    context '管理者アカウントでログインした場合' do
+      before do
+        visit new_user_session_path
+        fill_in 'user[email]', with: admin_user.email
+        fill_in 'user[password]', with: admin_user.password
+        find('.actions').click
+        click_link "管理者画面"
+      end
+      it 'サイト管理のダッシュボードにアクセスできる' do
+        expect(page).to have_content "サイト管理"
+      end
+    end
+  end
 end

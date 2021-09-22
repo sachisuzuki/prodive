@@ -6,4 +6,12 @@ FactoryBot.define do
     # provider { '' }
     # uid { '111111' }
   end
+  factory :admin_user, class: User do
+    name { 'admin' }
+    email { 'admin@mail.com' }
+    password { 'password' }
+    admin { true }
+    # provider { '' }
+    # uid { '111111' }
+  end
 end
