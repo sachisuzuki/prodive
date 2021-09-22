@@ -1,53 +1,104 @@
 <div class="container-fluid">
   <div class="background">
-    <div class="top-logo">
-      <%= image_tag("/images/PRODIVE_lightblue.png", height: 45) %>
-      <br>
-      <h5>プロの資格を持つダイバーの為の<br>海況把握アプリ</h5>
-      <h1>今日、どこに潜りに行く？</h1>
-    </div>
-    <div class="row main">
-      <div class="col-xs-12 col-sm-8 col-md-8 no-gutters">
-        <div class="translucent-box">
-          <p>説明文のBOX</p>
-        </div>
-        <div class="translucent-box">
-          <p>説明文のBOX</p>
-        </div>
-        <div class="translucent-box">
-          <p>説明文のBOX</p>
-        </div>
-        <div class="translucent-box">
-          <p>説明文のBOX</p>
-        </div>
-        <div class="translucent-box">
-          <p>説明文のBOX</p>
-        </div>
-        <div class="translucent-box">
-          <p>説明文のBOX</p>
-        </div>
-        <div class="translucent-box">
-          <p>説明文のBOX</p>
-        </div>
-        <div class="translucent-box">
-          <p>説明文のBOX</p>
-        </div>
-        <div class="translucent-box">
-          <p>説明文のBOX</p>
-        </div>
-        <div class="translucent-box">
-          <p>説明文のBOX</p>
-        </div>
-        <div class="">
-          <%= link_to 'ログイン', new_user_session_path %>
-        </div>
-        <div class="">
-          <%= link_to 'アカウント新規登録', new_user_registration_path %>
-        </div>
-        <div class="">
-          <%= link_to 'Googleアカウント', user_google_omniauth_authorize_path %>
+    <div class="top-front">
+      <div class="top-logo">
+        <div class="top-logo-inner">
+          <%= image_tag("/images/PRODIVE_lightblue.png", height: 45) %><br>
+          <h5>プロの資格を持つダイバーの為の<br>海況把握アプリ</h5>
+          <h1>今日、どこに潜りに行く？</h1>
         </div>
       </div>
+      <div class="scrolldown"><span>Scroll</span></div>
+      <%= image_tag '/images/diver.png', class: "diver" %>
     </div>
+    <div class="flexcontainer">
+      <div class="flexitem side-edge"></div>
+      <div class="flexitem top-left">
+        <div class="translucent-box">
+          <p>PRPDIVEとは？</p>
+        </div>
+        <div class="translucent-box">
+          <p>MAPのPINを見ればその日OPENしているかどうかすぐにわかリます</p>
+        </div>
+        <div class="translucent-box">
+          <p>PINをクリックするとそのダイブサイトの詳細ページへいくリンクが出てきます</p>
+        </div>
+      </div>
+      <div class="flexitem top-center">
+        <ul class="timeline">
+          <li>
+            <div class="spacing"></div>
+            <span class="border-line"></span>
+          </li>
+          <li>
+            <div class="spacing"></div>
+            <span class="border-line"></span>
+          </li>
+          <li>
+            <div class="spacing"></div>
+            <span class="border-line"></span>
+          </li>
+          <li>
+            <div class="spacing"></div>
+            <span class="border-line"></span>
+          </li>
+          <li>
+            <div class="spacing"></div>
+            <span class="border-line"></span>
+          </li>
+          <li>
+            <div class="spacing"></div>
+            <span class="border-line"></span>
+          </li>
+          <li>
+            <div class="spacing"></div>
+            <span class="border-line"></span>
+          </li>
+          <li>
+            <div class="spacing"></div>
+            <span class="border-line"></span>
+          </li>
+          <li>
+            <div class="spacing"></div>
+            <span class="border-line"></span>
+          </li>
+        </ul>
+      </div>
+      <div class="flexitem top-right">
+        <div class="translucent-box">
+          <p>PRPDIVEとは？</p>
+        </div>
+        <div class="translucent-box">
+          <p>MAPのPINを見ればその日OPENしているかどうかすぐにわかリます</p>
+        </div>
+        <div class="translucent-box">
+          <p>PINをクリックするとそのダイブサイトの詳細ページへいくリンクが出てきます</p>
+        </div>
+      </div>
+      <div class="flexitem side-edge"></div>
+    </div>
+    <div class="top-bottom">
+      <div class="links d-flex justify-content-center">
+        <div class="transition-btn">
+          <%= link_to 'ログイン', new_user_session_path %>
+        </div>
+        <div class="ml-3 transition-btn">
+          <%= link_to 'アカウント登録', new_user_registration_path %>
+        </div>
+      </div>
+      <div class="mt-4 d-flex justify-content-center">
+        <%= link_to user_google_omniauth_authorize_path, class: 'm-4 oauth-google' do %>
+          <i class="fas fa-angle-right"> Gmailでログイン</i>
+        <% end %>
+        <%= image_tag '/images/diver.png', class: "diver02" %>
+      </div>
+      <div class="d-flex justify-content-center">
+        <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: 'mb-2 guest-login' %>
+      </div>
+      <div class="d-flex justify-content-center">
+        <%= link_to 'ゲストログイン(管理者)', users_guest_admin_sign_in_path, method: :post, class: 'm-2 guest-login' %>
+      </div>
+    </div>
+    <p class="copywright"><small>© 2021 PRODIVE All rights reserved.</small></p>
   </div>
 </div>
