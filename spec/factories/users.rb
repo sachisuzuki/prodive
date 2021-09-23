@@ -3,16 +3,21 @@ FactoryBot.define do
     name { 'user01' }
     email { 'user01@mail.com' }
     password { 'password' }
-    # provider { '' }
-    # uid { '111111' }
+    provider { '' }
+    uid { 111111 }
+  end
+  factory :user02, class: User do
+    name { 'user02' }
+    email { 'user02@mail.com' }
+    password { 'password' }
+    provider { '' }
+    uid { 222222 }
   end
   factory :admin_user, class: User do
     name { 'admin' }
     email { 'admin@mail.com' }
     password { 'password' }
     admin { true }
-    # provider { '' }
-    # uid { '111111' }
   end
   factory :googleuser, class: User do
     name { 'googleuser' }

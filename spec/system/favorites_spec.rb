@@ -7,17 +7,17 @@ RSpec.describe "Favorites", type: :system do
     before do
       sign_in(user)
     end
-    context 'ダイブサイト詳細ページのお気に入りアイコンを押してお気に入りに登録した場合' do
+    context 'ダイブサイトをお気に入りに登録した場合' do
       before do
         visit divesite_path(divesite.id)
         find('.fa-meh').click
       end
       it 'フラッシュメッセージに登録したと表示される' do
-        have_selector '.alert-info', text: "お気に入りダイブサイトに登録しました"
+        expect(page).to have_selector '.alert-info', text: "お気に入りダイブサイトに登録しました"
       end
       it 'マイページにお気に入りにしたダイブサイト名が表示される' do
         visit mypage_user_path(user.id)
-        have_content divesite.name
+        expect(page).to have_content divesite.name
       end
     end
   end
