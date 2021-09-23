@@ -13,7 +13,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if @user.persisted?
       bypass_sign_in(@user)
       redirect_to mypage_user_url(@user), event: :authentication
-      set_flash_message(:notice, :success, kind: "google") if is_navigational_format?
+      set_flash_message(:notice, :success, kind: "Google") if is_navigational_format?
     else
       session['devise.google_data'] = request.env['omniauth.auth']
       redirect_to new_user_registration_url

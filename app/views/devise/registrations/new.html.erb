@@ -30,7 +30,7 @@
       <% end %>
       <%- if devise_mapping.omniauthable? %>
         <%- resource_class.omniauth_providers.each do |provider| %>
-          <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+          <%= link_to omniauth_authorize_path(resource_name, provider), class: "google" do %>
             <%= t('.sign_in_with_provider', provider: OmniAuth::Utils.camelize(provider)) %><i class="fas fa-angle-right"></i>
           <% end %>
         <% end %>

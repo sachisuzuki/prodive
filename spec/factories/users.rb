@@ -14,4 +14,11 @@ FactoryBot.define do
     # provider { '' }
     # uid { '111111' }
   end
+  factory :googleuser, class: User do
+    name { 'googleuser' }
+    provider { 'google_oauth2' }
+    uid { 123456 }
+    email { 'user@test.com'}
+    password { 'password' }
+  end
 end
