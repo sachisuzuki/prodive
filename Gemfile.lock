@@ -89,6 +89,10 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
+    database_cleaner-active_record (2.0.1)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
     debug_inspector (1.1.0)
     devise (4.8.0)
       bcrypt (~> 3.0)
@@ -371,6 +375,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave
   coffee-rails (~> 4.2)
+  database_cleaner-active_record
   devise
   devise-i18n
   dotenv-rails
