@@ -42,6 +42,7 @@ RSpec.configure do |config|
   config.after(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
+    FileUtils.rm_rf(Dir["#{Rails.root}/spec/support/uploads"])
   end
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

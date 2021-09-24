@@ -37,6 +37,8 @@ RSpec.describe "Conditions", type: :system do
     context '海況投稿した場合' do
       let!(:new){ FactoryBot.build(:new_condition) }
       before do
+        visit conditions_path
+        @count = page.all('.card-item').count
         visit new_condition_path
         click_button "関東"
         click_button "西伊豆"
@@ -53,6 +55,11 @@ RSpec.describe "Conditions", type: :system do
         expect(page).to have_content "#{user.name}さんが投稿した"
         expect(page).to have_content "海況投稿テスト"
       end
+      it '海況投稿一覧ページの投稿数が1増える' do
+        visit conditions_path
+        count = page.all('.card-item').count
+        expect(count).to eq @count += 1
+      end
     end
     context '海況投稿を削除した場合' do
       let!(:divesite){ FactoryBot.create(:divesite) }
@@ -66,6 +73,37 @@ RSpec.describe "Conditions", type: :system do
       end
       it 'フラッシュメッセージに削除と表示される' do
         expect(page).to have_selector '.alert-info', text: "海況情報を削除しました！"
+      end
+    end
+    context '動画を投稿した場合' do
+      let!(:image_path) { File.join(Rails.root, 'public/samples/condition0.mp4') }
+      let!(:new){ FactoryBot.build(:new_condition) }
+      before do
+        visit new_condition_path
+        click_button "関東"
+        click_button "西伊豆"
+        click_button "大瀬崎"
+        fill_in 'condition[divepoint]', with: new.divepoint
+        choose 'OPEN'
+        fill_in 'condition[temperature]', with: new.temperature
+        fill_in 'condition[visibility]', with: new.visibility
+        fill_in 'condition[content]', with: new.content
+        attach_file(image_path, make_visible: true)
+        find('.submit-btn').click
+      end
+      it '投稿の詳細画面の画像パスに動画のパスが表示される' do
+        expect(page).to have_selector("video[src$='condition0.mp4']")
+      end
+    end
+    context '投稿をSNS連携する場合' do
+      let!(:divesite){ FactoryBot.create(:divesite) }
+      let!(:new){ FactoryBot.create(:condition, user_id: user.id, divesite_id: divesite.id) }
+      before do
+        visit condition_path(new.id)
+        click_link('Tweet')
+      end
+      it 'SNSのURLが表示される' do
+        expect(current_host).to eq("https://twitter.com")
       end
     end
   end

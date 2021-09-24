@@ -1,6 +1,15 @@
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
+  if Rails.env.test?
+    def cache_dir
+      "#{Rails.root}/spec/support/uploads/tmp"
+    end
+    def store_dir
+      "#{Rails.root}/spec/support/uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    end
+  end
+
   if Rails.env.production?
     storage :fog
   else
