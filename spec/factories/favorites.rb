@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :favorite do
-    user
-    divesite
+    user_id
+    divesite_id
   end
 end
