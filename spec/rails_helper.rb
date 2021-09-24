@@ -5,6 +5,7 @@ require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
+require 'database_cleaner/active_record'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -33,6 +34,16 @@ end
 
 RSpec.configure do |config|
   config.include SignInSupport
+  # 海況投稿のテスト時に必要なデータを作成(テスト前にseed読込)
+  config.before(:suite) do
+    load Rails.root.join('db', 'seeds.rb')
+  end
+
+  config.after(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+    FileUtils.rm_rf(Dir["#{Rails.root}/spec/support/uploads"])
+  end
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
