@@ -1,11 +1,11 @@
 <div id="follow_form_<%= user.id %>">
   <% unless current_user.following?(user) %>
     <div class="follow-btn"><%= link_to follow_relationships_path(id: user.id), method: :post, remote: true do %>
-      <span class="d-flex justify-content-center align-items-center"><%= image_tag "/images/users/dislike.svg", class: "unfollow" %>フォローする</span>
+      <span class="d-flex justify-content-center align-items-center"><%= image_tag("/images/users/dislike.svg", class: "unfollow") %>フォローする</span>
     <% end %></div>
   <% else %>
     <div class="follow-btn"><%= link_to unfollow_relationship_path(id: user.id), method: :delete, remote: true do %>
-      <span class="d-flex justify-content-center align-items-center"><%= image_tag "/images/users/like.svg", class: "follow" %>フォロー中</span>
+      <span class="d-flex justify-content-center align-items-center"><%= image_tag("/images/users/like.svg", class: "follow") %>フォロー中</span>
     <% end %></div>
   <% end %>
 </div>

@@ -13,7 +13,7 @@
             <div class="card-title" data-toggle="tooltip" data-placement="right" title="ダイブサイトページへ" >
               <div class="h4">
                 <%= link_to condition.divesite.name, divesite_path(condition.divesite.id) %>
-                <span class="pl-4 status-icon"><%= image_tag set_status_pin_helper(condition.status), width: '50px' %></span>
+                <span class="pl-4 status-icon"><%= image_tag(set_status_pin_helper(condition.status), width: '50px') %></span>
               </div>
               <span data-toggle="tooltip" data-placement="right" title="ユーザ詳細ページへ" >
                 <% if condition.user.avatar? %>
@@ -53,9 +53,9 @@
                 <%= condition.content %>
                 <div class="card-image">
                   <% if condition.image? && condition.image.file.content_type.include?('image/') %>
-                    <%= image_tag condition.image.original.url %>
+                    <%= image_tag(condition.image.original.url) %>
                   <% elsif condition.image? && condition.image.file.content_type.include?('video/') %>
-                    <%= video_tag condition.image, controls: true, controlsList: "nodownload", autobuffer: true, mute: false %>
+                    <%= video_tag(condition.image, controls: true, controlsList: "nodownload", autobuffer: true, mute: false) %>
                   <% end %>
                 </div>
               </div>

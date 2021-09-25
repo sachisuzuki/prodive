@@ -164,7 +164,7 @@
           </div>
           <div class="">
             <p class="headding"><span class="h3"><%= "_ _ _ _" %></span>
-            <span class="h5">の海況投稿 </span><%= image_tag '/images/divesites/fukidashi02.png', class: "fukidashi01" %></p>
+            <span class="h5">の海況投稿 </span><%= image_tag('/images/divesites/fukidashi02.png', class: "fukidashi01") %></p>
           </div>
           <div class="input-field">
             <table>
@@ -199,7 +199,7 @@
           </div>
           <div class="field">
             <%= form.label :avatar, class: "edit-image" do %>
-              <%= image_tag "/images/default_image.png", class: "condition_img", id: "img_prev", onClick:"$('.uploader').click()" %>
+              <%= image_tag("/images/default_image.png", class: "condition_img", id: "img_prev", onClick: "$('.uploader').click()") %>
               <%= form.file_field :image, accept: 'image/jpeg,image/png,video/*', class: "uploader", id: "select_img", style: 'display:none' %>
             <% end %>
           </div>
