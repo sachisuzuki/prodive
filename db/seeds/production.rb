@@ -6,7 +6,7 @@ require 'securerandom'
   name = Faker::JapaneseMedia::StudioGhibli.character
   email = Faker::Internet.email
   password = "password"
-	avatar = open("./public/samples/avt#{n}.jpg")
+	avatar = open("/samples/avt#{n}.jpg")
   uid = SecureRandom.uuid.tr('-', '')
   User.create!(name: name,
               email: email,
@@ -18,7 +18,7 @@ end
 User.create!(name: "admin_user",
             email: "admin@mail.com",
             password: "password",
-            avatar: open("./public/images/default-avatar.png"),
+            avatar: open("/images/default-avatar.png"),
             uid: SecureRandom.uuid.tr('-', ''),
             admin: true,
             )
@@ -55,7 +55,7 @@ end
                     temperature: temperature,
                     visibility: visibility,
                     content: content[n],
-                    image: open("./public/samples/#{image[n]}"),
+                    image: open("/samples/#{image[n]}"),
                     user_id: n+1,
                     divesite_id: n+1,
                     )
