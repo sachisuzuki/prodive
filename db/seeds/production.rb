@@ -6,7 +6,7 @@ require 'securerandom'
   name = Faker::JapaneseMedia::StudioGhibli.character
   email = Faker::Internet.email
   password = "password"
-	avatar = open("/samples/avt#{n}.jpg")
+	avatar = open("#{Rails.root}/public/samples/avt#{n}.jpg")
   uid = SecureRandom.uuid.tr('-', '')
   User.create!(name: name,
               email: email,
@@ -18,13 +18,13 @@ end
 User.create!(name: "admin_user",
             email: "admin@mail.com",
             password: "password",
-            avatar: open("/images/default-avatar.png"),
+            avatar: open("#{Rails.root}/public/images/default-avatar.png"),
             uid: SecureRandom.uuid.tr('-', ''),
             admin: true,
             )
 
 # Divesites
-CSV.foreach('db/Divesite.csv', headers: true) do |row|
+CSV.foreach("#{Rails.root}/db/Divesite.csv", headers: true) do |row|
   Divesite.create(area: row[0].to_i,
                   zone: row[1].to_i,
                   name: row[2],
@@ -55,7 +55,7 @@ end
                     temperature: temperature,
                     visibility: visibility,
                     content: content[n],
-                    image: open("/samples/#{image[n]}"),
+                    image: open("#{Rails.root}/public/samples/#{image[n]}"),
                     user_id: n+1,
                     divesite_id: n+1,
                     )
