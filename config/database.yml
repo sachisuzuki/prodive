@@ -83,3 +83,4 @@ production:
   database: prodive_production
   username: prodive
   password: <%= ENV['PRODIVE_DATABASE_PASSWORD'] %>
+  template: template0
