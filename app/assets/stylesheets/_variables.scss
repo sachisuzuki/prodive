@@ -10,3 +10,14 @@ $grey: rgba(220,231,235,1);
 $red: rgba(255,104,115,1);
 $black: rgba(48,69,92,0.9);
 $bluegreen: #0089A7;
+
+// @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+@font-face {
+  font-family: “sawarabi-gothic-medium”;
+  src: font-url('/assets/sawarabi-gothic-medium.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}

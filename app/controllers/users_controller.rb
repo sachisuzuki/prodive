@@ -3,16 +3,20 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: %i[ show mypage myprofile myfavorite ]
   def show
-    @conditions = Condition.where(user_id: @user.id).order(created_at: :DESC)
+    if @user.nil?
+      redirect_to root_url
+      flash[:alert] = "お探しのページは見つかりません"
+    else
+      @conditions = Condition.where(user_id: @user.id).order(created_at: :DESC)
+    end
   end
   def mypage
-    @favorites = current_user.favorites.all
-    @followed = Relationship.where(follower_id: @user.id)
     unless current_user.id == params[:id].to_i
-      redirect_to mypage_user_path(current_user.id)
+      redirect_to root_url
       flash[:alert] = "お探しのページは見つかりません"
     else
       @favorites = current_user.favorites.all
+      @followed = Relationship.where(follower_id: @user.id)
     end
   end
   def myprofile
