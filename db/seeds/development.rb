@@ -1,6 +1,6 @@
 # require 'csv'
 # require 'securerandom'
-#
+
 # # Users
 # 5.times do |n|
 #   name = Faker::JapaneseMedia::StudioGhibli.character

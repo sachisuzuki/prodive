@@ -51,9 +51,14 @@ gem 'faker'
 # Image Upload
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'fog-aws'
 
 # map
 gem 'gon'
+
+# aws
+gem 'unicorn'
+gem 'mini_racer', platforms: :ruby
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -69,6 +74,17 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'factory_bot_rails'
   gem 'launchy'
+
+  # aws
+  gem 'capistrano', '3.6.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
+
+  gem 'ed25519'
+	gem 'bcrypt_pbkdf'
+
 end
 
 group :development do
