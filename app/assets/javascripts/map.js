@@ -68,7 +68,7 @@ function setMarkerPin(markerData) {
   } else if (markerData == "close") {
     markerIcon = "/images/conditions/close_pin.png";
   } else {
-    markerIcon = "/images/conditions/NOINFO_PIN.png";
+    markerIcon = "/images/conditions/no_info_pin.png";
   }
 }
 
