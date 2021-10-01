@@ -216,6 +216,27 @@
     }
   }
 
+  .after-login {
+    margin-left: auto;
+    margin-right: auto;
+    p {
+      text-align: center;
+      margin: 0;
+      color: $black;
+    }
+    a {
+      letter-spacing: 3px;
+      padding: 10px 12px;
+      border-style: none;
+      border-radius: 5px;
+      background-color: $grey;
+      &:hover {
+        font-weight: bold;
+        transform: scale(1.1);
+      }
+    }
+  }
+
   .diver02 {
     position: relative;
     // top: 10px;

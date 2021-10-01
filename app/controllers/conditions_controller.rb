@@ -24,15 +24,12 @@ class ConditionsController < ApplicationController
   end
   def create
     @condition = current_user.conditions.build(condition_params)
-    if params[:back]
-      render :new
+    if @condition.save
+      redirect_to @condition
+      flash[:notice] = "本日の海況情報を投稿しました！Twitterでも海況を投稿しよう！"
     else
-      if @condition.save
-        redirect_to @condition
-        flash[:notice] = "本日の海況情報を投稿しました！Twitterでも海況を投稿しよう！"
-      else
-        render :new
-      end
+      flash[:alert] = "不足箇所を入力してください"
+      render :new
     end
   end
   def destroy

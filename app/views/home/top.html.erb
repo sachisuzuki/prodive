@@ -112,28 +112,41 @@
       </div>
       <div class="flexitem side-edge"></div>
     </div>
-    <div class="top-bottom">
-      <div class="links d-flex justify-content-center">
-        <div class="transition-btn">
-          <%= link_to 'ログイン', new_user_session_path %>
+    <% if user_signed_in? %>
+      <div class="top-bottom">
+        <div class="after-login">
+          <p>海況MAPでお好きなダイビングサイトが</p>
+          <p>今日OPENしてるかみてみましょう</p>
+          <div class="d-flex justify-content-center">
+            <%= link_to '海況MAPへ', divesites_path, class: 'm-3' %>
+          </div>
+          <p><small>現地サービスの方の海況投稿をお待ちしています</small></p>
         </div>
-        <div class="ml-3 transition-btn">
-          <%= link_to 'アカウント登録', new_user_registration_path %>
+      </div>
+    <% else %>
+      <div class="top-bottom">
+        <div class="links d-flex justify-content-center">
+          <div class="transition-btn">
+            <%= link_to 'ログイン', new_user_session_path %>
+          </div>
+          <div class="ml-3 transition-btn">
+            <%= link_to 'アカウント登録', new_user_registration_path %>
+          </div>
+        </div>
+        <div class="mt-4 d-flex justify-content-center">
+          <%= link_to user_google_omniauth_authorize_path, class: 'm-4 oauth-google' do %>
+            <i class="fas fa-angle-right"> Gmailでログイン</i>
+          <% end %>
+          <%= image_tag '/images/diver.png', class: "diver02" %>
+        </div>
+        <div class="d-flex justify-content-center">
+          <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: 'mb-2 guest-login' %>
+        </div>
+        <div class="d-flex justify-content-center">
+          <%= link_to 'ゲストログイン(管理者)', users_guest_admin_sign_in_path, method: :post, class: 'm-2 guest-login' %>
         </div>
       </div>
-      <div class="mt-4 d-flex justify-content-center">
-        <%= link_to user_google_omniauth_authorize_path, class: 'm-4 oauth-google' do %>
-          <i class="fas fa-angle-right"> Gmailでログイン</i>
-        <% end %>
-        <%= image_tag '/images/diver.png', class: "diver02" %>
-      </div>
-      <div class="d-flex justify-content-center">
-        <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: 'mb-2 guest-login' %>
-      </div>
-      <div class="d-flex justify-content-center">
-        <%= link_to 'ゲストログイン(管理者)', users_guest_admin_sign_in_path, method: :post, class: 'm-2 guest-login' %>
-      </div>
-    </div>
+    <% end %>
     <p class="copywright"><small>© 2021 PRODIVE All rights reserved.</small></p>
   </div>
 </div>

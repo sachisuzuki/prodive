@@ -18,6 +18,7 @@
         </div>
       <% end %>
       <div class="pt-2 pb-3 d-flex justify-content-around">
+        <div class="actions"><%= f.submit t('.sign_in') %></div>
         <%- if devise_mapping.omniauthable? %>
           <%- resource_class.omniauth_providers.each do |provider| %>
             <%= link_to omniauth_authorize_path(resource_name, provider), class: "oauth-google" do %>
@@ -25,7 +26,6 @@
             <% end %>
           <% end %>
         <% end %>
-        <div class="actions"><%= f.submit t('.sign_in') %></div>
       </div>
     <% end %>
     <div class="d-flex justify-content-center">

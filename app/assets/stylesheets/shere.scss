@@ -2,6 +2,7 @@
 
 html, body {
   height: 100%;
+  width: 100%;
   background-color: $kinari;
   color: $black;
   font-family: 'Noto Sans JP', sans-serif !important;
@@ -99,11 +100,11 @@ footer {
   margin-top: auto;
   .footer-wrap {
     height: 100px;
-    width: 100%;
+    width: 100vw;
   }
   .footer-dividing-line  {
     width: 100%;
-    min-width: 1400px;
+    min-width: 100%;
     overflow: hidden;
   }
   p {
