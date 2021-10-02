@@ -394,9 +394,10 @@ table.divesite-table {
 }
 
 
-@media (min-width: 751px) {
-  a[href^="tel:"] {
-    pointer-events: none;
-    cursor: default;
-  }
-}
+// @media (min-width: 751px) {
+//   a[href^="tel:"] {
+//       pointer-events: none;
+//       cursor: default;
+//       text-decoration: underline;
+//   }
+// }
