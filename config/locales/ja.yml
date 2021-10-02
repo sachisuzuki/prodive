@@ -1,6 +1,7 @@
 ---
 ja:
   view:
+  divesite: ダイブサイト
   status:
     open: OPEN
     warning: OPEN(潜水注意)

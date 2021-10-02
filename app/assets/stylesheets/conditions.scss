@@ -62,16 +62,16 @@
 	font-size: 30px;
 	text-align: center;
   &:after {
-  	content: '';
-  	position: absolute;
-  	bottom: 0;
-  	left: 50%;
-  	transform: translateX(-50%);
-  	width: 0;
-  	height: 0;
-  	border-style: solid;
-  	border-width: 10px 6px 0 6px;
-  	border-color: $blue rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0);
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 6px 0 6px;
+    border-color: $blue rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0);
   }
 }
 
@@ -304,4 +304,10 @@ table {
   margin:0 auto;
   display: none;
   height: auto;
- }
+}
+
+.cropit-image-preview {
+  width: 250px;
+  height: 250px;
+  background-color: $kinari;
+}
