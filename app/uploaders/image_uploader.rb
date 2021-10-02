@@ -29,7 +29,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def extension_allowlist
-    %w(jpg jpeg png mp4)
+    %w(jpg jpeg png MOV wmv mp4)
   end
 
   private

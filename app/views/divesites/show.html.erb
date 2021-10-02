@@ -89,7 +89,7 @@
               </tr>
               <tr>
                 <th>☎︎</th>
-                <td id="telephone"><%= link_to @divesite.phone, "tel:#{@divesite.phone.delete("-")}" %></td>
+                <td id="telephone"><%= link_to "#{@divesite.phone}", "tel:#{@divesite.phone.delete("-")}" %></td>
               </tr>
               <tr>
                 <th>管理サービス</th>
