@@ -29,6 +29,7 @@ class ConditionsController < ApplicationController
       flash[:notice] = "本日の海況情報を投稿しました！Twitterでも海況を投稿しよう！"
     else
       flash[:alert] = "不足箇所を入力してください"
+      @condition = Condition.new(condition_params)
       render :new
     end
   end

@@ -162,7 +162,7 @@
         <hr>
         <div class="input-field-wrap">
           <div class="field">
-            <%= form.hidden_field :divesite_id, value: "" %>
+            <%= form.hidden_field :divesite_id, value: "",required: "required" %>
           </div>
           <div class="">
             <p class="headding"><span class="h3"><%= "_ _ _ _" %></span>
@@ -172,8 +172,12 @@
             <table>
               <tbody>
                 <tr class="field">
+                  <th><%= form.label "ダイブサイト" %></th>
+                  <td><%= form.text_field :divesite, required: "required", class: "form-control",placeholder: "上のボタンで選んでください" %></td>
+                </tr>
+                <tr class="field">
                   <th><%= form.label :divepoint %></th>
-                  <td><%= form.text_field :divepoint, class: "form-control" %></td>
+                  <td><%= form.text_field :divepoint, required: "required", class: "form-control" %></td>
                 </tr>
                 <tr class="field">
                   <th><%= form.label :status %></th>
@@ -200,7 +204,7 @@
             </table>
           </div>
           <div class="field">
-            <%= form.label :avatar, class: "edit-image" do %>
+            <%= form.label :image, class: "edit-image" do %>
               <%= image_tag("/images/default_image.png", class: "condition_img", id: "img_prev", onClick: "$('.uploader').click()") %>
               <%= form.file_field :image, accept: 'image/jpeg,image/png,video/*', class: "uploader", id: "select_img", style: 'display:none' %>
             <% end %>
