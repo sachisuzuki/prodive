@@ -57,13 +57,17 @@ $('#grandchildren').on('click', 'button', function() {
   $(this).css('background-color', 'rgb(58, 171, 210)');
   $(this).css('color', '#FCFAF2');
 
-  var dsId = $(this).attr('name')
+  var dsId = $(this).attr('name');
 
-  var dsName = $(this).text()
+  var dsName = $(this).text();
 
-  $('.h3').text(`${dsName}`)
+  $('.h3').text(`${dsName}`);
 
-  $("input[name='condition[divesite_id]']").val(`${dsId}`)
+  $("input[name='condition[divesite]']").val(`${dsName}`);
+
+  $("input[name='condition[divesite]']").prop('disabled', true);
+
+  $("input[name='condition[divesite_id]']").val(`${dsId}`);
 });
 
 $('#js-copybtn').on('click', function(){

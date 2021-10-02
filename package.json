@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "4",
-    "jquery": "^3.6.0"
+    "cropit": "^0.5.1",
+    "jquery": "3.6.0"
   }
 }
