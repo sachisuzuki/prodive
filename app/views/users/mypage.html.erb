@@ -1,17 +1,17 @@
 <div class="container-fluid mypage-top-wrap">
   <div class="row mypage-top">
-      <%= image_tag(set_avatar_panorama_helper, class: 'avatar-image-top') %>
+      <%= image_tag(set_avatar_helper, class: 'avatar-image-top') %>
       <div class="mask-gradation"></div>
     <p><span class="user-name"><%= "#{@user.name} " %></span></p>
     <aside class="col-sm-4 col-md-4 col-lg-3 floating-board">
-      <div class="">
+      <div>
         <%= image_tag(set_avatar_helper, class: 'avatar-image') %>
       </div>
       <nav class="side-menu">
         <ul>
-          <li class="p-4"><%= link_to 'お気に入り / フォロー中', myfavorite_user_path(current_user.id), remote: true %></li>
-          <li class="p-4"><%= link_to '自分の投稿一覧', mypost_user_path(current_user.id), remote: true %></li>
-          <li class="p-4"><%= link_to 'プロフィール', myprofile_user_path(current_user.id), remote: true %></li>
+          <li class="p-4 mymenu currently-selected"><%= link_to 'お気に入り / フォロー中', myfavorite_user_path(current_user.id), class: "mymenu-link", remote: true %></li>
+          <li class="p-4 mymenu"><%= link_to '自分の投稿一覧', mypost_user_path(current_user.id), class: "mymenu-link", remote: true %></li>
+          <li class="p-4 mymenu"><%= link_to 'プロフィール', myprofile_user_path(current_user.id), class: "mymenu-link", remote: true %></li>
         </ul>
       </nav>
     </aside>

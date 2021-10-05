@@ -11,11 +11,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  process resize_to_fill: [240, 240, "Center"]
-
-  version :panorama do
-    process resize_to_fill: [800, 250, "Center"]
-  end
+  process resize_to_fill: [250, 250, "Center"]
 
   version :thumb do
     process resize_to_fill: [50, 50, "Center"]
