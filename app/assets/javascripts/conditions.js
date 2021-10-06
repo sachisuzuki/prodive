@@ -77,9 +77,9 @@ $('#js-copybtn').on('click', function(){
     let $textarea = $('<textarea></textarea>');
     // テキストエリアに文章を挿入
     $textarea.text(text);
-    //　テキストエリアを挿入
+    // テキストエリアを挿入
     $(this).append($textarea);
-    //　テキストエリアを選択
+    // テキストエリアを選択
     $textarea.select();
     // コピー
     document.execCommand('copy');

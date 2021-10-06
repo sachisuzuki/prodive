@@ -205,7 +205,9 @@
           </div>
           <div class="field">
             <%= form.label :image, class: "edit-image" do %>
-              <%= image_tag("/images/default_image.png", class: "condition_img", id: "img_prev", onClick: "$('.uploader').click()") %>
+              <div class="current-img" onClick="$('#select_img').click()">
+                <%= image_tag("/images/default_image.png", class: "condition_img", id: "img-default") %>
+              </div>
               <%= form.file_field :image, accept: 'image/jpeg,image/png,video/*', class: "uploader", id: "select_img", style: 'display:none' %>
             <% end %>
           </div>

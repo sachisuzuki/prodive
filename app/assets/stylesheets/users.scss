@@ -130,15 +130,32 @@
 .side-menu {
   text-align: center;
   ul {
+    width: 100%;
+    height: 100%;
     padding-top: 20px;
     padding-bottom: 33px;
     background-color: $lightgrey;
   }
   li {
+    display: block;
+    width: 100%;
     a {
       display: block;
       &:hover {
         transform: scale(1.1);
+      }
+    }
+  }
+  .currently-selected {
+    a {
+      font-weight: bold;
+      &:after {
+        font-family: "Font Awesome 5 Free";
+        font-size: large;
+        content:   ' \f0da';
+        color: $black;
+        position: relative;
+        left: 10px;
       }
     }
   }
@@ -249,6 +266,16 @@
   width: 250px;
   height: 250px;
   object-fit: cover;
+  &:hover {
+    border: solid 3px $black;
+  }
+}
+
+#avatar_prev {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 100%;
   &:hover {
     border: solid 3px $black;
   }

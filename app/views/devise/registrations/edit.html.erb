@@ -9,8 +9,8 @@
         <div class="pt-4">
           <p>アバター画像変更</p>
           <%= f.label :avatar, class: "edit-image" do %>
-            <%= image_tag set_avatar_helper, class: "avatar-image-top", id: "img_prev", onClick:"$('#select_img').click()" %>
-            <%= f.file_field :avatar, style: 'display:none', accept: 'image/jpeg,image/png', id: "select_img" %>
+            <%= image_tag set_avatar_helper, class: "avatar-image-top", id: "img_prev", onClick:"$('#select_avi').click()" %>
+            <%= f.file_field :avatar, style: 'display:none', accept: 'image/jpeg,image/png', id: "select_avi" %>
           <% end %>
         </div>
       </div>
