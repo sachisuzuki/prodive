@@ -54,6 +54,9 @@ gem 'mini_magick'
 gem 'fog-aws'
 gem 'streamio-ffmpeg'
 
+# View
+gem 'kaminari'
+
 # map
 gem 'gon'
 
