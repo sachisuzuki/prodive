@@ -271,6 +271,16 @@
   }
 }
 
+#avatar_prev {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 100%;
+  &:hover {
+    border: solid 3px $black;
+  }
+}
+
 .edit-image {
   cursor: pointer;
   &:hover {

@@ -52,6 +52,7 @@ gem 'faker'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
+gem 'streamio-ffmpeg'
 
 # map
 gem 'gon'
