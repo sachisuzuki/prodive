@@ -144,3 +144,21 @@ footer {
     opacity: 0;
   }
 }
+
+.pagination {
+  li {
+    a {
+      border: solid 2px $kinari;
+      color: $black;
+    }
+  }
+  .page-item.active {
+    .page-link {
+      background-color: $black;
+      border-color: $black;
+      a {
+        border-radius: 3px;
+      }
+    }
+  }
+}

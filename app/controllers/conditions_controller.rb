@@ -3,7 +3,8 @@ class ConditionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_condition, only: %i[ show destroy ]
   def index
-    @conditions = Condition.where(created_at: Time.zone.now.all_day)
+    @conditions = Condition.where(created_at: Time.zone.now.all_day).order(created_at: :DESC)
+    @conditions = @conditions.page(params[:page]).per(8)
   end
   def show
   end

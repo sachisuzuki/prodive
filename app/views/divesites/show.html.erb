@@ -69,11 +69,14 @@
             </div>
           </div>
           <% end %>
-          <div class="pt-2 unobtrusive">
-            <%= link_to conditions_path, class: "unobtrusive" do %>
-              <%= "海況投稿一覧へ戻る" %><i class="fas fa-angle-right"></i>
-            <% end %>
-          </div>
+        </div>
+        <div class="mb-2 d-flex justify-content-center">
+          <%= paginate(@conditions) %>
+        </div>
+        <div class="pt-2 unobtrusive">
+          <%= link_to conditions_path, class: "unobtrusive" do %>
+            <%= "海況投稿一覧へ戻る" %><i class="fas fa-angle-right"></i>
+          <% end %>
         </div>
         <div class="divesite-info">
           <span class="box-title">info</span>

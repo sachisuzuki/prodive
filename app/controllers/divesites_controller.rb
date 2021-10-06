@@ -17,7 +17,7 @@ class DivesitesController < ApplicationController
         latitude: ds.latitude,
         longitude: ds.longitude,
         status: st,
-       }
+      }
     end
   end
 
@@ -25,6 +25,7 @@ class DivesitesController < ApplicationController
     @divesite = Divesite.find(params[:id])
     @favorite = current_user.favorites.find_by(divesite_id: @divesite.id)
     @conditions = Condition.where(divesite_id: @divesite.id).order(created_at: :DESC)
+    @conditions = @conditions.page(params[:page]).per(7)
   end
 
   def select_map
