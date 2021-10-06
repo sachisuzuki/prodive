@@ -8,6 +8,7 @@ class UsersController < ApplicationController
       flash[:alert] = "お探しのページは見つかりません"
     else
       @conditions = Condition.where(user_id: @user.id).order(created_at: :DESC)
+      @conditions = @conditions.page(params[:page]).per(10)
     end
   end
   def mypage
@@ -26,8 +27,8 @@ class UsersController < ApplicationController
     end
   end
   def myfavorite
-    @favorites = current_user.favorites.all
-    @followed = Relationship.where(follower_id: @user.id)
+    @favorites = current_user.favorites.all.order(created_at: :DESC)
+    @followed = Relationship.where(follower_id: @user.id).order(created_at: :DESC)
     respond_to do |format|
       format.js { render :myfavorite }
       format.html { redirect_to mypage_user_path(current_user.id) }
@@ -35,6 +36,7 @@ class UsersController < ApplicationController
   end
   def mypost
     @conditions = current_user.conditions.all.order(created_at: :DESC)
+    @conditions = @conditions.page(params[:page]).per(10)
     respond_to do |format|
       format.js { render :mypost }
       format.html { redirect_to mypage_user_path(current_user.id) }
