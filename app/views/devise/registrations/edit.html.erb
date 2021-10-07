@@ -33,7 +33,7 @@
               <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
             <% end %>
             <div class="field">
-              <%= f.password_field :password, autocomplete: "new-password", placeholder: "変更する場合(6文字以上)" %>
+              <%= f.password_field :password, autocomplete: "new-password", placeholder: "変更する場合のみ入力 ( 6文字以上 )" %>
               <i class="fa fa-key"></i>
             </div>
             <div class="field">

@@ -190,11 +190,11 @@
                 </tr>
                 <tr class="field">
                   <th><%= form.label :temperature %></th>
-                  <td class="temp"><%= form.number_field :temperature, value: "25", class: "form-control" %><span> ℃</span></td>
+                  <td class="temp"><%= form.number_field :temperature, value: "25", min: "-10", max: "35", class: "form-control" %><span> ℃</span></td>
                 </tr>
                 <tr class="field">
                   <th><%= form.label :visibility %></th>
-                  <td class="visib"><%= form.number_field :visibility, value: "10", class: "form-control" %><span> m</span></td>
+                  <td class="visib"><%= form.number_field :visibility, value: "10", min: "0", max: "50", class: "form-control" %><span> m</span></td>
                 </tr>
                 <tr class="field">
                   <th><%= form.label :content %></th>

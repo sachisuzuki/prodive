@@ -5,19 +5,19 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
       <div class="field">
-        <%= f.text_field :name, autofocus: true, placeholder: "お名前 or ダイビングショップ名" %>
+        <%= f.text_field :name, autofocus: true, required: "required", placeholder: "お名前 or ダイビングショップ名" %>
         <i class="fa fa-user"></i>
       </div>
       <div class="field">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", required: "required", placeholder: "メールアドレス" %>
         <i class="fa fa-envelope"></i>
       </div>
       <div class="field">
-        <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード(6文字以上)" %>
+        <%= f.password_field :password, autocomplete: "new-password", required: "required", placeholder: "パスワード(6文字以上)" %>
         <i class="fa fa-key"></i>
       </div>
       <div class="field">
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認用パスワード" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", required: "required", placeholder: "確認用パスワード" %>
         <i class="fa fa-key"></i>
       </div>
       <div class="pt-4 actions d-flex justify-content-center">
