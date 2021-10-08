@@ -1,4 +1,4 @@
-// 選択した画像でプレビューを表示する
+// 選択した画像でプレビューを表示する(image)
 $("#select_img").change(function(){
   var file = $(this).prop('files')[0];
   var imgSrc;
@@ -16,6 +16,7 @@ $("#select_img").change(function(){
   reader.readAsDataURL(file);
 });
 
+// 選択した画像でプレビューを表示する(avatar)
 $("#select_avi").change(function(){
   const uploader = document.querySelector('#select_avi');
   if (uploader.files && uploader.files[0]) {
@@ -26,4 +27,9 @@ $("#select_avi").change(function(){
       document.querySelector('#img_prev').setAttribute('src', reader.result);
     }
   }
+});
+
+// ハンバーガーメニュー
+$('.nav-toggle').click(function () {
+  $('.nav-toggle, nav.header-menu').toggleClass('active');
 });

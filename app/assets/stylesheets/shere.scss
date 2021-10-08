@@ -24,13 +24,134 @@ header {
   }
 }
 
-.header-menu {
+.nav-toggle {
   margin-left: auto;
-  ul {
-    display: flex;
+  position: relative;
+  right: 10px;
+  z-index: 10;
+  background-color: $black;
+  cursor: pointer;
+  width: 50px;
+  height:50px;
+  border: solid 2px $kinari;
+  border-radius: 5px;
+}
+
+/*ボタン内側*/
+.nav-toggle span{
+    display: inline-block;
+    transition: all .4s;/*アニメーションの設定*/
+    position: absolute;
   }
-  li a {
-    padding: 0 20px;
+
+.nav-toggle span:nth-of-type(1),
+.nav-toggle span:nth-of-type(3) {
+    height: 2px;
+    background: $kinari;
+    width: 62%;
+    left: 8px;
+}
+
+.nav-toggle span:nth-of-type(1) {
+  top:10px;
+}
+
+.nav-toggle span:nth-of-type(2) {
+  top:16px;
+  left:8.5px;
+  font-size:0.6rem;
+  text-transform: uppercase;
+  color: $kinari;
+}
+
+.nav-toggle span:nth-of-type(3) {
+  top:36px;
+}
+
+// activeクラス付与
+.nav-toggle.active {
+  border-color: $kinari;
+}
+
+.nav-toggle.active span:nth-of-type(1) {
+    top: 16px;
+    left: 16px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 30%;
+}
+
+.nav-toggle.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active span:nth-of-type(3){
+    top: 28px;
+    left: 16px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 30%;
+}
+
+// スマホ表示
+@media screen and (max-width:768px){
+  nav.header-menu {
+    display: none;
+    position: fixed;
+    z-index : 2;
+    top  : 0;
+    left : 0;
+    color: $kinari;
+    font-size: 1.5rem;
+    background: $black;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    transition: opacity .6s ease, visibility .6s ease;
+    ul {
+      margin: 0 auto;
+      padding-top: 100px;
+      width: 100%;
+      vertical-align: middle;
+      li {
+        list-style-type: none;
+        padding: 0;
+        width: 100%;
+        transition: .4s all;
+        &:last-child {
+          padding-bottom: 0;
+        }
+        &:hover {
+          background: $grey;
+        }
+        a {
+          display: block;
+          color: $kinari;
+          padding: 1em 0;
+          text-decoration :none;
+          &:hover {
+            color: $black;
+          }
+        }
+      }
+    }
+  }
+  nav.header-menu.active {
+    display: block;
+  }
+}
+
+// PC表示
+@media screen and (min-width:769px){
+  .nav-toggle {
+    display: none;
+  }
+  .header-menu {
+    margin-left: auto;
+    ul {
+      display: flex;
+    }
+    li a {
+      padding: 0 20px;
+    }
   }
 }
 
@@ -100,7 +221,7 @@ footer {
   margin-top: auto;
   .footer-wrap {
     height: 100px;
-    width: 100vw;
+    width: 100%;
   }
   .footer-dividing-line  {
     width: 100%;
