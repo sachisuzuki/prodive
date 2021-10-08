@@ -7,7 +7,7 @@
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
         <div class="pt-4">
-          <p>アバター画像変更</p>
+          <p class="edit-image-label">アバター画像変更</p>
           <%= f.label :avatar, class: "edit-image" do %>
             <%= image_tag set_avatar_helper, class: "avatar-image-top", id: "img_prev", onClick:"$('#select_avi').click()" %>
             <%= f.file_field :avatar, style: 'display:none', accept: 'image/jpeg,image/png', id: "select_avi" %>
@@ -22,11 +22,11 @@
               <i class="fa fa-user"></i>
             </div>
             <div class="field">
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", required: "required", placeholder: "メールアドレス" %>
+              <%= f.email_field :email, autocomplete: "email", required: "required", placeholder: "メールアドレス" %>
               <i class="fa fa-envelope"></i>
             </div>
             <div class="field">
-              <%= f.text_field :shop, autofocus: true, autocomplete: "shop", placeholder: "所属店" %>
+              <%= f.text_field :shop, autocomplete: "shop", placeholder: "所属店" %>
               <i class="fa fas fa-fish"></i>
             </div>
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -62,3 +62,8 @@
     <div class="col-sm-1 col-lg-2"></div>
   </div>
 </div>
+<script>
+$(function() {
+  $('html,body').animate({ scrollTop: 0 }, '1');
+});
+</script>
