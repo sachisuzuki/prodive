@@ -9,12 +9,13 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application' %>
     <script src="https://kit.fontawesome.com/27e4cb0d9e.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <div class="outermost">
       <header class="sticky-top">
         <div class="logo">
-          <%= link_to image_tag("/images/LOGO.png", height: 65), root_path, class: 'pl-2' %>
+          <%= link_to image_tag("/images/LOGO.png", class: "logo"), root_path, class: 'pl-2' %>
         </div>
         <nav class="header-menu">
           <ul>
@@ -65,6 +66,11 @@
             <% end %>
           </ul>
         </nav>
+        <div class="nav-toggle">
+          <span></span>
+          <span>Menu</span>
+          <span></span>
+        </div>
       </header>
       <main>
         <div class="flash_messages">

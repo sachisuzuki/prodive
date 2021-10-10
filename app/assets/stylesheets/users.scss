@@ -284,6 +284,12 @@
   }
 }
 
+.edit-image-label {
+  text-decoration: underline;
+  letter-spacing: 2px;
+  padding-bottom: 10px;
+}
+
 .edit-image {
   cursor: pointer;
   &:hover {

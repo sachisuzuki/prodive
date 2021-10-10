@@ -7,10 +7,39 @@
   flex-direction: column;
   justify-content: center;
   width: 100%;
+  min-width: 100%;
   min-height: 100%;
   padding: 50px 0;
   h2 {
     text-align: center;
+  }
+  @media screen and (max-width:768px) {
+    .form-box {
+      padding: 30px;
+      max-width: 100%;
+    }
+  }
+
+  @media screen and (min-width:769px) {
+    .form-box {
+      position: relative;
+      padding: 50px;
+      width: 400px;
+      height: 100%;
+      border-radius: 5px;
+      background-color: $grey;
+      a {
+        color: $blue;
+        text-shadow: 1px 1px 2px $kinari;
+        i {
+          margin-left: 10px;
+        }
+        &:hover {
+          // transform: scale(1.1);
+          animation: PuruPuru 2s;
+        }
+      }
+    }
   }
   .form-box {
     position: relative;
