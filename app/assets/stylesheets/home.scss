@@ -224,8 +224,9 @@
 .translucent-box {
   margin-top: 50px;
   width: 100%;
-  // height: 280px;
   color: $kinari;
+  transform: translateY(50px);
+  opacity: 0;
   .title {
     margin-bottom: 20px;
     font-weight: bold;
@@ -238,6 +239,19 @@
     letter-spacing: 2px;
   }
 }
+
+.translucent-box.scroll-down {
+  transition: 1.5s;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.translucent-box.scroll-up {
+  transition: 1.5s;
+  transform: translateY(0);
+  opacity: 0;
+}
+
 
 // PC表示
 @media screen and (min-width:769px) {
@@ -293,8 +307,17 @@
 
 .diver {
   z-index: 10;
+  transform:  scale(-1, 1);
   filter: drop-shadow(3px 3px 0 $kinari);
+  transition: 1s;
+}
+
+.diver.scroll-down {
   transform: rotate(-90deg);
+}
+
+.diver.scroll-up {
+  transform: rotate(90deg);
 }
 
 
@@ -338,9 +361,9 @@
   .diver {
     position: fixed;
     bottom: 80px;
-    left: 15%;
-    height: 100px;
-    width: 100px;
+    left: 13%;
+    height: 95px;
+    width: 95px;
   }
   .scrolldown-area {
     margin: auto;
@@ -439,3 +462,16 @@
 // 	border-radius: 50%;
 //   z-index: 100;
 // }
+
+@keyframes slide-skew {
+  0% {
+    transform: translate(180px,30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0,0);
+  }
+  20%,100% {
+    opacity: 1;
+  }
+}

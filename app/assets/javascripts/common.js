@@ -33,3 +33,53 @@ $("#select_avi").change(function(){
 $('.nav-toggle').click(function () {
   $('.nav-toggle, nav.header-menu').toggleClass('active');
 });
+
+// scroll時のヘッダー
+// scroll時のダイバー
+$(function(){
+  var pos = 100;
+
+  $(window).on('load scroll', function(){
+    if ($(this).scrollTop() > pos ){
+      //下にスクロールしたとき
+      $('header').addClass('after-scroll');
+      $('.diver').addClass('scroll-down').removeClass('scroll-up');
+
+    }else{
+      //上にスクロールしたとき
+      $('header').removeClass('after-scroll');
+      $('.diver').removeClass('scroll-down').addClass('scroll-up');
+    }
+    pos = $(this).scrollTop();
+    if (pos < 100) {
+      $('header').removeClass('after-scroll');
+      $('.diver').removeClass('scroll-down').removeClass('scroll-up');
+    }
+
+  });
+});
+
+$(function () {
+  // aimation呼び出し
+  if ($('.translucent-box.left').length) {
+      scrollAnimation();
+  }
+
+  // aimation関数
+  function scrollAnimation() {
+      $(window).on('scroll', function(){
+          $(".translucent-box").each(function () {
+              let position = $(this).offset().top,
+                  scroll = $(window).scrollTop(),
+                  windowHeight = $(window).height();
+
+              if (scroll > position - windowHeight + 200) {
+                  $(this).addClass('scroll-down').removeClass('scroll-up');
+              } else {
+                $(this).removeClass('scroll-down').addClass('scroll-up');
+              }
+          });
+      });
+  }
+  $(window).trigger('scroll');
+});

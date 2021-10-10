@@ -15,14 +15,38 @@ html, body {
 }
 
 header {
+  width: 100%;
   display: flex;
   align-items: center;
   height: 100px;
+  z-index: 100;
   background-color: #fff;
+  transition: 1s;
+  .logo {
+    height: 65px;
+  }
   .fas {
     font-size: 0.9rem;
   }
 }
+// スマホ表示
+@media screen and (min-width:769px) {
+  header.after-scroll {
+    align-items: center;
+    transform:translateY(-40px);
+    .logo {
+      margin-top: 10px;
+      height: 50px;
+    }
+    nav {
+      margin-top: 35px;
+    }
+    .nav-toggle {
+      margin-top: 35px;
+    }
+  }
+}
+
 
 .nav-toggle {
   margin-left: auto;
@@ -97,8 +121,8 @@ header {
     display: none;
     position: fixed;
     z-index : 2;
-    top  : 0;
-    left : 0;
+    top: 0;
+    left: 0;
     color: $kinari;
     font-size: 1.5rem;
     background: $black;
