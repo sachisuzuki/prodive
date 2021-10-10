@@ -20,3 +20,9 @@ function ScrollTimelineAnime(){
 $(window).on('scroll', function(){
 	ScrollTimelineAnime();
 });
+
+
+var topHeight
+topHeight = $('.row').height();
+scrollHeight =
+$('.timeline').height(topHeight);
