@@ -52,7 +52,8 @@
   position: relative;
   width: 50%;
   text-align: center;
-  margin: 50px auto;
+  margin: auto;
+  // margin-top: 50px;
   .avatar-image-top {
     position: relative;
     object-fit: cover;
@@ -68,7 +69,8 @@
   width: 50%;
   text-align: center;
   vertical-align: middle;
-  margin: 70px auto;
+  margin: 0 auto;
+  margin-top: 70px;
   }
   .follow-part {
     margin: 50px auto;
@@ -101,6 +103,12 @@
   text-align: center;
   .user-show-post {
     padding-bottom: 50px;
+  }
+  .past-posts-title {
+    font-size: 1.6rem;
+  }
+  .past-posts {
+    font-size: 1.3rem;
   }
 }
 
