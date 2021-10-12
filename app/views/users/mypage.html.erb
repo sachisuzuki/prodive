@@ -3,7 +3,10 @@
       <%= image_tag(set_avatar_helper, class: 'avatar-image-top') %>
       <div class="mask-gradation"></div>
     <p><span class="user-name"><%= "#{@user.name} " %></span></p>
-    <aside class="col-sm-4 col-md-4 col-lg-3 floating-board">
+    <aside class="col-sm-4 col-md-4 col-lg-3 floating-board mobile">
+      <a class="close-btn" href="#">
+        <i class="fas fa-window-close"></i>
+      </a>
       <div>
         <%= image_tag(set_avatar_helper, class: 'avatar-image') %>
       </div>
@@ -15,16 +18,18 @@
         </ul>
       </nav>
     </aside>
+    <a class="sidemenu-btn" href="#">
+      <i class="fas fa-bars"> マイページメニュー</i>
+    </a>
   </div>
 </div>
 <div class="container-fluid wrapper">
   <div class="row">
-    <div class="col-sm-5 col-md-5 col-lg-4 empty-element"></div>
-    <article class="col-sm-7 col-md-6 col-lg-6">
-      <div id="maypage-content">
+    <div class="empty-element"></div>
+    <article class="">
+      <div id="mypage-content">
         <%= render 'myfavorite', {user: @user, favorites: @favorites, followed: @followed} %>
       </div>
     </article>
-    <div class="col-md-1 col-lg-2"></div>
   </div>
 </div>

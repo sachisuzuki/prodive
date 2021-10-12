@@ -9,7 +9,7 @@
           <%= image_tag('/images/default-avatar.png', class: "avatar-image-top") %>
         <% end %>
       </div>
-      <div class="col-sm-6 ccol-md-6 col-lg-6 user-show-right">
+      <div class="col-sm-6 col-md-6 col-lg-6 user-show-right">
         <h2 class="pb-3"><span style="font-size:1.2em;"><%= "#{@user.name} " %></span></h2>
         <div class="user-info">
           <div class="">
@@ -36,17 +36,17 @@
     <div class="col-sm-1 col-lg-2"></div>
     <div class="col-sm-10 col-md-12 col-lg-8 user-show-bottom">
       <div class="user-show-post">
-        <div class="post-index">
-          <h3 class="pt-5 pb-4 headding"><%= "#{@user.name}" %>さんの投稿一覧</h3>
+        <div class="">
+          <p class="pt-4 pb-4 headding past-posts-title"><%= "#{@user.name}" %>さんの投稿一覧</p>
           <div class="mt-5">
             <% if @conditions.present? %>
               <% @conditions.each do |condition| %>
               <div class="pb-3">
-                <h4>
+                <p class="past-posts">
                   <%= link_to condition_path(condition.id) do %>
                     <i class="fas fa-angle-double-right" data-toggle="tooltip" data-placement="right" title="投稿詳細へ"><%= " #{condition.created_at.strftime("%-m月%e日")} / #{condition.divesite.zone} / #{condition.divesite.name}" %></i>
                   <% end %>
-                </h4>
+                </p>
               </div>
               <% end %>
             <% end %>

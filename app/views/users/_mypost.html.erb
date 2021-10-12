@@ -1,9 +1,10 @@
 <div class="mypost-wrap">
   <div class="mypost-title  d-flex">
     <span><h4 class="pt-1 pb-4">自分の投稿一覧</h4></span>
-    <span><%= link_to "投稿する", new_condition_path, class: "transition-btn ml-4" %></span>
+    <%= link_to new_condition_path, class: 'transition-btn ml-4' do %>
+      <i class="fas fa-plus"> 海況投稿</i>
+    <% end %>
   </div>
-
   <div class="">
     <p>
       <% conditions.each do |condition| %>
