@@ -26,7 +26,9 @@
     z-index: 30;
     font-size: 2.3em;
     font-weight: bold;
-    text-shadow: 0.5px 0.5px 0 $kinari;
+    color: $kinari;
+    // text-shadow: 0.5px 0.5px 0 $kinari;
+    text-shadow: 2px 3px 0 $black;
   }
   .col-sm-4 {
     padding: 0;
@@ -130,12 +132,89 @@
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
+.close-btn {
+  opacity: 0;
+  color: $kinari;
+  position: absolute;
+  top: -3px;
+  right: -31px;
+  font-size: 2.0rem;
+  z-index: 100;
+  &:hover {
+    color: $kinari;
+    transform: scale(1.2);
+  }
+}
+
+.empty-element {
+  width: 45%;
+}
+
+@media screen and (min-width: 700px) {
+  .sidemenu-btn {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 699px) {
+  .avatar-image {
+    display: none;
+  }
+  .floating-board.mobile {
+    left: -100%;
+  }
+  .floating-board.active {
+    height: 250px;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+  }
+  .close-btn {
+    opacity: 1;
+  }
+  .sidemenu-btn.after-click {
+    display: none;
+  }
+  .empty-element {
+    width: 10%;
+  }
+  .row {
+    width: 100%;
+  }
+  article {
+    margin-top: 0 auto;
+    width: 90%;
+  }
+  #mypage-content {
+    width: 100%;
+    margin-top: 50px;
+    margin-left: 10px;
+  }
+}
+
 .avatar-image {
   padding: 0;
   height: 250px;
   object-fit: cover;
   width: 100%;
   background-color: $white;
+}
+
+.sidemenu-btn {
+  background-color: $black;
+  color: $kinari;
+  padding: 5px 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 3px;
+  z-index: 10;
+  &:hover {
+    transform: scale(1.08);
+    color: $kinari;
+  }
 }
 
 .side-menu {
@@ -194,6 +273,12 @@
       font-size: 1.3rem;
     }
   }
+  .transition-btn {
+    background-color: $black;
+    a {
+      color: $kinari;
+    }
+  }
 }
 
 #empty-caution {
@@ -223,8 +308,9 @@
 
 //mypost
 .mypost-wrap {
-  padding-bottom: 50px;
+  width: 100%;
   .transition-btn {
+    height: 100%;
     vertical-align: middle;
     background-color: $black;
     color: $kinari;
