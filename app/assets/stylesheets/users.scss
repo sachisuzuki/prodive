@@ -27,7 +27,6 @@
     font-size: 2.3em;
     font-weight: bold;
     color: $kinari;
-    // text-shadow: 0.5px 0.5px 0 $kinari;
     text-shadow: 2px 3px 0 $black;
   }
   .col-sm-4 {
@@ -136,7 +135,7 @@
   opacity: 0;
   color: $kinari;
   position: absolute;
-  top: -3px;
+  top: -12px;
   right: -31px;
   font-size: 2.0rem;
   z-index: 100;
@@ -160,13 +159,14 @@
   .avatar-image {
     display: none;
   }
-  .floating-board.mobile {
+  .floating-board {
     left: -100%;
   }
   .floating-board.active {
     height: 250px;
     top: 100px;
     left: 50%;
+    transition-delay: 0.3s;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);

@@ -15,6 +15,20 @@
       background-image: linear-gradient(rgba(0,0,0,0) 80%, $grey 80%);
     }
   }
+
+  .select-menu-btn {
+    height: 30px;
+    background-color: $black;
+    color: $kinari;
+    padding: 10px 12px 8px 12px;
+    border-radius: 3px;
+    z-index: 10;
+    &:hover {
+      transform: scale(1.08);
+      color: $kinari;
+    }
+  }
+
   .floating-board {
     position: absolute;
     top: 80px;
@@ -26,6 +40,19 @@
     background-color: $lightgrey;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   }
+  .close-btn {
+    opacity: 0;
+    color: $black;
+    position: absolute;
+    top: -10px;
+    right: -31px;
+    font-size: 2.0rem;
+    z-index: 100;
+    &:hover {
+      color: $black;
+      transform: scale(1.2);
+    }
+  }
   h2 {
     letter-spacing: 5px;
     text-align: center;
@@ -33,9 +60,102 @@
   }
   .wrapper {
     padding-top: 20px;
+    height: 100%;
+    width: 100%;
   }
+
+  .empty-element {
+    height: 100%;
+    min-height: 670px;
+  }
+
   article {
     min-height: 670px;
+  }
+}
+
+// PC表示
+@media screen and (min-width:1200px) {
+  .sea-condition-map {
+    .empty-element {
+      width: 30%;
+    }
+    article {
+      width: 57%;
+    }
+    .select-menu-btn {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .sea-condition-map {
+    .empty-element {
+      width: 40%;
+    }
+    article {
+      width: 55%;
+    }
+    .select-menu-btn {
+      display: none;
+    }
+    .close-btn {
+      opacity: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sea-condition-map {
+    .wrapper {
+      padding-top: 8px;
+    }
+    .select-map-menu-btn {
+      width: 100%;
+      background-color: $black;
+      color: $kinari;
+      padding: 5px 10px;
+      margin: 0 auto;
+      padding: 8px 12px;
+      border-radius: 3px;
+      z-index: 10;
+      &:hover {
+        transform: scale(1.08);
+        color: $kinari;
+      }
+    }
+    .floating-board {
+      left: -100%;
+    }
+    .floating-board.active {
+      top: 0px;
+      left: 50%;
+      height: auto;
+      transition-delay: 0.3s;
+      transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+    }
+    .select-menu-btn.after-click {
+      display: none;
+    }
+    .close-btn {
+      opacity: 1;
+    }
+    .empty-element {
+      width: 0%;
+    }
+    article {
+      width: 100%;
+      padding-top: 10px;
+      .fukidashi01 {
+        width: 80px;
+      }
+      .goto-new,.goto-index {
+        display: none;
+      }
+    }
   }
 }
 
@@ -195,10 +315,19 @@
 // map表示
 
 .map-image {
-  // padding-bottom: 80px;
   #map {
-    height: 450px;
-    width: 100%;
+    aspect-ratio: 16/9;
+    height: 90%;
+    width: 90%;
+  }
+  .pin-discription {
+    .sample-pin {
+      width: 20px;
+      height: 27px;
+    }
+    span {
+      margin-right: 5px;
+    }
   }
 }
 
@@ -208,15 +337,10 @@
   margin-left: 10px;
 }
 
-.pin-discription {
-  .sample-pin {
-    width: 20px;
-    height: 27px;
-  }
-  span {
-    margin-right: 5px;
-  }
+.map-contents-wrap {
+  margin-top: 30px;
 }
+
 .map-contents {
   margin-top: 30px;
   margin-bottom: 100px;
@@ -233,8 +357,8 @@
 }
 .item {
   text-align: center;
-  padding: 10px;
-  width: 50%;
+  // padding: 1px;
+  width: 46%;
   a {
     display: block;
     &:hover {
@@ -242,11 +366,9 @@
     }
   }
   i {
-    margin-left: 12px;
+    margin-left: 8px;
   }
 }
-
-
 
 // show
 .divesite-top {
@@ -267,7 +389,7 @@
   }
   .divesite-top-value {
     width: 100%;
-    height: 100px;
+    height: 110px;
     position: absolute;
     top: 80px;
     padding: 20px 0;
@@ -279,15 +401,15 @@
       z-index: 20;
     }
     .divesite-name {
-    	font-size: 36px;
+      font-size: 36px;
       margin: 0 auto;
     }
     .divesite-name::before {
-    	content: attr(data-detail);
-    	display: block;
-    	color: $grey;
-    	font-size: 20px;
-    	font-style: italic;
+      content: attr(data-detail);
+      display: block;
+      color: $grey;
+      font-size: 20px;
+      font-style: italic;
       position: relative;
       text-align: center;
     }
@@ -295,12 +417,26 @@
 }
 
 #favorite-part {
-  .favorite-icon {
-    &:hover {
-      transform: translateY(-5px);
+  width: 50px;
+  span.favorite-part {
+    display: inline;
+    width: 50px;
+    .favorite-icon {
+      c
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+    .favorite-situation {
+      font-size: 10px;
+      letter-spacing: 1px;
+      position: relative;
+      top: 20px;
+      right: 55px;
     }
   }
 }
+
 
 .divesites-contents {
   width: 100%;
@@ -393,11 +529,55 @@ table.divesite-table {
   }
 }
 
+@media (min-width: 415px) {
+  a[href^="tel:"] {
+    pointer-events: none;
+    text-decoration: none;
+  }
+}
 
-// @media (min-width: 751px) {
-//   a[href^="tel:"] {
-//       pointer-events: none;
-//       cursor: default;
-//       text-decoration: underline;
-//   }
-// }
+
+@media screen and (max-width: 414px) {
+  a[href^="tel:"] {
+    cursor: default;
+    text-decoration: underline;
+}
+}
+
+// タブレットからPC
+@media (min-width: 768px) {
+  .divesite-top-value {
+    h1 {
+    }
+  }
+}
+// 幅の狭いスマホ
+@media (max-width: 767px) {
+  .divesite-top {
+    .divesite-top-value {
+      .divesite-name {
+        font-size: 25px;
+      }
+      .divesite-name::before {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  .divesites-contents {
+    .card-item {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .divesites-contents {
+    .card-item {
+      margin-bottom: 10px;
+    }
+  }
+}
