@@ -18,3 +18,19 @@ $('.zone').click(function(){
 
   $('.map-contents').removeClass('hidden');
 });
+
+// 海況MAPのサイドメニュースライド表示
+$('a.select-menu-btn').click(function() {
+  $('.floating-board').addClass('active');
+  $('.select-menu-btn').addClass('after-click');
+});
+
+$('a.close-btn').click(function() {
+  $('.floating-board').removeClass('active');
+  $('.select-menu-btn').removeClass('after-click');
+});
+
+$('a.zone').click(function() {
+  $('.floating-board').removeClass('active');
+  $('.select-menu-btn').removeClass('after-click');
+});

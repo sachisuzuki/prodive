@@ -1,51 +1,56 @@
 <div class="container-fluid sea-condition-map">
-  <div class="row">
-    <aside class="col-sm-4 col-md-4 col-lg-3 floating-board">
-      <nav class="select-map-range">
-        <h5 class="heading01"><span>地図を</span><span>表示させたい</span><span>エリアを選択</h5>
-        <% @areas.each do |area| %>
-        <ul>
-          <li>
-            <i class="sidebar_icon before-click"></i>
-            <h3 class="select-area"><%= area %></h3>
-            <% @zones = @divesites.where(area: area) %>
-            <% @zones.pluck(:zone).uniq.each do |zone| %>
-            <ul class="zone-list">
-              <li ><%= link_to zone, select_map_divesites_path(zone: zone), data: {lat: "#{@zones.find_by(zone: zone).latitude}", lng: "#{@zones.find_by(zone: zone).longitude}"}, class: "zone", remote: true %></li>
+  <div class="wrapper">
+    <a class="select-menu-btn" href="#">
+      <i class="fas fa-bars"> ダイブサイト選択メニュー</i>
+    </a>
+    <div class="row">
+      <div class="col-sm-4 col-md-4 col-lg-3 floating-board">
+        <a class="close-btn" href="#">
+          <i class="fas fa-window-close"></i>
+        </a>
+        <nav class="select-map-range">
+          <h5 class="heading01"><span>地図を</span><span>表示させたい</span><span>エリアを選択</span></h5>
+          <% @areas.each do |area| %>
+            <ul>
+              <li>
+                <i class="sidebar_icon before-click"></i>
+                <h3 class="select-area"><%= area %></h3>
+                <% @zones = @divesites.where(area: area) %>
+                <% @zones.pluck(:zone).uniq.each do |zone| %>
+                  <ul class="zone-list">
+                    <li>
+                      <%= link_to zone, select_map_divesites_path(zone: zone), data: {lat: "#{@zones.find_by(zone: zone).latitude}", lng: "#{@zones.find_by(zone: zone).longitude}"}, class: "zone", remote: true %>
+                    </li>
+                  </ul>
+                <% end %>
+              </li>
             </ul>
-            <% end %>
-          </li>
-        </ul>
-        <% end %>
-      </nav>
-    </aside>
-    <div class="wrapper">
-      <div class="row">
-        <div class="col-sm-5 col-md-5 col-lg-4 empty-element"></div>
-        <div class="col-sm-7 col-md-7 col-lg-8 row">
-          <article class="col-sm-12 col-md-12 col-lg-7">
-            <h2 class="pb-1">海況MAP <%= image_tag '/images/divesites/fukidashi01.png', class: "fukidashi01" %></h2>
-              <div class="pb-2 transitions">
-                <%= link_to '海況を投稿', new_condition_path, class: "goto-new" %>
-                <%= link_to '本日の投稿一覧', conditions_path, class: "goto-index" %>
-              </div>
-            <div class="map-image">
-              <div id='map'></div>
-            </div>
-            <div class="d-flex justify-content-around pt-2 pin-discription">
-              <%= image_tag '/images/conditions/open_pin.png', class: "sample-pin" %><span><small>:OPEN</small></span>
-              <%= image_tag '/images/conditions/warning_pin.png', class: "sample-pin" %><span><small>:潜水注意</small></span>
-              <%= image_tag '/images/conditions/close_pin.png', class: "sample-pin" %><span><small>:CLOSE</small></span>
-              <%= image_tag '/images/conditions/no_info_pin.png', class: "sample-pin" %><span><small>:投稿なし</small></span>
-            </div>
-          </article>
-          <div class="col-sm-0 col-md-0 col-lg-5 map-contents-wrap">
-            <div class="map-contents hidden">
-              <%= render 'select_zone', zones: @zones %>
-            </div>
+          <% end %>
+        </nav>
+      </div>
+      <div class="empty-element"></div>
+      <article class="">
+        <h2 class="pb-1">海況MAP <%= image_tag '/images/divesites/fukidashi01.png', class: "fukidashi01" %></h2>
+          <div class="pb-2 transitions">
+            <%= link_to '海況を投稿', new_condition_path, class: "goto-new" %>
+            <%= link_to '本日の投稿一覧', conditions_path, class: "goto-index" %>
+          </div>
+        <div class="map-image">
+          <div id='map'></div>
+          <div class="d-flex justify-content-around pt-2 pin-discription">
+            <%= image_tag '/images/conditions/open_pin.png', class: "sample-pin" %><span><small>:OPEN</small></span>
+            <%= image_tag '/images/conditions/warning_pin.png', class: "sample-pin" %><span><small>:潜水注意</small></span>
+            <%= image_tag '/images/conditions/close_pin.png', class: "sample-pin" %><span><small>:CLOSE</small></span>
+            <%= image_tag '/images/conditions/no_info_pin.png', class: "sample-pin" %><span><small>:投稿なし</small></span>
           </div>
         </div>
-      </div>
+        <div class="map-contents-wrap">
+          <h5 class="pb-1"><span>選択した区域にある</span><span>ダイブサイト一覧</span></h5>
+          <div class="map-contents hidden">
+            <%= render 'select_zone', zones: @zones %>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </div>
