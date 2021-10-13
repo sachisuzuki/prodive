@@ -132,6 +132,7 @@
       top: 0px;
       left: 50%;
       height: auto;
+      transition-delay: 0.3s;
       transform: translateX(-50%);
       -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
@@ -156,7 +157,6 @@
       }
     }
   }
-
 }
 
 // sidebar
@@ -389,7 +389,7 @@
   }
   .divesite-top-value {
     width: 100%;
-    height: 100px;
+    height: 110px;
     position: absolute;
     top: 80px;
     padding: 20px 0;
@@ -417,12 +417,26 @@
 }
 
 #favorite-part {
-  .favorite-icon {
-    &:hover {
-      transform: translateY(-5px);
+  width: 50px;
+  span.favorite-part {
+    display: inline;
+    width: 50px;
+    .favorite-icon {
+      c
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+    .favorite-situation {
+      font-size: 10px;
+      letter-spacing: 1px;
+      position: relative;
+      top: 20px;
+      right: 55px;
     }
   }
 }
+
 
 .divesites-contents {
   width: 100%;
@@ -515,11 +529,55 @@ table.divesite-table {
   }
 }
 
+@media (min-width: 415px) {
+  a[href^="tel:"] {
+    pointer-events: none;
+    text-decoration: none;
+  }
+}
 
-// @media (min-width: 751px) {
-//   a[href^="tel:"] {
-//       pointer-events: none;
-//       cursor: default;
-//       text-decoration: underline;
-//   }
-// }
+
+@media screen and (max-width: 414px) {
+  a[href^="tel:"] {
+    cursor: default;
+    text-decoration: underline;
+}
+}
+
+// タブレットからPC
+@media (min-width: 768px) {
+  .divesite-top-value {
+    h1 {
+    }
+  }
+}
+// 幅の狭いスマホ
+@media (max-width: 767px) {
+  .divesite-top {
+    .divesite-top-value {
+      .divesite-name {
+        font-size: 25px;
+      }
+      .divesite-name::before {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  .divesites-contents {
+    .card-item {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .divesites-contents {
+    .card-item {
+      margin-bottom: 10px;
+    }
+  }
+}
