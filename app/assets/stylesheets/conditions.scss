@@ -22,9 +22,9 @@
     button {
       letter-spacing: 2px;
       margin-top: 6px;
-      padding: 2px 5px;
+      padding: 3px 8px;
       border-style: none;
-      border-radius: 5px;
+      border-radius: 3px;
       color: $black;
       background-color: $grey;
       &:hover {
@@ -153,6 +153,14 @@ table {
 
 // スマホ表示
 @media screen and (max-width:767px){
+  .select_divesite-wrap {
+    .select_divesite {
+      button {
+        margin-right: 10px;
+        margin-bottom: 5px;;
+      }
+    }
+  }
   .headding {
     font-size: 1.5rem;
     span {
@@ -300,7 +308,6 @@ table {
   margin: 30px 0 50px 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
 }
 
 .card-item {
@@ -308,7 +315,6 @@ table {
   border-radius: 5px;
   padding: 25px;
   align-self: flex-start;
-  width: calc((100% - 30px) / 2);
   background-color: $grey;
   &:hover {
     border: solid 2px $blue;
@@ -330,7 +336,7 @@ table {
     margin: 0;
   }
   .card-title {
-    width: 80%;
+    width: 100%;
     position: relative;
     z-index: 10;
     .status-icon {
@@ -376,11 +382,6 @@ table {
     }
   }
 }
-@media not all and (min-width: 768px) {
-  .card-item {
-    width: 80%;
-  }
-}
 
 .post-user-avatar {
   border-radius: 100%;
@@ -416,4 +417,35 @@ table {
   width: 250px;
   height: 250px;
   background-color: $kinari;
+}
+
+// PC表示
+@media screen and (min-width:1281px) {
+  .card-wrap {
+    gap: 30px;
+    .card-item {
+      width: calc((100% - 60px) / 3);
+    }
+  }
+}
+
+// タブレット表示
+@media screen and (min-width:768px) and (max-width:1280px) {
+  .card-wrap {
+    gap: 30px;
+    .card-item {
+      width: calc((100% - 30px) / 2);
+    }
+  }
+}
+
+// スマホ表示
+@media screen and (max-width:767px) {
+  .card-wrap {
+    gap: 0px;
+    .card-item {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
 }
