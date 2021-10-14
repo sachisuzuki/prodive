@@ -29,8 +29,8 @@ header {
     font-size: 0.9rem;
   }
 }
-// スマホ表示
-@media screen and (min-width:769px) {
+// PC/タブレット表示
+@media screen and (min-width:768px) {
   header.after-scroll {
     align-items: center;
     transform:translateY(-40px);
@@ -44,6 +44,13 @@ header {
     .nav-toggle {
       margin-top: 35px;
     }
+  }
+}
+
+@media screen and (max-width:767px) {
+  header.after-scroll {
+    align-items: center;
+    transform:translateY(-100px);
   }
 }
 

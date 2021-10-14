@@ -16,15 +16,15 @@
     p {
       margin: 0;
     }
-    h4 {
+    .headding {
       margin-bottom: 1rem;
     }
     button {
       letter-spacing: 2px;
       margin-top: 6px;
-      padding: 2px 5px;
+      padding: 3px 8px;
       border-style: none;
-      border-radius: 5px;
+      border-radius: 3px;
       color: $black;
       background-color: $grey;
       &:hover {
@@ -39,9 +39,28 @@
   padding-top: 20px;
   padding-bottom: 100px;
   text-align: center;
+  font-weight: bold;
+  label {
+    font-weight: bold;
+  }
+  span.response {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: $grey;
+    border-radius: 3px;
+  }
+  span.response-support {
+    display: inline-block;
+    font-size: 1.5rem;
+  }
   .input-field {
     text-align: left;
     display: inline-block;
+    .required::after {
+      content: " *";
+      color: $red;
+      vertical-align: middle;
+    }
     .status-radio-btn {
       padding-right: 10px;
     }
@@ -74,15 +93,15 @@
     border-color: $blue rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0);
   }
 }
-
-th {
-  font-weight: normal;
-  padding-right: 18px;
-  text-align: right;
-}
 table {
   border-collapse: separate;
   border-spacing: 15px;
+  width: 100%;
+  th {
+    font-weight: normal;
+    padding-right: 18px;
+    text-align: right;
+  }
 }
 
 .temp, .visib {
@@ -101,10 +120,6 @@ table {
   }
 }
 
-.hidden {
-  display: none;
-}
-
 .submit-btn {
   letter-spacing: 3px;
   margin-top: 20px;
@@ -118,25 +133,92 @@ table {
   }
 }
 
+// PC/タブレット表示
+@media screen and (min-width:768px){
+  .headding {
+    font-size: 2.0rem;
+    span {
+      display: block;
+    }
+  }
+  .input-field-wrap {
+    span.response {
+      font-size: 2.0rem;
+    }
+    span.response-support {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+// スマホ表示
+@media screen and (max-width:767px){
+  .select_divesite-wrap {
+    .select_divesite {
+      button {
+        margin-right: 10px;
+        margin-bottom: 5px;;
+      }
+    }
+  }
+  .headding {
+    font-size: 1.5rem;
+    span {
+      display: inline-block;
+    }
+  }
+  .input-field-wrap {
+    span.response {
+      font-size: 1.5rem;
+    }
+    span.response-support {
+      font-size: 1.2rem;
+    }
+    .fukidashi01 {
+      display: none;
+    }
+    input::placeholder {
+      font-size: .9rem;
+    }
+    table {
+      th {
+        display: block;
+        width: 100%;
+        text-align: left;
+      }
+      td {
+        display: block;
+        width: 100%;
+        span {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
 // show
 .copy_alert {
   text-align: center;
   display: none;
+  span {
+    display: inline-block;
+  }
 }
 
 .post-show {
   .card-item {
     width: 100%;
+    padding: 40px;
     &:hover {
       border: none;
       transform: scale(1.0);
     }
   }
   .card-item-inner {
-    padding: 30px;
     .card-table {
       border: dashed $black;
-      margin: 20px;
+      // margin: 20px;
       #js-copytext {
         width: 100%;
         background-color: $kinari;
@@ -175,12 +257,11 @@ table {
     }
   }
   .card-image {
-    width: 80%;
+    width: 100%;
   }
   .show-last-btns {
     width: 100%;
     .transition-btn {
-      display: block;
       letter-spacing: 3px;
       background-color: $black;
       a {
@@ -190,9 +271,28 @@ table {
         transform: translateY(-5px);
       }
     }
+    .post-delete {
+      width: 45%;
+    }
   }
 }
 
+// PC/タブレット表示
+@media screen and (min-width:768px) {
+  .show-last-btns {
+    justify-content: space-around;
+  }
+}
+
+// スマホ表示
+@media screen and (max-width:767px) {
+  .show-last-btns {
+    font-size: .9rem;
+    span {
+      display: inline-block;
+    }
+  }
+}
 
 
 // index
@@ -208,7 +308,6 @@ table {
   margin: 30px 0 50px 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
 }
 
 .card-item {
@@ -216,7 +315,6 @@ table {
   border-radius: 5px;
   padding: 25px;
   align-self: flex-start;
-  width: calc((100% - 30px) / 2);
   background-color: $grey;
   &:hover {
     border: solid 2px $blue;
@@ -238,6 +336,7 @@ table {
     margin: 0;
   }
   .card-title {
+    width: 100%;
     position: relative;
     z-index: 10;
     .status-icon {
@@ -283,11 +382,6 @@ table {
     }
   }
 }
-@media not all and (min-width: 768px) {
-  .card-item {
-    width: 80%;
-  }
-}
 
 .post-user-avatar {
   border-radius: 100%;
@@ -323,4 +417,35 @@ table {
   width: 250px;
   height: 250px;
   background-color: $kinari;
+}
+
+// PC表示
+@media screen and (min-width:1281px) {
+  .card-wrap {
+    gap: 30px;
+    .card-item {
+      width: calc((100% - 60px) / 3);
+    }
+  }
+}
+
+// タブレット表示
+@media screen and (min-width:768px) and (max-width:1280px) {
+  .card-wrap {
+    gap: 30px;
+    .card-item {
+      width: calc((100% - 30px) / 2);
+    }
+  }
+}
+
+// スマホ表示
+@media screen and (max-width:767px) {
+  .card-wrap {
+    gap: 0px;
+    .card-item {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
 }

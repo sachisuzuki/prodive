@@ -23,6 +23,13 @@ $('#parent').on('click', 'button', function() {
 
   $('.grandchild').addClass('hidden');
 
+  $('.response').text('_ _ _ _').css('background-color', 'rgba(220,231,235,1)').css('color', 'rgba(48,69,92,0.9)');
+
+  $("input[name='condition[divesite]']").val('');screenTop
+
+  $("input[name='condition[divesite]']").prop('disabled', false);
+
+  $("input[name='condition[divesite_id]']").val('');
 
 });
 
@@ -61,7 +68,7 @@ $('#grandchildren').on('click', 'button', function() {
 
   var dsName = $(this).text();
 
-  $('.h3').text(`${dsName}`);
+  $('.response').text(`${dsName}`).css('color', '#FCFAF2').css('background-color', 'rgba(48,69,92,0.9)');
 
   $("input[name='condition[divesite]']").val(`${dsName}`);
 
