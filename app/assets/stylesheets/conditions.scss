@@ -39,6 +39,10 @@
   padding-top: 20px;
   padding-bottom: 100px;
   text-align: center;
+  font-weight: bold;
+  label {
+    font-weight: bold;
+  }
   span.response {
     display: inline-block;
     padding: 5px 10px;
@@ -189,21 +193,24 @@ table {
 .copy_alert {
   text-align: center;
   display: none;
+  span {
+    display: inline-block;
+  }
 }
 
 .post-show {
   .card-item {
     width: 100%;
+    padding: 40px;
     &:hover {
       border: none;
       transform: scale(1.0);
     }
   }
   .card-item-inner {
-    padding: 30px;
     .card-table {
       border: dashed $black;
-      margin: 20px;
+      // margin: 20px;
       #js-copytext {
         width: 100%;
         background-color: $kinari;
@@ -242,12 +249,11 @@ table {
     }
   }
   .card-image {
-    width: 80%;
+    width: 100%;
   }
   .show-last-btns {
     width: 100%;
     .transition-btn {
-      display: block;
       letter-spacing: 3px;
       background-color: $black;
       a {
@@ -257,9 +263,28 @@ table {
         transform: translateY(-5px);
       }
     }
+    .post-delete {
+      width: 45%;
+    }
   }
 }
 
+// PC/タブレット表示
+@media screen and (min-width:768px) {
+  .show-last-btns {
+    justify-content: space-around;
+  }
+}
+
+// スマホ表示
+@media screen and (max-width:767px) {
+  .show-last-btns {
+    font-size: .9rem;
+    span {
+      display: inline-block;
+    }
+  }
+}
 
 
 // index
@@ -305,6 +330,7 @@ table {
     margin: 0;
   }
   .card-title {
+    width: 80%;
     position: relative;
     z-index: 10;
     .status-icon {

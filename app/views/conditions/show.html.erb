@@ -11,17 +11,24 @@
             <p><small><%= @condition.divesite.area %> / <%= @condition.divesite.zone %></small></p>
             <div class="card-title" data-toggle="tooltip" data-placement="right" title="ダイブサイトページへ" >
               <div class="h4">
-                <%= link_to @condition.divesite.name, divesite_path(@condition.divesite.id) %>
-                <small><%= @condition.divepoint %></small>
-              </div>
-              <span data-toggle="tooltip" data-placement="right" title="ユーザ詳細ページへ" >
-                <% if @condition.user.avatar? %>
-                  <%= link_to image_tag(@condition.user.avatar.thumb.url, class: "post-user-avatar"), user_path(@condition.user.id) %>
-                <% else %>
-                  <%= link_to image_tag('/images/thumb_default-avatar.png', class: "post-user-avatar"), user_path(@condition.user.id) %>
+                <%= link_to divesite_path(@condition.divesite.id) do %>
+                  <%= @condition.divesite.name %>
+                  <small><%= @condition.divepoint %></small>
                 <% end %>
-                <strong class="pl-2"><%= link_to @condition.user.name, user_path(@condition.user.id) %></strong>
-              </span>
+              </div>
+              <div data-toggle="tooltip" data-placement="right" title="ユーザ詳細ページへ" >
+                <% if @condition.user.avatar? %>
+                  <%= link_to user_path(@condition.user.id) do %>
+                    <%= image_tag(@condition.user.avatar.thumb.url, class: "post-user-avatar") %>
+                    <strong class="pl-2"><%= @condition.user.name %></strong>
+                  <% end %>
+                <% else %>
+                  <%= link_to user_path(@condition.user.id) do %>
+                    <%= image_tag('/images/thumb_default-avatar.png',class: "post-user-avatar") %>
+                    <strong class="pl-2"><%= @condition.user.name %></strong>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
             <div class="card-table" style="border: none;">
               <table>
@@ -46,26 +53,7 @@
               </table>
             </div>
             <p class="card-comment">コメント<i class="fas fa-caret-down"></i></p>
-            <%= @condition.content %>
-            <% if current_user.id == @condition.user_id %>
-            <div class="card-table">
-              <div id="js-copytext">
-                <p>海況: <%= t("status.#{@condition.status}") %></p>
-                <br>
-                <p><%= @condition.content %></p>
-                <br>
-                <p>水温: <%= @condition.temperature %><span> ℃</span> / 透明度: <%= @condition.visibility %><span> m</span></p>
-              </div>
-            </div>
-              <div class="copy-btns">
-                <button type="button" id="js-copybtn">点線内のテキストをコピー</button>
-                <p id="js-copyalert" class="copy_alert">コピーできました！このままtwitterにも投稿しよう！！</p>
-                <div class="headding"></div>
-                <div class="tweet-btn">
-                  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="<%= "#{@condition.divesite.name}の本日の海況" %>" data-hashtags="PRODIVE" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </div>
-              </div>
-            <% end %>
+            <p><%= @condition.content %></p>
             <div class="card-image">
               <% if @condition.image? && @condition.image.file.content_type.include?('image/') %>
                 <%= image_tag(@condition.image.original.url) %>
@@ -73,15 +61,36 @@
                 <%= video_tag @condition.image, controls: true, controlsList: "nodownload",oncontextmenu: "return false;", autobuffer: true, muted: true, poster: "#{@condition.image_url(:screenshot)}" %>
               <% end %>
             </div>
+            <% if current_user.id == @condition.user_id %>
+              <hr class="m-4">
+              <p class="mb-3"><i class="fab fa-twitter"></i> SNSに投稿する際<br> 下記ボタンで点線内の内容をコピーできます</p>
+              <div class="card-table">
+                <div id="js-copytext">
+                  <p>海況: <%= t("status.#{@condition.status}") %></p>
+                  <br>
+                  <p><%= @condition.content %></p>
+                  <br>
+                  <p>水温: <%= @condition.temperature %><span> ℃</span> / 透明度: <%= @condition.visibility %><span> m</span></p>
+                </div>
+              </div>
+              <div class="copy-btns">
+                <button type="button" id="js-copybtn">点線内をコピー</button>
+                <p id="js-copyalert" class="copy_alert"><span>コピーできました！</span><span>このままtwitterに</span><span>投稿しよう！</span></p>
+                <div class="headding"></div>
+                <div class="tweet-btn">
+                  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="<%= "#{@condition.divesite.name}の本日の海況" %>" data-hashtags="PRODIVE" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
       <div class="pt-3 d-flex justify-content-around show-last-btns">
-        <div class="transition-btn">
-          <%= link_to '本日の海況情報へ戻る', conditions_path %>
-        </div>
+        <span class="transition-btn">
+          <%= link_to '本日の海況情報へ', conditions_path %>
+        </span>
         <% if current_user.id == @condition.user_id %>
-          <div class="">
+          <span class="post-delete">
             <%= link_to condition_path(@condition), method: :delete, data: { confirm: 'この投稿を削除しますか？' }, class: "unobtrusive" do %>
               <%= '投稿を削除' %><i class="fas fa-angle-right"></i>
             <% end %>
