@@ -66,10 +66,9 @@
               <p class="mb-3"><i class="fab fa-twitter"></i> SNSに投稿する際<br> 下記ボタンで点線内の内容をコピーできます</p>
               <div class="card-table">
                 <div id="js-copytext">
+                  <p>ポイント名: <%= t("status.#{@condition.divepoint}") %></p>
                   <p>海況: <%= t("status.#{@condition.status}") %></p>
-                  <br>
                   <p><%= @condition.content %></p>
-                  <br>
                   <p>水温: <%= @condition.temperature %><span> ℃</span> / 透明度: <%= @condition.visibility %><span> m</span></p>
                 </div>
               </div>

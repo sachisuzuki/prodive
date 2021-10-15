@@ -80,9 +80,10 @@ $('#grandchildren').on('click', 'button', function() {
 $('#js-copybtn').on('click', function(){
     // コピーする文章の取得
     let text = $('#js-copytext').text();
+    text = text.replace(/[^\S\n\r]/, "");
     // テキストエリアの作成
     let $textarea = $('<textarea></textarea>');
-    // テキストエリアに文章を挿入
+    // テキストエリアに文章を挿入s
     $textarea.text(text);
     // テキストエリアを挿入
     $(this).append($textarea);
