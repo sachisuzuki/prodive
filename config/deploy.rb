@@ -1,6 +1,6 @@
 # cron設定で必要なwhenever
 set :whenever_roles, ->{ :app }
-set :whenever_command, "bundle exec whenever"
+set :whenever_command, ->{ [:bundle, :exec, :whenever] }
 
 # config valid only for current version of Capistrano
 lock '3.6.0'
