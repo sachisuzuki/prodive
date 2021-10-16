@@ -6,7 +6,7 @@ set :application, 'prodive'
 # （xxxxxxxx：ユーザ名、yyyyyyyy：アプリケーション名）
 set :repo_url, 'git@github.com:sachio-portfolio/prodive.git'
 # deployするブランチ。デフォルトでmainを使用している場合、masterをmainに変更してください。
-set :branch, ENV['BRANCH'] || 'master'
+set :branch, ENV['BRANCH'] || 'issue39'
 # deploy先のディレクトリ。
 set :deploy_to, '/var/www/prodive'
 # シンボリックリンクをはるフォルダ・ファイル
@@ -17,6 +17,9 @@ set :keep_releases, 5
 # Rubyのバージョン
 set :rbenv_ruby, '2.6.5'
 set :rbenv_type, :system
+
+set :whenever_roles, ->{ :app }
+set :whenever_command, ->{ %i[bundle exec whenever] }
 # 出力するログのレベル。エラーログを詳細に見たい場合は :debug に設定する。
 # 本番環境用のものであれば、 :info程度が普通。
 # ただし挙動をしっかり確認したいのであれば :debug に設定する。
