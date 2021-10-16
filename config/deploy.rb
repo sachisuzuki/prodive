@@ -1,3 +1,7 @@
+# cron設定で必要なwhenever
+require  "whenever/capistrano"
+set :whenever_roles, ->{ :db }
+
 # config valid only for current version of Capistrano
 lock '3.6.0'
 # デプロイするアプリケーション名
@@ -6,7 +10,7 @@ set :application, 'prodive'
 # （xxxxxxxx：ユーザ名、yyyyyyyy：アプリケーション名）
 set :repo_url, 'git@github.com:sachio-portfolio/prodive.git'
 # deployするブランチ。デフォルトでmainを使用している場合、masterをmainに変更してください。
-set :branch, ENV['BRANCH'] || 'master'
+set :branch, ENV['BRANCH'] || 'issue29'
 # deploy先のディレクトリ。
 set :deploy_to, '/var/www/prodive'
 # シンボリックリンクをはるフォルダ・ファイル
