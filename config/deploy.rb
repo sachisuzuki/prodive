@@ -1,6 +1,5 @@
 # cron設定で必要なwhenever
-require  "whenever/capistrano"
-set :whenever_roles, ->{ :db }
+set :whenever_roles, ->{ :app }
 
 # config valid only for current version of Capistrano
 lock '3.6.0'
