@@ -4,7 +4,7 @@
     <div class="col-sm-10 col-md-10 col-lg-8 post-index">
       <h1 class="pb-4 headding"><span><%= "#{Date.current.strftime("%-m月%e日")}" %></span><small> 本日の海況情報一覧</small></h1>
       <% if @conditions.blank? %>
-        <p class="mt-5 d-flex justify-content-centser">本日の投稿はまだのようです…</p>
+        <p class="mt-5 d-flex justify-content-center">本日の投稿はまだのようです…</p>
       <% end %>
       <div class="card-wrap">
         <% @conditions.each do |condition| %>
@@ -58,7 +58,7 @@
                   <% if condition.image? && condition.image.file.content_type.include?('image/') %>
                     <%= image_tag(condition.image.original.url) %>
                   <% elsif condition.image? && condition.image.file.content_type.include?('video/') %>
-                    <%= video_tag condition.image, controls: true, controlsList: "nodownload",oncontextmenu: "return false;", autobuffer: true, muted: true, poster: "#{condition.image_url(:screenshot)}" %>
+                    <%= video_tag condition.image, controls: true, controlsList: "nodownload",oncontextmenu: "return false;", autobuffer: true, muted: true %>
                   <% end %>
                 </div>
               </div>
