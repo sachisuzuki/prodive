@@ -4,5 +4,5 @@ set :environment, rails_env
 set :output, "#{Rails.root}/log/cron.log"
 
 every :day, at: '06:30' do
-  rake 'db:seed'
+  rake 'db:seed:condition'
 end
