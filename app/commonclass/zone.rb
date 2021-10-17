@@ -15,7 +15,7 @@ class Zone
   end
   def self.hokkaido_enum
     { 積丹半島: 6,
-      ウトロ: 7,
+      知床半島: 7,
     }
   end
   def self.tohoku_enum
