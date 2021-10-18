@@ -18,12 +18,12 @@
               </div>
               <div data-toggle="tooltip" data-placement="right" title="ユーザ詳細ページへ" >
                 <% if @condition.user.avatar? %>
-                  <%= link_to user_path(@condition.user.id) do %>
+                  <%= link_to user_path(@condition.user.uid) do %>
                     <%= image_tag(@condition.user.avatar.thumb.url, class: "post-user-avatar") %>
                     <strong class="pl-2"><%= @condition.user.name %></strong>
                   <% end %>
                 <% else %>
-                  <%= link_to user_path(@condition.user.id) do %>
+                  <%= link_to user_path(@condition.user.uid) do %>
                     <%= image_tag('/images/thumb_default-avatar.png',class: "post-user-avatar") %>
                     <strong class="pl-2"><%= @condition.user.name %></strong>
                   <% end %>

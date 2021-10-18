@@ -21,7 +21,7 @@ class Users::SessionsController < Devise::SessionsController
   def guest_sign_in
     user = User.guest
     sign_in user
-    redirect_to mypage_user_url(user.id)
+    redirect_to mypage_user_url(user.uid)
     flash[:notice] = "ゲスト(ユーザー)としてログインしました！"
   end
 
