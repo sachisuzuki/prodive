@@ -43,7 +43,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     movie = FFMPEG::Movie.new(tmpfile)
     movie.screenshot(current_path + ".jpg", {resolution: '300x200' }, preserve_aspect_ratio: :width)
     File.rename(current_path + ".jpg", current_path)
-    # file.content_type = "image/jpeg"
+    file.content_type = "image/jpeg"
     File.delete(tmpfile)
   end
 
@@ -52,9 +52,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   private
+
   def is_image? image
     image.content_type.include?('image/')
   end
+
   def is_video? video
     video.content_type.include?('video/')
   end
