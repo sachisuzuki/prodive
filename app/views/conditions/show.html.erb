@@ -58,7 +58,7 @@
               <% if @condition.image? && @condition.image.file.content_type.include?('image/') %>
                 <%= image_tag(@condition.image.original.url) %>
               <% elsif @condition.image? && @condition.image.file.content_type.include?('video/') %>
-                <%= video_tag @condition.image, controls: true, controlsList: "nodownload",oncontextmenu: "return false;", autobuffer: true, muted: true, poster: "#{condition.image_url(:screenshot)}" %>
+                <%= video_tag @condition.image, controls: true, controlsList: "nodownload",oncontextmenu: "return false;", autobuffer: true, muted: true, poster: "#{@condition.image_url(:screenshot)}" %>
               <% end %>
             </div>
             <% if current_user.id == @condition.user_id %>

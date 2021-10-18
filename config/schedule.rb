@@ -3,6 +3,6 @@ rails_env = ENV['RAILS_ENV'] || :development
 set :environment, rails_env
 set :output, "#{Rails.root}/log/cron.log"
 
-every :day, at: '19:00' do
+every :day, at: '22:45' do
   rake 'db:seed:condition'
 end
