@@ -55,7 +55,6 @@
   width: 50%;
   text-align: center;
   margin: auto;
-  // margin-top: 50px;
   .avatar-image-top {
     position: relative;
     object-fit: cover;
@@ -64,7 +63,6 @@
     z-index: 10;
     border-radius: 100%;
   }
-
 }
 .user-show-right {
   position: relative;
@@ -73,12 +71,10 @@
   vertical-align: middle;
   margin: 0 auto;
   margin-top: 70px;
-  }
   .follow-part {
     margin: 50px auto;
     max-width: 200px;
   }
-
   .follow-btn {
     text-align: center;
     background-color: $grey;
@@ -98,6 +94,7 @@
         display: block;
       }
     }
+  }
 }
 
 .user-show-bottom {
@@ -154,6 +151,9 @@
   .sidemenu-btn {
     display: none;
   }
+  .user-show-top {
+    margin-top: 50px;
+  }
 }
 
 @media screen and (max-width: 699px) {
@@ -192,6 +192,9 @@
     width: 100%;
     margin-top: 50px;
     margin-left: 10px;
+  }
+  .user-show-top {
+    margin-top: 10px;
   }
 }
 
