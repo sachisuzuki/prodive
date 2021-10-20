@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[ show ] do
     member do
-      get 'mypage'
+      get 'mypage', param: :uid
       get 'myprofile'
       get 'myfavorite'
       get 'mypost'

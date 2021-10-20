@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     end
   end
   def mypage
-    unless current_user.id == params[:id].to_i
+    unless current_user.uid == params[:id]
       redirect_to root_url
       flash[:alert] = "お探しのページは見つかりません"
     else
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def myprofile
     respond_to do |format|
       format.js { render :myprofile }
-      format.html { redirect_to mypage_user_path(current_user.id) }
+      format.html { redirect_to mypage_user_path(current_user.uid) }
     end
   end
   def myfavorite
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     @followed = Relationship.where(follower_id: @user.id).order(created_at: :DESC)
     respond_to do |format|
       format.js { render :myfavorite }
-      format.html { redirect_to mypage_user_path(current_user.id) }
+      format.html { redirect_to mypage_user_path(current_user.uid) }
     end
   end
   def mypost
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     @conditions = @conditions.page(params[:page]).per(10)
     respond_to do |format|
       format.js { render :mypost }
-      format.html { redirect_to mypage_user_path(current_user.id) }
+      format.html { redirect_to mypage_user_path(current_user.uid) }
     end
   end
   private
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     params.reguire(:user).permit(:name, :email, :avatar, :avatar_cache)
   end
   def set_user
-    user = User.all.pluck(:id)
-    @user = User.find(params[:id]) if params[:id].to_i.in?(user)
+    user = User.all.pluck(:uid)
+    @user = User.find_by(uid: params[:id]) if params[:id].in?(user)
   end
 end

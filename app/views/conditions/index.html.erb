@@ -20,11 +20,11 @@
               </div>
               <span data-toggle="tooltip" data-placement="right" title="ユーザ詳細ページへ" >
                 <% if condition.user.avatar? %>
-                  <%= link_to image_tag(condition.user.avatar.thumb.url, class: "post-user-avatar"), user_path(condition.user.id) %>
+                  <%= link_to image_tag(condition.user.avatar.thumb.url, class: "post-user-avatar"), user_path(condition.user.uid) %>
                 <% else %>
-                  <%= link_to image_tag('/images/thumb_default-avatar.png', class: "post-user-avatar"), user_path(condition.user.id) %>
+                  <%= link_to image_tag('/images/thumb_default-avatar.png', class: "post-user-avatar"), user_path(condition.user.uid) %>
                 <% end %>
-                <strong class="pl-2"><%= link_to condition.user.name, user_path(condition.user.id) %></strong>
+                <strong class="pl-2"><%= link_to condition.user.name, user_path(condition.user.uid) %></strong>
               </span>
             </div>
             <div class="accordion-wrap">

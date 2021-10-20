@@ -279,6 +279,12 @@ table {
 
 // PC/タブレット表示
 @media screen and (min-width:768px) {
+  .post-show {
+    .card-wrap {
+      margin: 0 auto;
+      width: 80%;
+    }
+  }
   .show-last-btns {
     justify-content: space-around;
   }
@@ -286,6 +292,12 @@ table {
 
 // スマホ表示
 @media screen and (max-width:767px) {
+  .post-show {
+    .card-wrap {
+      margin: 0 auto;
+      width: 100%;
+    }
+  }
   .show-last-btns {
     font-size: .9rem;
     span {
@@ -421,31 +433,38 @@ table {
 
 // PC表示
 @media screen and (min-width:1281px) {
-  .card-wrap {
-    gap: 30px;
-    .card-item {
-      width: calc((100% - 60px) / 3);
+  .post-index{
+    .card-wrap {
+      gap: 30px;
+      .card-item {
+        width: calc((100% - 60px) / 3);
+      }
     }
   }
+
 }
 
 // タブレット表示
 @media screen and (min-width:768px) and (max-width:1280px) {
-  .card-wrap {
-    gap: 30px;
-    .card-item {
-      width: calc((100% - 30px) / 2);
+  .post-index {
+    .card-wrap {
+      gap: 30px;
+      .card-item {
+        width: calc((100% - 30px) / 2);
+      }
     }
   }
 }
 
 // スマホ表示
 @media screen and (max-width:767px) {
-  .card-wrap {
-    gap: 0px;
-    .card-item {
-      width: 100%;
-      margin-bottom: 20px;
+  .post-index {
+    .card-wrap {
+      gap: 0px;
+      .card-item {
+        width: 100%;
+        margin-bottom: 20px;
+      }
     }
   }
 }

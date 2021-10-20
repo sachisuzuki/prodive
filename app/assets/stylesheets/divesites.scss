@@ -457,7 +457,6 @@
     .card-item-inner {
       display: flex;
       flex-wrap: wrap;
-      gap: 30px;
       .card-table {
         margin: 0 auto;
         max-width: 250px;
@@ -572,7 +571,7 @@ table.divesite-table {
 @media (min-width: 769px) {
   .divesites-contents {
     .card-item {
-      margin-bottom: 5px;
+      margin-bottom: 10px;
     }
   }
 }
