@@ -15,20 +15,30 @@
     position: relative;
     height: 250px;
     object-fit: cover;
-    object-position: 50% 30%;
+    object-position: 50% 50%;
     width: 100%;
     z-index: 10;
     filter: grayscale(100%) contrast(0.9);
   }
   .user-name {
     position: absolute;
-    top: 195px;
+    top: 180px;
     left: 45%;
     z-index: 30;
     font-size: 2.3em;
     font-weight: bold;
     color: $kinari;
     text-shadow: 2px 3px 0 $black;
+  }
+  .user-follower-count {
+    position: absolute;
+    top: 225px;
+    left: 48%;
+    z-index: 30;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: $kinari;
+    // text-shadow: 2px 3px 0 $black;
   }
   .col-sm-4 {
     padding: 0;

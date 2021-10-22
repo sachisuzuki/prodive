@@ -8,4 +8,5 @@
       <span class="d-flex justify-content-center align-items-center"><%= image_tag("/images/users/like.svg", class: "follow") %>フォロー中</span>
     <% end %></div>
   <% end %>
+  <p><%= @user.follower_user.count %> フォロー</p>
 </div>
