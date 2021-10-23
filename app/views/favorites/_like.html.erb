@@ -1,11 +1,11 @@
 <span class="favorite-part">
   <% if favorite.present? %>
     <%= link_to favorite_path(id: favorite.id), method: :delete, remote: true do %>
-      <i class="fas fa-laugh-squint favorite-icon"><span class="favorite-situation">お気に入り中</span></i>
+      <i class="fas fa-laugh-squint favorite-icon"><span class="favorite-situation">お気に入り中 <%= divesite.favorite_users.count %></span></i>
     <% end %>
   <% else %>
     <%= link_to favorites_path(divesite_id: divesite.id), method: :post, remote: true do %>
-      <i class="far fa-meh favorite-icon"><span class="favorite-situation"> お気に入り</span></i>
+      <i class="far fa-meh favorite-icon"><span class="favorite-situation"> お気に入り <%= divesite.favorite_users.count %></span></i>
     <% end %>
   <% end %>
 </span>
