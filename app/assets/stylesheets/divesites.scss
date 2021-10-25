@@ -86,6 +86,15 @@
     .select-menu-btn {
       display: none;
     }
+    .map-image {
+      #map {
+        position: absolute;
+        top: 0;
+        left: 5%;
+        width: 90%;
+        height: 90%;
+      }
+    }
   }
 }
 
@@ -102,6 +111,19 @@
     }
     .close-btn {
       opacity: 0;
+    }
+    .map-image {
+      #map {
+        position: absolute;
+        top: 0;
+        left: 5%;
+        width: 90%;
+        height: 90%;
+      }
+      .pin-discription {
+        position: relative;
+        top: 0px;
+      }
     }
   }
 }
@@ -154,6 +176,19 @@
       }
       .goto-new,.goto-index {
         display: none;
+      }
+      .map-image {
+        #map {
+          position: absolute;
+          top: 0;
+          left: 0%;
+          width: 100%;
+          height: 100%;
+        }
+        .pin-discription {
+          position: relative;
+          top: 30px;
+        }
       }
     }
   }
@@ -313,16 +348,11 @@
 }
 
 // map表示
-
 .map-image {
   position: relative;
   padding-top: 56.25%;
   #map {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
+
   }
   .pin-discription {
     .sample-pin {
@@ -342,7 +372,7 @@
 }
 
 .map-contents-wrap {
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 .map-contents {
@@ -569,7 +599,7 @@ table.divesite-table {
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .divesites-contents {
     .card-item {
       margin-bottom: 10px;
@@ -578,7 +608,7 @@ table.divesite-table {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .divesites-contents {
     .card-item {
       margin-bottom: 10px;

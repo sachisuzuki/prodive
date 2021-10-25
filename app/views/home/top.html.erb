@@ -4,7 +4,7 @@
       <div class="top-logo">
         <div class="top-logo-inner">
           <%= image_tag("/images/PRODIVE_lightblue.png", height: 45) %><br>
-          <p class="top-title-01">プロの資格を持つダイバーの為の<br>海況把握アプリ</p>
+          <p class="top-title-01">プロの資格を持つダイバーの為の<br>海況共有アプリ</p>
           <p class="top-title-02">今日どこに潜りに行く？</p>
         </div>
       </div>
@@ -35,7 +35,11 @@
           <p class="text mb-3">アピールができる場となります</p>
         </div>
         <div class="translucent-box left">
-          <p class="title"><small><i class="fas fa-map-marked-alt"></i></small> 海況MAPについて</p>
+          <p class="title"><small>
+            <%= link_to divesites_path do %>
+              <i class="fas fa-map-marked-alt"> 海況MAPについて</i>
+            <% end %></small>
+          </p>
           <p class="text">サイドメニューで</p>
           <p class="text mb-3">確認したいエリアを選択できます</p>
           <p class="text">表示されたMAPのPIN画像は</p>
@@ -45,7 +49,11 @@
           <p class="text"><small>※ ログイン不要</small></p>
         </div>
         <div class="translucent-box right">
-          <p class="title"><small><i class="fas fa-water"></i></small> 本日の海況</p>
+          <p class="title"><small>
+            <%= link_to conditions_path do %>
+              <i class="fas fa-water"> 本日の海況</i>
+            <% end %></small>
+          </p>
           <p class="text">各ダイブサイトの</p>
           <p class="text mb-3">海況投稿を一覧で確認できます</p>
           <p class="text">どこのダイブサイトに</p>
@@ -55,7 +63,11 @@
           <p class="text">より詳しく見ることができます</p>
         </div>
         <div class="translucent-box left">
-          <p class="title"><small><i class="fas fa-plus"></i></small> 海況投稿</p>
+          <p class="title"><small>
+            <%= link_to new_condition_path do %>
+              <i class="fas fa-plus"> 海況投稿</i>
+            <% end %></small>
+          </p>
           <p class="text">各ダイブサイトを</p>
           <p class="text">管理しているサービスの方や</p>
           <p class="text">実際の海況を確認できる方が</p>
@@ -66,7 +78,11 @@
           <p class="text"><small>※ SNSへの投稿も流れでできます</small></p>
         </div>
         <div class="translucent-box right mb-4">
-          <p class="title"><small><i class="fas fa-portrait"></i></small> マイページ</p>
+          <p class="title"><small>
+            <%= link_to mypage_user_path(current_user.uid) do %>
+              <i class="fas fa-portrait"> マイページ</i>
+            <% end %></small>
+          </p>
           <p class="text">お気に入りのダイブサイト一覧</p>
           <p class="text">フォローしているユーザーの一覧</p>
           <p class="text">自分の海況投稿一覧など</p>
