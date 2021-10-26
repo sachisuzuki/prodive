@@ -50,9 +50,13 @@
         </div>
         <div class="translucent-box right">
           <p class="title"><small>
+          <% if user_signed_in? %>
             <%= link_to conditions_path do %>
               <i class="fas fa-water"> 本日の海況</i>
             <% end %></small>
+          <% else %>
+            <p class="title"><small><i class="fas fa-water"></i></small> 本日の海況</p>
+          <% end %>
           </p>
           <p class="text">各ダイブサイトの</p>
           <p class="text mb-3">海況投稿を一覧で確認できます</p>
@@ -64,9 +68,13 @@
         </div>
         <div class="translucent-box left">
           <p class="title"><small>
+          <% if user_signed_in? %>
             <%= link_to new_condition_path do %>
               <i class="fas fa-plus"> 海況投稿</i>
             <% end %></small>
+          <% else %>
+            <p class="title"><small><i class="fas fa-plus"></i></small> 海況投稿</p>
+          <% end %>
           </p>
           <p class="text">各ダイブサイトを</p>
           <p class="text">管理しているサービスの方や</p>
@@ -79,9 +87,13 @@
         </div>
         <div class="translucent-box right mb-4">
           <p class="title"><small>
+          <% if user_signed_in? %>
             <%= link_to mypage_user_path(current_user.uid) do %>
               <i class="fas fa-portrait"> マイページ</i>
             <% end %></small>
+          <% else %>
+            <p class="title"><small><i class="fas fa-portrait"></i></small> マイページ</p>
+          <% end %>
           </p>
           <p class="text">お気に入りのダイブサイト一覧</p>
           <p class="text">フォローしているユーザーの一覧</p>
@@ -153,7 +165,7 @@
               <div class="d-flex justify-content-center">
                 <%= link_to '海況MAPへ', divesites_path, class: 'm-3' %>
               </div>
-              <p><small>現地サービスの方の海況投稿をお待ちしています</small></p>
+              <p><small>現地サービスの方の海況投稿のご協力をお待ちしています</small></p>
             </div>
           </div>
         <% else %>
