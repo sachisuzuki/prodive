@@ -32,6 +32,7 @@ $("#select_avi").change(function(){
 // ハンバーガーメニュー
 $('.nav-toggle').click(function () {
   $('.nav-toggle, nav.header-menu').toggleClass('active');
+  $('html').toggleClass('no-scroll');
 });
 
 // scroll時のヘッダー
@@ -60,12 +61,12 @@ $(function(){
 });
 
 $(function () {
-  // aimation呼び出し
+  // animation呼び出し
   if ($('.translucent-box.left').length) {
       scrollAnimation();
   }
 
-  // aimation関数
+  // animation関数
   function scrollAnimation() {
       $(window).on('scroll', function(){
           $(".translucent-box").each(function () {
