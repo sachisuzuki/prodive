@@ -35,7 +35,6 @@
           margin-left: 10px;
         }
         &:hover {
-          // transform: scale(1.1);
           animation: PuruPuru 2s;
         }
       }
@@ -55,7 +54,6 @@
         margin-left: 10px;
       }
       &:hover {
-        // transform: scale(1.1);
         animation: PuruPuru 2s;
       }
     }
@@ -139,4 +137,8 @@
       transform: translateX(5px);
     }
   }
+}
+
+input::placeholder {
+  font-size: .8rem;
 }

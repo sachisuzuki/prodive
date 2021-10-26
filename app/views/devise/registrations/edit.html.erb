@@ -8,6 +8,7 @@
       <%= render "devise/shared/error_messages", resource: resource %>
         <div class="pt-4">
           <p class="edit-image-label">アバター画像変更</p>
+          <p class=""><small>※ 下の画像をクリック</small></p>
           <%= f.label :avatar, class: "edit-image" do %>
             <%= image_tag set_avatar_helper, class: "avatar-image-top", id: "img_prev", onClick:"$('#select_avi').click()" %>
             <%= f.file_field :avatar, style: 'display:none', accept: 'image/jpeg,image/png', id: "select_avi" %>
@@ -33,11 +34,11 @@
               <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
             <% end %>
             <div class="field">
-              <%= f.password_field :password, autocomplete: "new-password", placeholder: "変更する場合のみ入力 ( 6文字以上 )" %>
+              <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワードを変更する場合入力 ( 6文字以上 )" %>
               <i class="fa fa-key"></i>
             </div>
             <div class="field">
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認用パスワード" %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認用（パスワードを変更する場合）" %>
               <i class="fa fa-key"></i>
             </div>
             <div class="pt-4 d-flex justify-content-around">

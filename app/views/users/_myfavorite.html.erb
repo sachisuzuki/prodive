@@ -16,7 +16,7 @@
     <h5 class="pl-4">
       <% followed.each do |follow| %>
       <div class="pb-3">
-        <%= link_to user_path(follow.followed_id) do %>
+        <%= link_to user_path(follow.followed.uid) do %>
           <i class="fas fa-angle-double-right" data-toggle="tooltip" data-placement="right" title="詳細ページへ"><%= " #{follow.followed.name}" %></i>
         <% end %>
       </div>
