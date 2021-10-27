@@ -10,7 +10,7 @@ class ConditionsController < ApplicationController
   end
   def new
     @condition = current_user.conditions.new
-    divesites = Divesite.select(:id, :name, :area, :zone)
+    divesites = Divesite.select(:id, :name, :area, :zone).order(id: :ASC)
     zones = divesites.pluck(:zone).uniq
     areas = divesites.pluck(:area).uniq
     ds = areas.map do |area|
