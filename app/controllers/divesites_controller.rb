@@ -2,7 +2,7 @@ class DivesitesController < ApplicationController
   before_action :authenticate_user!, only: %i[ show ]
 
   def index
-    @divesites = Divesite.all
+    @divesites = Divesite.all.order(id: :ASC)
     @areas = @divesites.pluck(:area).uniq
 
     gon.divesites = @divesites.map do |ds|
