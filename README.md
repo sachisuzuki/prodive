@@ -1,20 +1,20 @@
 ![LOGO](https://user-images.githubusercontent.com/73353020/135114462-cca78827-45a7-4c64-a9cf-5d3c32f0548e.png)
 
-## :bookmark: アプリURL
+## :bookmark:  アプリURL
 
 http://ec2-35-76-104-102.ap-northeast-1.compute.amazonaws.com/
 
 
-## :pushpin: アプリ概要
+## :pencil2:  アプリ概要
 
 「 都市型のダイビングショップで働くプロダイバーのための海況共有アプリ 」
 
 目的のダイビングサイトが海況が悪くクローズしてしまった時、
 どのダイビングサイトなら楽しませつつ安全に潜ることができるか？
-その判断に必要な情報を一覧で見ることができ、時間短縮することができます
+その判断に必要な海況情報を瞬時に確認することができ、時間短縮できます。
 
 
-## :speech_balloon: 開発背景
+## :speech_balloon:  開発背景
 
 実際にプロダイバーとして10年以上働いていた経験から、プロダイバーの負担を軽くできるアプリを作りたいと考えました。
 
@@ -27,13 +27,13 @@ http://ec2-35-76-104-102.ap-northeast-1.compute.amazonaws.com/
 その経験から、その日の海況が一覧でパッと確認できる機能があれば、かなりの時間短縮になると思いそこに重点を置き開発しました。
 
 
-## :pencil2: 開発言語
+## :zap:  開発言語
 
 * Ruby 2.6.5
 * Rails 5.2.5
 
 
-## :zap: 使用Gem
+## :zap:  使用Gem
 
 * devise
 * omniauth
@@ -46,7 +46,7 @@ http://ec2-35-76-104-102.ap-northeast-1.compute.amazonaws.com/
 * whenever
 
 
-## :zap: 就業Termの技術
+## :zap:  就業Termの技術
 
 * devise
 * OAuth認証
@@ -56,14 +56,12 @@ http://ec2-35-76-104-102.ap-northeast-1.compute.amazonaws.com/
 * AWS EC2
 
 
-## :zap: カリキュラム外の技術
+## :zap:  カリキュラム外の技術
 
 * Maps JavaScript API
-* seedデータの定期実行(cron)
-* 動画ファイルのスクリーンショット作成
 
 
-## :rocket: 実行手順
+## :bulb:  実行手順
 
 ```shell
 $ git clone git@github.com:sachio-portfolio/prodive.git
@@ -73,7 +71,7 @@ $ rails db:create && rails db:migrate
 $ rails s
 ```
 
-## :memo: 資料一覧
+## :memo:  資料一覧
 
 #### カタログ設計:
 
