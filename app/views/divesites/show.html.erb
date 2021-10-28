@@ -3,7 +3,7 @@
     <%= image_tag('/images/divesites/divesite_image.jpg', class: "divesite-top-image") %>
     <div class="mask-gradation"></div>
     <div class="divesite-top-value">
-      <h1 class="divesite-name ml-5" data-detail="<%= "#{@divesite.area} / #{@divesite.zone}" %>"></span><%= @divesite.name %>
+      <h1 class="divesite-name" data-detail="<%= "#{@divesite.area} / #{@divesite.zone}" %>"></span><%= @divesite.name %>
       <span id="favorite-part"><%= render 'favorites/like', { favorite: @favorite, divesite: @divesite } %></span></h1>
     </div>
   </div>

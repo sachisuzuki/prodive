@@ -582,6 +582,7 @@ table.divesite-table {
 @media (min-width: 768px) {
   .divesite-top-value {
     h1 {
+      // margin-left: 4rem;
     }
   }
 }
@@ -591,6 +592,7 @@ table.divesite-table {
     .divesite-top-value {
       .divesite-name {
         font-size: 25px;
+        margin-left: 0;
       }
       .divesite-name::before {
         font-size: 18px;
