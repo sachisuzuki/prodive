@@ -62,17 +62,19 @@
   }
 }
 @media screen and (max-width:699px) {
-  .user-name-wrap {
-    position: absolute;
-    top: 170px;
-    left: 10%;
-    z-index: 30;
-  }
-  .mask-gradation {
-    display: none;
-  }
-  .avatar-image-top {
-    filter: grayscale(0%) contrast(1);
+  .mypage-top {
+    .user-name-wrap {
+      position: absolute;
+      top: 170px;
+      left: 10%;
+      z-index: 30;
+    }
+    .mask-gradation {
+      display: none;
+    }
+    .avatar-image-top {
+      filter: grayscale(0%) contrast(1);
+    }
   }
 }
 
