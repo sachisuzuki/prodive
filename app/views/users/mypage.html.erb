@@ -18,15 +18,15 @@
         </ul>
       </nav>
     </aside>
-    <a class="sidemenu-btn" href="#">
-      <i class="fas fa-bars"> マイページメニュー</i>
-    </a>
   </div>
 </div>
 <div class="container-fluid wrapper">
   <div class="row">
     <div class="empty-element"></div>
     <article class="">
+      <a class="sidemenu-btn" href="#">
+        <i class="fas fa-bars"> マイページメニュー</i>
+      </a>
       <div id="mypage-content">
         <%= render 'myfavorite', {user: @user, favorites: @favorites, followed: @followed} %>
       </div>

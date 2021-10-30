@@ -178,16 +178,15 @@
   }
 }
 
-.empty-element {
-  width: 45%;
-}
-
 @media screen and (min-width: 700px) {
   .sidemenu-btn {
     display: none;
   }
   .user-show-top {
     margin-top: 50px;
+  }
+  .empty-element {
+    width: 45%;
   }
 }
 
@@ -214,7 +213,7 @@
     display: none;
   }
   .empty-element {
-    width: 10%;
+    width: 5px;
   }
   .row {
     width: 100%;
@@ -242,11 +241,12 @@
 }
 
 .sidemenu-btn {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   background-color: $black;
   color: $kinari;
-  padding: 5px 10px;
-  margin-left: 10px;
-  margin-top: 25px;
+  margin-left: 8px;
   padding: 8px 12px;
   border-radius: 3px;
   z-index: 10;
