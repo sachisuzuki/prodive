@@ -17,6 +17,9 @@
   }
 
   .select-menu-btn {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
     height: 30px;
     background-color: $black;
     color: $kinari;
