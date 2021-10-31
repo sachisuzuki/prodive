@@ -233,6 +233,11 @@
   .my-favorite {
     font-size: 1.35rem;
   }
+  .myprofile {
+    .myprofile-links {
+      font-size: 0.85rem;
+    }
+  }
 }
 
 .avatar-image {
@@ -305,20 +310,14 @@
   padding-bottom: 50px;
   th {
   text-align: left;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   }
   td {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     text-align: left;
     p {
       margin: 0;
       font-size: 1.3rem;
-    }
-  }
-  .transition-btn {
-    background-color: $black;
-    a {
-      color: $kinari;
     }
   }
 }
