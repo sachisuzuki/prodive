@@ -19,7 +19,7 @@
       <% end %>
     </tr>
   </table>
-  <div class="pt-3 d-flex justify-content-around">
+  <div class="myprofile-links pt-3 d-flex justify-content-around">
     <div class="transition-btn"><%= link_to 'プロフィール編集', edit_user_registration_path, class: "" %></div>
     <div class="">
       <%= link_to user_registration_path, method: :delete, data: { confirm: 'アカウントを削除しますか？' }, class: "unobtrusive" do %>
