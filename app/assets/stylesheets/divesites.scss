@@ -432,8 +432,8 @@
     padding: 20px 0;
     background-color: $kinari;
     h1 {
+      display: inline-block;
       position: relative;
-      text-align: center;
       letter-spacing: 8px;
       z-index: 20;
     }
@@ -454,12 +454,11 @@
 }
 
 #favorite-part {
-  width: 50px;
+  z-index: 20;
+  position: relative;
+  font-size: 36px;
   span.favorite-part {
-    display: inline;
-    width: 50px;
     .favorite-icon {
-      c
       &:hover {
         transform: translateY(-5px);
       }
@@ -468,9 +467,6 @@
       font-size: 10px;
       font-weight: bold;
       letter-spacing: 1px;
-      position: relative;
-      top: 20px;
-      right: 62px;
     }
   }
 }
@@ -571,6 +567,16 @@ table.divesite-table {
     pointer-events: none;
     text-decoration: none;
   }
+  .divesite-top {
+    .divesite-top-value {
+      text-align: center;
+    }
+  }
+  .favorite-situation {
+    position: relative;
+    top: 20px;
+    right: 60px;
+  }
 }
 
 
@@ -578,32 +584,29 @@ table.divesite-table {
   a[href^="tel:"] {
     cursor: default;
     text-decoration: underline;
-}
+  }
+  .divesite-top {
+    .divesite-top-value {
+      text-align: center;
+      h1.divesite-name {
+        font-size: 28px;
+      }
+      .divesite-name::before {
+        font-size: 16px;
+        position: relative;
+      }
+      #favorite-part {
+        font-size: 22px;
+        .favorite-situation {
+          position: relative;
+          top: -5px;
+        }
+      }
+    }
+  }
 }
 
 // タブレットからPC
-@media (min-width: 768px) {
-  .divesite-top-value {
-    h1 {
-      // margin-left: 4rem;
-    }
-  }
-}
-// 幅の狭いスマホ
-@media (max-width: 767px) {
-  .divesite-top {
-    .divesite-top-value {
-      .divesite-name {
-        font-size: 25px;
-        margin-left: 0;
-      }
-      .divesite-name::before {
-        font-size: 18px;
-      }
-    }
-  }
-}
-
 @media (min-width: 768px) {
   .divesites-contents {
     .card-item {
@@ -611,8 +614,7 @@ table.divesite-table {
     }
   }
 }
-
-
+// スマホ
 @media (max-width: 767px) {
   .divesites-contents {
     .card-item {
