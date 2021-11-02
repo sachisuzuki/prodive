@@ -266,7 +266,9 @@
 
 .side-menu {
   text-align: center;
+  display: block;
   ul {
+    margin: 0 auto;
     width: 100%;
     height: 100%;
     padding-top: 20px;
@@ -274,9 +276,14 @@
     background-color: $lightgrey;
   }
   li {
-    display: block;
+    list-style-type: none;
+    padding: 0;
     width: 100%;
-    a {
+    transition: .4s all;
+    &:hover {
+      background: $grey;
+    }
+    a.mymenu-link {
       display: block;
       &:hover {
         transform: scale(1.1);

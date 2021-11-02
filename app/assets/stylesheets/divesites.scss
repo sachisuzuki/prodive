@@ -670,33 +670,35 @@ table.divesite-table {
   }
 }
 
-.divesite-info-btn {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 20px;
-  background-color: $black;
-  color: $kinari;
-  margin-top: 8px;
-  padding: 8px 12px;
-  border-radius: 3px;
-  z-index: 10;
-  &:hover {
-    transform: scale(1.08);
+.divesites-contents {
+  .divesite-info-btn {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20px;
+    background-color: $black;
     color: $kinari;
-  }
-}
-
-.close-btn {
-  opacity: 1;
-  position: absolute;
-  top: -10px;
-  font-size: 2.0rem;
-  z-index: 100;
-  .fas.fa-window-close {
-    color: $black;
+    margin-top: 8px;
+    padding: 8px 12px;
+    border-radius: 3px;
+    z-index: 10;
     &:hover {
-      color: $red;
-      transform: scale(1.2);
+      transform: scale(1.08);
+      color: $kinari;
+    }
+  }
+
+  .close-btn {
+    opacity: 1;
+    position: absolute;
+    top: -10px;
+    font-size: 2.0rem;
+    z-index: 100;
+    .fas.fa-window-close {
+      color: $black;
+      &:hover {
+        color: $red;
+        transform: scale(1.2);
+      }
     }
   }
 }
