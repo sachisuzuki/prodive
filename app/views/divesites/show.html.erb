@@ -9,8 +9,11 @@
   </div>
   <div class="divesites-contents row">
     <div class="col-sm-0 col-md-1 col-lg-2"></div>
-    <div class="col-sm-12 col-md-10 col-lg-8">
+    <div class="col-sm-12 col-md-10 col-lg-8 ">
       <div class="wrapper">
+        <a class="divesite-info-btn" href="#">
+          <i class="fas fa-bars"> ダイブサイトinfo</i>
+        </a>
         <div class="card-wrap">
           <% @conditions.each do |condition| %>
           <div class="card-item">
@@ -80,6 +83,9 @@
           <% end %>
         </div>
         <div class="divesite-info">
+          <a class="close-btn" href="#">
+            <i class="fas fa-window-close"></i>
+          </a>
           <span class="box-title">info</span>
           <table class="divesite-table">
             <tbody>
@@ -92,7 +98,7 @@
                 <td><%= @divesite.address %></td>
               </tr>
               <tr>
-                <th>☎︎<br>(タップで電話可)</th>
+                <th><span>☎︎</span><span class="call-ok"> (タップで電話可)</span></th>
                 <td id="telephone"><%= link_to "#{@divesite.phone}", "tel:#{@divesite.phone.delete("-")}" %></td>
               </tr>
               <tr>

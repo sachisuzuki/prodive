@@ -407,6 +407,7 @@
   }
 }
 
+
 // show
 .divesite-top {
   position: relative;
@@ -504,12 +505,10 @@
         width: 100%;
       }
     }
-
   }
 }
 
 .divesite-info {
-  position: relative;
   margin: 2em 0;
   padding: 0.5em 1em;
   border: solid 3px $deepgrey;
@@ -609,16 +608,95 @@ table.divesite-table {
 // タブレットからPC
 @media (min-width: 768px) {
   .divesites-contents {
+    .divesite-info-btn {
+      display: none;
+    }
     .card-item {
       margin-bottom: 10px;
+    }
+    .divesite-info {
+      position: relative;
+      table.divesite-table {
+        .call-ok {
+          display: none;
+        }
+      }
+    }
+    .close-btn {
+      opacity: 0;
     }
   }
 }
 // スマホ
 @media (max-width: 767px) {
   .divesites-contents {
+    .divesite-info-btn.after-click {
+      display: none;
+    }
     .card-item {
       margin-bottom: 10px;
+    }
+    .divesite-info {
+      position: absolute;
+      left: -500%;
+    }
+    .divesite-info.active {
+      position: absolute;
+      top: -20px;
+      left: 1%;
+      width: 95%;
+      z-index: 100;
+      background-color: $kinari;
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+      table.divesite-table {
+        th {
+          display: block;
+          width: 100%;
+          text-align: center;
+        }
+        th:after {
+          display: none;
+        }
+        td {
+          padding-top: 10px;
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+    .close-btn {
+      opacity: 1;
+    }
+  }
+}
+
+.divesite-info-btn {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
+  background-color: $black;
+  color: $kinari;
+  margin-top: 8px;
+  padding: 8px 12px;
+  border-radius: 3px;
+  z-index: 10;
+  &:hover {
+    transform: scale(1.08);
+    color: $kinari;
+  }
+}
+
+.close-btn {
+  opacity: 1;
+  position: absolute;
+  top: -10px;
+  font-size: 2.0rem;
+  z-index: 100;
+  .fas.fa-window-close {
+    color: $black;
+    &:hover {
+      color: $red;
+      transform: scale(1.2);
     }
   }
 }
