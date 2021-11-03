@@ -34,3 +34,14 @@ $('a.zone').click(function() {
   $('.floating-board').removeClass('active');
   $('.select-menu-btn').removeClass('after-click');
 });
+
+// 詳細ページのinfomation表示
+$('a.divesite-info-btn').click(function() {
+  $('.divesite-info').addClass('active');
+  $('.divesite-info-btn').addClass('after-click');
+});
+
+$('a.close-btn').click(function() {
+  $('.divesite-info').removeClass('active');
+  $('.divesite-info-btn').removeClass('after-click');
+});

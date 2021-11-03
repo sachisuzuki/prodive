@@ -17,6 +17,9 @@
   }
 
   .select-menu-btn {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
     height: 30px;
     background-color: $black;
     color: $kinari;
@@ -404,6 +407,7 @@
   }
 }
 
+
 // show
 .divesite-top {
   position: relative;
@@ -429,8 +433,8 @@
     padding: 20px 0;
     background-color: $kinari;
     h1 {
+      display: inline-block;
       position: relative;
-      text-align: center;
       letter-spacing: 8px;
       z-index: 20;
     }
@@ -451,12 +455,11 @@
 }
 
 #favorite-part {
-  width: 50px;
+  z-index: 20;
+  position: relative;
+  font-size: 36px;
   span.favorite-part {
-    display: inline;
-    width: 50px;
     .favorite-icon {
-      c
       &:hover {
         transform: translateY(-5px);
       }
@@ -465,9 +468,6 @@
       font-size: 10px;
       font-weight: bold;
       letter-spacing: 1px;
-      position: relative;
-      top: 20px;
-      right: 62px;
     }
   }
 }
@@ -505,12 +505,10 @@
         width: 100%;
       }
     }
-
   }
 }
 
 .divesite-info {
-  position: relative;
   margin: 2em 0;
   padding: 0.5em 1em;
   border: solid 3px $deepgrey;
@@ -568,6 +566,16 @@ table.divesite-table {
     pointer-events: none;
     text-decoration: none;
   }
+  .divesite-top {
+    .divesite-top-value {
+      text-align: center;
+    }
+  }
+  .favorite-situation {
+    position: relative;
+    top: 20px;
+    right: 60px;
+  }
 }
 
 
@@ -575,45 +583,122 @@ table.divesite-table {
   a[href^="tel:"] {
     cursor: default;
     text-decoration: underline;
-}
+  }
+  .divesite-top {
+    .divesite-top-value {
+      text-align: center;
+      h1.divesite-name {
+        font-size: 28px;
+      }
+      .divesite-name::before {
+        font-size: 16px;
+        position: relative;
+      }
+      #favorite-part {
+        font-size: 22px;
+        .favorite-situation {
+          position: relative;
+          top: -5px;
+        }
+      }
+    }
+  }
 }
 
 // タブレットからPC
 @media (min-width: 768px) {
-  .divesite-top-value {
-    h1 {
-      // margin-left: 4rem;
-    }
-  }
-}
-// 幅の狭いスマホ
-@media (max-width: 767px) {
-  .divesite-top {
-    .divesite-top-value {
-      .divesite-name {
-        font-size: 25px;
-        margin-left: 0;
-      }
-      .divesite-name::before {
-        font-size: 18px;
-      }
-    }
-  }
-}
-
-@media (min-width: 768px) {
   .divesites-contents {
+    .divesite-info-btn {
+      display: none;
+    }
     .card-item {
       margin-bottom: 10px;
     }
+    .divesite-info {
+      position: relative;
+      table.divesite-table {
+        .call-ok {
+          display: none;
+        }
+      }
+    }
+    .close-btn {
+      opacity: 0;
+    }
+  }
+}
+// スマホ
+@media (max-width: 767px) {
+  .divesites-contents {
+    .divesite-info-btn.after-click {
+      display: none;
+    }
+    .card-item {
+      margin-bottom: 10px;
+    }
+    .divesite-info {
+      position: absolute;
+      left: -500%;
+    }
+    .divesite-info.active {
+      position: absolute;
+      top: -20px;
+      left: 1%;
+      width: 95%;
+      z-index: 100;
+      background-color: $kinari;
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+      table.divesite-table {
+        th {
+          display: block;
+          width: 100%;
+          text-align: center;
+        }
+        th:after {
+          display: none;
+        }
+        td {
+          padding-top: 10px;
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+    .close-btn {
+      opacity: 1;
+    }
   }
 }
 
+.divesites-contents {
+  .divesite-info-btn {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20px;
+    background-color: $black;
+    color: $kinari;
+    margin-top: 8px;
+    padding: 8px 12px;
+    border-radius: 3px;
+    z-index: 10;
+    &:hover {
+      transform: scale(1.08);
+      color: $kinari;
+    }
+  }
 
-@media (max-width: 767px) {
-  .divesites-contents {
-    .card-item {
-      margin-bottom: 10px;
+  .close-btn {
+    opacity: 1;
+    position: absolute;
+    top: -10px;
+    font-size: 2.0rem;
+    z-index: 100;
+    .fas.fa-window-close {
+      color: $black;
+      &:hover {
+        color: $red;
+        transform: scale(1.2);
+      }
     }
   }
 }
