@@ -106,6 +106,11 @@
   vertical-align: middle;
   margin: 0 auto;
   margin-top: 70px;
+  h2 {
+    span {
+      font-size: 1.2em;
+    }
+  }
   .follow-part {
     margin: 50px auto;
     max-width: 200px;
@@ -119,9 +124,6 @@
     display: block;
     &:hover {
       transform: translateY(-5px);
-    }
-    img {
-      width: 65px;
     }
     .unfollow, .follow {
       padding: 10px;
@@ -140,6 +142,9 @@
   }
   .past-posts-title {
     font-size: 1.6rem;
+    span {
+      display: inline-block;
+    }
   }
   .past-posts {
     font-size: 1.3rem;
@@ -186,6 +191,16 @@
   .user-show-top {
     margin-top: 50px;
   }
+  .user-show-right {
+    .follow-part {
+      .follow-btn {
+        font-size: 1rem;
+        img {
+          width: 65px;
+        }
+      }
+    }
+  }
   .empty-element {
     width: 45%;
   }
@@ -230,6 +245,38 @@
   }
   .user-show-top {
     margin-top: 10px;
+  }
+  .user-show-right {
+    h2 {
+      span {
+        font-size: 0.9em;
+      }
+    }
+    .user-info {
+      h5 {
+        font-size: 0.9em;
+      }
+    }
+    .follow-part {
+      .follow-btn {
+        font-size: 0.75rem;
+        img {
+          margin: 0;
+          width: 50px;
+        }
+      }
+      .follower-count {
+        font-size: 0.75rem;
+      }
+    }
+  }
+  .user-show-bottom {
+    .past-posts-title {
+      font-size: 1.4rem;
+    }
+    .past-posts {
+      font-size: 1rem;
+    }
   }
   .my-favorite {
     font-size: 1.35rem;

@@ -10,15 +10,14 @@
         <% end %>
       </div>
       <div class="col-sm-6 col-md-6 col-lg-6 user-show-right">
-        <h2 class="pb-3"><span style="font-size:1.2em;"><%= "#{@user.name} " %></span></h2>
+        <h2 class="pb-3"><span><%= "#{@user.name} " %></span></h2>
         <div class="user-info">
           <div class="">
           <% if @user.shop.present? %>
             <h5><small>所属店: </small><%= @user.shop %></h5>
-            <% else %>
-              <h5><small>所属店: </small><span>未設定</span></h5>
-            <% end %>
-            </h5>
+          <% else %>
+            <h5><small>所属店: </small><span>未設定</span></h5>
+          <% end %>
           </div>
           <div class="follow-part">
             <% unless current_user.id == @user.id %>
@@ -37,7 +36,7 @@
     <div class="col-sm-10 col-md-12 col-lg-8 user-show-bottom">
       <div class="user-show-post">
         <div class="">
-          <p class="pt-4 pb-4 headding past-posts-title"><%= "#{@user.name}" %>さんの投稿一覧</p>
+          <p class="pt-4 pb-4 headding past-posts-title"><span><%= "#{@user.name}" %>さんの</span><span>投稿一覧</span></p>
           <div class="mt-5">
             <% if @conditions.present? %>
               <% @conditions.each do |condition| %>
