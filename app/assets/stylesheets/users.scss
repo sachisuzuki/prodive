@@ -11,6 +11,9 @@
   position: relative;
   height: 250px;
   width: 100%;
+  span {
+    display: inline-block;
+  }
   .avatar-image-top {
     position: relative;
     height: 250px;
@@ -18,7 +21,6 @@
     object-position: 50% 50%;
     width: 100%;
     z-index: 10;
-    // filter: grayscale(100%) contrast(0.9);
   }
   .user-name {
     font-size: 2.3em;

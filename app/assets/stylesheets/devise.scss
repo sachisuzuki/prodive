@@ -118,13 +118,13 @@ input::placeholder {
     padding: 0;
   }
   .form-box {
-    padding: 20px;
+    padding: 30px;
     max-width: 100%;
     .field {
       input {
         &:focus {
           &+ i.fa {
-            left: 33px;
+            left: 43px;
           }
         }
       }
