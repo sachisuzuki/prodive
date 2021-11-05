@@ -6,3 +6,7 @@ set :output, "#{Rails.root}/log/cron.log"
 every :day, at: '06:30' do
   rake 'db:seed:condition'
 end
+
+every [:saturday, :sunday], at: '06:30' do
+  rake 'db:seed:outside-condition'
+end
