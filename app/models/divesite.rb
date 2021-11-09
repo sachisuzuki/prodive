@@ -13,5 +13,4 @@ class Divesite < ApplicationRecord
   def added_to_favorites?(divesite)
     favorites.find_by(divesite_id: divesite.id)
   end
-
 end

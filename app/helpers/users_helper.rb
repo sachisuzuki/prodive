@@ -6,9 +6,8 @@ module UsersHelper
       '/images/default-avatar.png'
     end
   end
+
   def complete_profile_helper
-    if current_user.avatar.blank? || current_user.shop.blank?
-      'プロフィールを完成するには『プロフィール編集』'
-    end
+    'プロフィールを完成するには『プロフィール編集』' if current_user.avatar.blank? || current_user.shop.blank?
   end
 end

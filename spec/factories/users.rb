@@ -4,14 +4,14 @@ FactoryBot.define do
     email { 'user01@mail.com' }
     password { 'password' }
     provider { '' }
-    uid { 111111 }
+    uid { 111_111 }
   end
   factory :user02, class: User do
     name { 'user02' }
     email { 'user02@mail.com' }
     password { 'password' }
     provider { '' }
-    uid { 222222 }
+    uid { 222_222 }
   end
   factory :admin_user, class: User do
     name { 'admin' }
@@ -22,8 +22,8 @@ FactoryBot.define do
   factory :googleuser, class: User do
     name { 'googleuser' }
     provider { 'google_oauth2' }
-    uid { 123456 }
-    email { 'user@test.com'}
+    uid { 123_456 }
+    email { 'user@test.com' }
     password { 'password' }
   end
 end

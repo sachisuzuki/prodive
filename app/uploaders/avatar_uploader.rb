@@ -11,13 +11,13 @@ class AvatarUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  process resize_to_fill: [250, 250, "Center"]
+  process resize_to_fill: [250, 250, 'Center']
 
   version :thumb do
-    process resize_to_fill: [50, 50, "Center"]
+    process resize_to_fill: [50, 50, 'Center']
   end
 
   def extension_allowlist
-    %w(jpg jpeg png)
+    %w[jpg jpeg png]
   end
 end

@@ -9,12 +9,12 @@ class Area
       山陰: 6,
       四国: 7,
       九州: 8,
-      沖縄: 9,
-    }
+      沖縄: 9 }
   end
+
   def self.options_for_area
     area_list = []
-    self.options_for_enum.each do | key, value |
+    options_for_enum.each do |key, _value|
       area_list.push(key)
     end
     area_list

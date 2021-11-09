@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "Favorites", type: :system do
+RSpec.describe 'Favorites', type: :system do
   describe 'お気に入りダイブサイト機能' do
-    let!(:user){ FactoryBot.create(:user) }
-    let!(:divesite){ FactoryBot.create(:divesite) }
+    let!(:user) { FactoryBot.create(:user) }
+    let!(:divesite) { FactoryBot.create(:divesite) }
     before do
       sign_in(user)
     end
@@ -13,7 +13,7 @@ RSpec.describe "Favorites", type: :system do
         find('.fa-meh').click
       end
       it 'フラッシュメッセージに登録したと表示される' do
-        expect(page).to have_selector '.alert-info', text: "お気に入りダイブサイトに登録しました"
+        expect(page).to have_selector '.alert-info', text: 'お気に入りダイブサイトに登録しました'
       end
       it 'マイページにお気に入りにしたダイブサイト名が表示される' do
         visit mypage_user_path(user.id)
@@ -27,7 +27,7 @@ RSpec.describe "Favorites", type: :system do
         find('.fa-laugh-squint').click
       end
       it 'フラッシュメッセージに削除したと表示される' do
-        expect(page).to have_selector '.alert-secondary', text: "お気に入りダイブサイトから削除しました"
+        expect(page).to have_selector '.alert-secondary', text: 'お気に入りダイブサイトから削除しました'
       end
       it 'マイページにお気に入りから削除したダイブサイト名が表示されない' do
         visit mypage_user_path(user.id)

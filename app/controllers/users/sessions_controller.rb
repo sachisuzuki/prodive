@@ -22,14 +22,14 @@ class Users::SessionsController < Devise::SessionsController
     user = User.guest
     sign_in user
     redirect_to mypage_user_url(user.uid)
-    flash[:notice] = "ゲスト(ユーザー)としてログインしました！"
+    flash[:notice] = 'ゲスト(ユーザー)としてログインしました！'
   end
 
   def guest_admin_sign_in
     admin_user = User.guest_admin
     sign_in admin_user
     redirect_to mypage_user_url(admin_user.id)
-    flash[:notice] = "ゲスト(管理者)としてログインしました！"
+    flash[:notice] = 'ゲスト(管理者)としてログインしました！'
   end
 
   # protected

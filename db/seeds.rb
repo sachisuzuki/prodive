@@ -1,4 +1,4 @@
-load(Rails.root.join( 'db', 'seeds', "#{Rails.env.downcase}.rb"))
+load(Rails.root.join('db', 'seeds', "#{Rails.env.downcase}.rb"))
 
 # Dir.glob("#{Rails.root}/db/seeds/*.yml").each do |yaml_filename|
 #   # yamlのファイル名から、対応するモデルクラスを特定し、クラスをロードする

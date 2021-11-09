@@ -5,23 +5,21 @@ require 'securerandom'
 30.times do |n|
   name = Faker::JapaneseMedia::StudioGhibli.character
   email = Faker::Internet.email
-  password = "password"
-	avatar = open("#{Rails.root}/public/samples/avt#{n}.jpg")
+  password = 'password'
+  avatar = open("#{Rails.root}/public/samples/avt#{n}.jpg")
   uid = SecureRandom.uuid.tr('-', '')
   User.create!(name: name,
               email: email,
               password: password,
               avatar: avatar,
-              uid: uid,
-              )
+              uid: uid)
 end
-User.create!(name: "admin_user",
-            email: "admin@mail.com",
-            password: "password",
+User.create!(name: 'admin_user',
+            email: 'admin@mail.com',
+            password: 'password',
             avatar: open("#{Rails.root}/public/images/default-avatar.png"),
             uid: SecureRandom.uuid.tr('-', ''),
-            admin: true,
-            )
+            admin: true)
 
 # Divesites
 CSV.foreach("#{Rails.root}/db/Divesite.csv", headers: true) do |row|
@@ -33,8 +31,7 @@ CSV.foreach("#{Rails.root}/db/Divesite.csv", headers: true) do |row|
                   service: row[5],
                   discription: row[6],
                   latitude: row[7],
-                  longitude: row[8],
-                  )
+                  longitude: row[8])
 end
 
 # Conditions

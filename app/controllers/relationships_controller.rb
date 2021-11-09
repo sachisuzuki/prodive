@@ -9,6 +9,7 @@ class RelationshipsController < ApplicationController
       format.html { redirect_to conditions_url }
     end
   end
+
   def destroy
     @user = Relationship.find_by(followed_id: params[:id]).followed
     current_user.unfollow(@user)

@@ -3,14 +3,14 @@ class User < ApplicationRecord
 
   has_many :conditions, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
-  has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :follower, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
+  has_many :followed, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
   has_many :following_user, through: :follower, source: :followed
   has_many :follower_user, through: :followed, source: :follower
 
   validates :name, presence: true, length: { maximum: 30 }
 
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i(google)
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[google]
 
   def to_param
     uid
@@ -22,14 +22,11 @@ class User < ApplicationRecord
 
   def self.find_for_google(auth)
     user = User.find_by(email: auth.info.email)
-    unless user
-      user = User.new(name:     auth.info.name,
-                      email:    auth.info.email,
+    user ||= User.new(name: auth.info.name,
+                      email: auth.info.email,
                       provider: auth.provider,
-                      uid:      auth.uid,
-                      password: Devise.friendly_token[0, 20],
-                      )
-    end
+                      uid: auth.uid,
+                      password: Devise.friendly_token[0, 20])
     user.save
     user
   end
@@ -41,6 +38,7 @@ class User < ApplicationRecord
       user.uid = SecureRandom.uuid.tr('-', '')
     end
   end
+
   def self.guest_admin
     find_or_create_by!(email: 'guest.admin@example.com') do |user|
       user.name = 'ゲスト(管理者)'
@@ -64,9 +62,11 @@ class User < ApplicationRecord
   def follow(user)
     follower.create!(followed_id: user.id)
   end
+
   def unfollow(user)
     follower.find_by(followed_id: user.id).destroy
   end
+
   def following?(user)
     follower.find_by(followed_id: user.id)
   end

@@ -16,7 +16,7 @@ RSpec.describe User, type: :model do
     end
     context '名前が30文字以上の場合' do
       it 'バリデーションエラー(nameの文字数制限)となり失敗する' do
-        long_name = FactoryBot.build(:user, name: "あ"*31)
+        long_name = FactoryBot.build(:user, name: 'あ' * 31)
         expect(long_name).not_to be_valid
       end
     end
@@ -28,7 +28,7 @@ RSpec.describe User, type: :model do
     end
     context 'emailの形式が異なる場合' do
       it 'バリデーションエラー(emailのフォーマット制限)となり失敗する' do
-        different_types_email = FactoryBot.build(:user, email: "email.com")
+        different_types_email = FactoryBot.build(:user, email: 'email.com')
         expect(different_types_email).not_to be_valid
       end
     end
@@ -40,7 +40,7 @@ RSpec.describe User, type: :model do
     end
     context 'passwordが空の場合' do
       it 'バリデーションエラー(passwordの文字数制限)となり失敗する' do
-        not_enough_password = FactoryBot.build(:user, password: "pass")
+        not_enough_password = FactoryBot.build(:user, password: 'pass')
         expect(not_enough_password).not_to be_valid
       end
     end

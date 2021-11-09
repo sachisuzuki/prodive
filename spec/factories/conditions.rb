@@ -10,7 +10,7 @@ FactoryBot.define do
     status { 0 }
     temperature { 10 }
     visibility { 50 }
-    content { "海況投稿テスト" }
+    content { '海況投稿テスト' }
     association :user
   end
 end
