@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Zone
   def self.options_for_enum
     all_zone_list = {}

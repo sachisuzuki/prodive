@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'csv'
 require 'securerandom'
 
@@ -9,17 +11,17 @@ require 'securerandom'
   avatar = open("./public/samples/avt#{n}.jpg")
   uid = SecureRandom.uuid.tr('-', '')
   User.create!(name: name,
-              email: email,
-              password: password,
-              avatar: avatar,
-              uid: uid)
+               email: email,
+               password: password,
+               avatar: avatar,
+               uid: uid)
 end
 User.create!(name: 'admin_user',
-            email: 'admin@mail.com',
-            password: 'password',
-            avatar: open('./public/images/default-avatar.png'),
-            uid: SecureRandom.uuid.tr('-', ''),
-            admin: true)
+             email: 'admin@mail.com',
+             password: 'password',
+             avatar: open('./public/images/default-avatar.png'),
+             uid: SecureRandom.uuid.tr('-', ''),
+             admin: true)
 
 # Divesites
 CSV.foreach('db/Divesite.csv', headers: true) do |row|

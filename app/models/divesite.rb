@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Divesite < ApplicationRecord
   validates :area, :zone, :name, :latitude, :longitude, presence: true
   has_many :conditions, dependent: :destroy

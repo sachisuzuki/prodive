@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
@@ -42,8 +44,8 @@ class ImageUploader < CarrierWave::Uploader::Base
     File.rename(current_path, tmpfile)
 
     movie = FFMPEG::Movie.new(tmpfile)
-    movie.screenshot(current_path + '.jpg', { resolution: '300x200' }, preserve_aspect_ratio: :width)
-    File.rename(current_path + '.jpg', current_path)
+    movie.screenshot("#{current_path}.jpg", { resolution: '300x200' }, preserve_aspect_ratio: :width)
+    File.rename("#{current_path}.jpg", current_path)
     file.content_type = 'image/jpeg'
     File.delete(tmpfile)
   end

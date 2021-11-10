@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   include UsersHelper
   before_action :authenticate_user!
   before_action :set_user, only: %i[show mypage myprofile myfavorite]
+
   def show
     if @user.nil?
       redirect_to root_url

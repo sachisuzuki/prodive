@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 class ConditionsController < ApplicationController
   include ConditionsHelper
   before_action :authenticate_user!
   before_action :set_condition, only: %i[show destroy]
+
   def index
     @conditions = Condition.where(created_at: Time.zone.now.all_day).order(created_at: :DESC)
     @conditions = @conditions.page(params[:page]).per(12)
@@ -14,14 +17,14 @@ class ConditionsController < ApplicationController
     divesites = Divesite.select(:id, :name, :area, :zone).order(id: :ASC)
     zones = divesites.pluck(:zone).uniq
     areas = divesites.pluck(:area).uniq
-    ds = areas.map do |area|
+    divesites = areas.map do |area|
       area_arr = divesites.where(area: area)
       zones.map do |zone|
         area_arr.where(zone: zone)
       end
     end
-    @divesites = ds.map do |ds|
-      ds.delete_if(&:empty?)
+    @divesites = divesites.map do |divesite|
+      divesite.delete_if(&:empty?)
     end
   end
 
@@ -50,6 +53,7 @@ class ConditionsController < ApplicationController
   end
 
   def condition_params
-    params.require(:condition).permit(:divepoint, :status, :temperature, :visibility, :content, :image, :image_cache, :divesite_id)
+    params.require(:condition).permit(:divepoint, :status, :temperature, :visibility, :content, :image, :image_cache,
+                                      :divesite_id)
   end
 end

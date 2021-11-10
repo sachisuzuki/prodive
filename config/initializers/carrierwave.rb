@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 CarrierWave.configure do |config|
   require 'carrierwave/storage/abstract'
   require 'carrierwave/storage/file'

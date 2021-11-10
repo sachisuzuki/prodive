@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module UsersHelper
   def set_avatar_helper
     if current_user.avatar?

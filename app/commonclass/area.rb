@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Area
   def self.options_for_enum
     { 関東: 0,

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :condition, class: Condition do
     divepoint { '前浜' }

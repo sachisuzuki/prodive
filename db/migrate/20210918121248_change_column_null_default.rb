@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChangeColumnNullDefault < ActiveRecord::Migration[5.2]
   def change
     change_column_null :users, :avatar, true

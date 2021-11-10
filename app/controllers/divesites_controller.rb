@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DivesitesController < ApplicationController
   before_action :authenticate_user!, only: %i[show]
 
@@ -5,18 +7,18 @@ class DivesitesController < ApplicationController
     @divesites = Divesite.all.order(id: :ASC)
     @areas = @divesites.pluck(:area).uniq
 
-    gon.divesites = @divesites.map do |ds|
-      co = ds.conditions.where(created_at: Time.zone.now.all_day).last
-      st = if co.nil?
-            'noinfo'
-          else
-            co.status
-          end
-      { id: ds.id,
-        name: ds.name,
-        latitude: ds.latitude,
-        longitude: ds.longitude,
-        status: st }
+    gon.divesites = @divesites.map do |divesite|
+      condition = divesite.conditions.where(created_at: Time.zone.now.all_day).last
+      status = if condition.nil?
+                 'noinfo'
+               else
+                 condition.status
+               end
+      { id: divesite.id,
+        name: divesite.name,
+        latitude: divesite.latitude,
+        longitude: divesite.longitude,
+        status: status }
     end
   end
 

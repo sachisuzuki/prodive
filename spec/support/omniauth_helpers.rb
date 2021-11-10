@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module OmniAuthHelpers
   def mock_google_oauth
     OmniAuth.config.test_mode = true

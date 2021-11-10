@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FavoritesController < ApplicationController
   def create
     @favorite = current_user.favorites.create(divesite_id: params[:divesite_id])
