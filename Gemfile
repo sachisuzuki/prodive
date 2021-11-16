@@ -103,7 +103,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-    # スタイルガイド準拠
+  # スタイルガイド準拠
   gem 'rubocop', require: false
   gem 'rubocop-rails'
 end

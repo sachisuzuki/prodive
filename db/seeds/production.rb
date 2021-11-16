@@ -8,7 +8,7 @@ require 'securerandom'
   name = Faker::JapaneseMedia::StudioGhibli.character
   email = Faker::Internet.email
   password = 'password'
-  avatar = open("#{Rails.root}/public/samples/avt#{n}.jpg")
+  avatar = File.open("#{Rails.root}/public/samples/avt#{n}.jpg")
   uid = SecureRandom.uuid.tr('-', '')
   User.create!(name: name,
                email: email,
@@ -19,7 +19,7 @@ end
 User.create!(name: 'admin_user',
              email: 'admin@mail.com',
              password: 'password',
-             avatar: open("#{Rails.root}/public/images/default-avatar.png"),
+             avatar: File.open("#{Rails.root}/public/images/default-avatar.png"),
              uid: SecureRandom.uuid.tr('-', ''),
              admin: true)
 

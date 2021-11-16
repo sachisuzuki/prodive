@@ -16,7 +16,7 @@
             <div class="card-title" data-toggle="tooltip" data-placement="right" title="ダイブサイトページへ" >
               <div class="h4">
                 <%= link_to condition.divesite.name, divesite_path(condition.divesite.id) %>
-                <span class="pl-4 status-icon"><%= image_tag(set_status_pin_helper(condition.status), width: '50px') %></span>
+                <span class="pl-4 status-icon"><%= image_tag(status_pin_helper(condition.status), width: '50px') %></span>
               </div>
               <span data-toggle="tooltip" data-placement="right" title="ユーザ詳細ページへ" >
                 <% if condition.user.avatar? %>

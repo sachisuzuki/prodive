@@ -22,7 +22,7 @@
                     temperature: temperature.sample,
                     visibility: visibility.sample,
                     content: content.sample,
-                    image: open("#{Rails.root}/public/samples/#{image[i]}"),
+                    image: File.open("#{Rails.root}/public/samples/#{image[i]}"),
                     user_id: (n + 1) + 1,
                     divesite_id: n + 1)
 end

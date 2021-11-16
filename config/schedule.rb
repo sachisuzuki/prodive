@@ -10,5 +10,5 @@ every :day, at: '06:30' do
 end
 
 every [:saturday, :sunday], at: '06:30' do
-  rake 'db:seed:outside-condition'
+  rake 'db:seed:outside_condition'
 end

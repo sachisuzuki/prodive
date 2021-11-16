@@ -68,3 +68,35 @@ Metrics/MethodLength:
   Max: 20
   Exclude:
     - "db/migrate/*.rb"
+
+# このアプリ特有の除外項目
+Lint/SuppressedException:
+  Exclude:
+    - 'config/unicorn/production.rb'
+
+Metrics/BlockLength:
+  Max: 163
+
+Metrics/ClassLength:
+  Max: 119
+
+Rails/BulkChangeTable:
+  Exclude:
+    - 'db/migrate/20210819142244_add_column_to_users.rb'
+
+Rails/FilePath:
+  Exclude:
+    - 'app/uploaders/image_uploader.rb'
+    - 'config/environments/development.rb'
+    - 'config/schedule.rb'
+    - 'db/seeds/production.rb'
+    - 'spec/rails_helper.rb'
+    - 'spec/system/conditions_spec.rb'
+
+Rails/InverseOf:
+  Exclude:
+    - 'app/models/user.rb'
+
+Style/GlobalVars:
+  Exclude:
+    - 'config/unicorn/production.rb'
