@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Divesite < ApplicationRecord
   validates :area, :zone, :name, :latitude, :longitude, presence: true
   has_many :conditions, dependent: :destroy
@@ -13,5 +15,4 @@ class Divesite < ApplicationRecord
   def added_to_favorites?(divesite)
     favorites.find_by(divesite_id: divesite.id)
   end
-
 end

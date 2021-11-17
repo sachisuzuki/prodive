@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Users", type: :system do
+RSpec.describe 'Users', type: :system do
   describe 'アカウント登録機能' do
-    let!(:new_user){ FactoryBot.build(:user) }
+    let!(:new_user) { FactoryBot.build(:user) }
     context 'ヘッダーのアカウント登録ボタンから行く場合' do
       before do
         visit root_path
         find('.fa-user-plus').click
       end
       it 'アカウント登録画面が表示される' do
-        expect(page).to have_selector 'h2', text: "アカウント登録"
+        expect(page).to have_selector 'h2', text: 'アカウント登録'
       end
     end
     context 'Topページ下部のアカウント登録ボタンから行く場合' do
@@ -18,16 +20,16 @@ RSpec.describe "Users", type: :system do
         page.all('.transition-btn')[1].click
       end
       it 'アカウント登録画面が表示される' do
-        expect(page).to have_selector 'h2', text: "アカウント登録"
+        expect(page).to have_selector 'h2', text: 'アカウント登録'
       end
     end
     context 'ログインページのアカウント登録ボタンから行く場合' do
       before do
         visit new_user_session_path
-        click_link "アカウント登録はこちら"
+        click_link 'アカウント登録はこちら'
       end
       it 'アカウント登録画面が表示される' do
-        expect(page).to have_selector 'h2', text: "アカウント登録"
+        expect(page).to have_selector 'h2', text: 'アカウント登録'
       end
     end
     context '新規でアカウント登録した場合' do
@@ -54,7 +56,7 @@ RSpec.describe "Users", type: :system do
         find('.fa-sign-in-alt').click
       end
       it 'ログイン画面が表示される' do
-        expect(page).to have_selector 'h2', text: "ログイン"
+        expect(page).to have_selector 'h2', text: 'ログイン'
       end
     end
     context 'Topページ下部のログインボタンボタンから行く場合' do
@@ -63,7 +65,7 @@ RSpec.describe "Users", type: :system do
         first('.transition-btn').click
       end
       it 'ログイン画面が表示される' do
-        expect(page).to have_selector 'h2', text: "ログイン"
+        expect(page).to have_selector 'h2', text: 'ログイン'
       end
     end
     context 'アカウント登録ページのログインボタンから行く場合' do
@@ -72,11 +74,11 @@ RSpec.describe "Users", type: :system do
         find('.login-btn').click
       end
       it 'ログイン画面が表示される' do
-        expect(page).to have_selector 'h2', text: "ログイン"
+        expect(page).to have_selector 'h2', text: 'ログイン'
       end
     end
     context 'ログインした場合' do
-      let!(:user){ FactoryBot.create(:user) }
+      let!(:user) { FactoryBot.create(:user) }
       before do
         visit new_user_session_path
         fill_in 'user[email]', with: user.email
@@ -98,7 +100,7 @@ RSpec.describe "Users", type: :system do
         first('.guest-login').click
       end
       it 'マイページにゲストが表示される' do
-        expect(page).to have_selector '.user-name', text: "ゲスト"
+        expect(page).to have_selector '.user-name', text: 'ゲスト'
       end
       it 'ヘッダーにログアウトリンクが表示される' do
         expect(page).to have_selector 'a', text: 'ログアウト'
@@ -110,7 +112,7 @@ RSpec.describe "Users", type: :system do
         first('.guest-login').click
       end
       it 'マイページにゲストが表示される' do
-        expect(page).to have_selector '.user-name', text: "ゲスト"
+        expect(page).to have_selector '.user-name', text: 'ゲスト'
       end
       it 'ヘッダーにログアウトリンクが表示される' do
         expect(page).to have_selector 'a', text: 'ログアウト'
@@ -124,7 +126,7 @@ RSpec.describe "Users", type: :system do
         page.all('.guest-login')[1].click
       end
       it 'マイページにゲスト(管理者)が表示される' do
-        expect(page).to have_selector '.user-name', text: "ゲスト(管理者)"
+        expect(page).to have_selector '.user-name', text: 'ゲスト(管理者)'
       end
       it 'ヘッダーにログアウトリンクが表示される' do
         expect(page).to have_selector 'a', text: 'ログアウト'
@@ -139,7 +141,7 @@ RSpec.describe "Users", type: :system do
         page.all('.guest-login')[1].click
       end
       it 'マイページにゲストが表示される' do
-        expect(page).to have_selector '.user-name', text: "ゲスト(管理者)"
+        expect(page).to have_selector '.user-name', text: 'ゲスト(管理者)'
       end
       it 'ヘッダーにログアウトリンクが表示される' do
         expect(page).to have_selector 'a', text: 'ログアウト'
@@ -150,17 +152,17 @@ RSpec.describe "Users", type: :system do
     end
   end
   describe '管理者機能' do
-    let!(:admin_user){ FactoryBot.create(:admin_user) }
+    let!(:admin_user) { FactoryBot.create(:admin_user) }
     context '管理者アカウントでログインした場合' do
       before do
         visit new_user_session_path
         fill_in 'user[email]', with: admin_user.email
         fill_in 'user[password]', with: admin_user.password
         find('.actions').click
-        click_link "管理者画面"
+        click_link '管理者画面'
       end
       it 'サイト管理のダッシュボードにアクセスできる' do
-        expect(page).to have_content "サイト管理"
+        expect(page).to have_content 'サイト管理'
       end
     end
   end

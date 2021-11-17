@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'csv'
 
 # Divesites
@@ -10,6 +12,5 @@ CSV.foreach('db/Divesite.csv', headers: true) do |row|
                   service: row[5],
                   discription: row[6],
                   latitude: row[7],
-                  longitude: row[8],
-                  )
+                  longitude: row[8])
 end

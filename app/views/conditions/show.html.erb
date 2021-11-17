@@ -15,7 +15,7 @@
                   <%= @condition.divesite.name %>
                   <small><%= @condition.divepoint %></small>
                 <% end %>
-                <span class="pl-4 status-icon"><%= image_tag(set_status_pin_helper(@condition.status), width: '50px') %></span>
+                <span class="pl-4 status-icon"><%= image_tag(status_pin_helper(@condition.status), width: '50px') %></span>
               </div>
               <div data-toggle="tooltip" data-placement="right" title="ユーザ詳細ページへ" >
                 <% if @condition.user.avatar? %>

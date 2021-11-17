@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SignInSupport
   def sign_in(user)
     visit new_user_session_path

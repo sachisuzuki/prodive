@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 class RelationshipsController < ApplicationController
   before_action :authenticate_user!
+
   def create
     @user = User.find(params[:id])
     current_user.follow(@user)
@@ -9,6 +12,7 @@ class RelationshipsController < ApplicationController
       format.html { redirect_to conditions_url }
     end
   end
+
   def destroy
     @user = Relationship.find_by(followed_id: params[:id]).followed
     current_user.unfollow(@user)

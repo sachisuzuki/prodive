@@ -1,10 +1,13 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
-  def set_status_pin_helper(status)
-    if status == "open"
+  def status_pin_helper(status)
+    case status
+    when 'open'
       '/images/conditions/OPEN.png'
-    elsif status == "warning"
+    when 'warning'
       '/images/conditions/WARNING.png'
-    elsif status == "close"
+    when 'close'
       '/images/conditions/CLOSE.png'
     else
       ''

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FavoritesController < ApplicationController
   def create
     @favorite = current_user.favorites.create(divesite_id: params[:divesite_id])
@@ -8,6 +10,7 @@ class FavoritesController < ApplicationController
       format.html { redirect_to divesite_url(@favorite.divesite_id) }
     end
   end
+
   def destroy
     @favorite = current_user.favorites.find_by(id: params[:id])
     @divesite = Divesite.find(@favorite.divesite.id)

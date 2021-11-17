@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 module DataUri
   extend ActiveSupport::Concern
 
   module ClassMethods
-    def data_uri_to_file data_uri
+    def data_uri_to_file(data_uri)
       data = data_uri.try do |uri|
-        uri.match(%r{\Adata:(?<type>.*?);(?<encoder>.*?),(?<data>.*)\z}) do |md|
+        uri.match(/\Adata:(?<type>.*?);(?<encoder>.*?),(?<data>.*)\z/) do |md|
           {
-            type:      md[:type],
-            encoder:   md[:encoder],
-            data:      Base64.decode64(md[:data]),
+            type: md[:type],
+            encoder: md[:encoder],
+            data: Base64.decode64(md[:data]),
             extension: md[:type].split('/')[1]
           }
         end
@@ -23,7 +25,7 @@ module DataUri
 
       ActionDispatch::Http::UploadedFile.new(
         filename: "data_uri.#{data[:extension]}",
-        type:     data[:type],
+        type: data[:type],
         tempfile: temp_file
       )
     end
