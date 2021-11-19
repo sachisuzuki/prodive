@@ -106,6 +106,9 @@ group :development do
   # スタイルガイド準拠
   gem 'rubocop', require: false
   gem 'rubocop-rails'
+
+  # n+1問題
+  gem 'bullet'
 end
 
 group :test do
