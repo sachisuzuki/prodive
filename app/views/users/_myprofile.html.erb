@@ -4,16 +4,16 @@
   <table>
     <tr>
       <th>ユーザ名</th>
-      <td><p><%= user.name %></p></td>
+      <td><p><%= current_user.name %></p></td>
     </tr>
     <tr>
       <th>メールアドレス</th>
-      <td><p><%= user.email %></p></td>
+      <td><p><%= current_user.email %></p></td>
     </tr>
     <tr>
       <th>所属店</th>
-      <% if user.shop.present? %>
-        <td><p><%= user.shop %></p></td>
+      <% if current_user.shop.present? %>
+        <td><p><%= current_user.shop %></p></td>
       <% else %>
         <td><p>未設定</p></td>
       <% end %>
