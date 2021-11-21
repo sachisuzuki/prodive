@@ -25,7 +25,7 @@ class DivesitesController < ApplicationController
   def show
     @divesite = Divesite.find(params[:id])
     @favorite = current_user.favorites.find_by(divesite_id: @divesite.id)
-    @conditions = Condition.where(divesite_id: @divesite.id).order(created_at: :DESC)
+    @conditions = Condition.where(divesite_id: @divesite.id).includes(:user).order(created_at: :DESC)
     @conditions = @conditions.page(params[:page]).per(7)
   end
 
