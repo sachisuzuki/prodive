@@ -24,5 +24,4 @@ $(window).on('scroll', function(){
 
 var topHeight
 topHeight = $('.row').height();
-scrollHeight =
 $('.timeline').height(topHeight);
