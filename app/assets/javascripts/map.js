@@ -1,4 +1,4 @@
-var mapDiv
+var mapDiv;
 var map;
 var tokyoSt;
 var marker = [];
@@ -60,6 +60,7 @@ function initMap(){
   });
 }
 
+// 海況によってPIN画像を変更
 function setMarkerPin(markerData) {
   if (markerData == "open") {
     markerIcon = "/images/conditions/open_pin.png";
@@ -72,12 +73,14 @@ function setMarkerPin(markerData) {
   }
 }
 
+// PINクリックした際の吹き出し
 function markerEvent(i) {
   marker[i].addListener('click', function(){
     infoWindow[i].open(map, marker[i]);
   });
 }
 
+// 緯度経度に値が入っていない場合は東京駅をセンターにする
 function setZone(setlat, setlng){
   if (setlat === undefined) { setlat = 35.6813363998796; }
   if (setlng === undefined) { setlng = 139.76714625537713; }
