@@ -1,3 +1,23 @@
+// 新規投稿時、直近の投稿内容（ダイブサイト）をフォームに入れておく
+var lastDivesite = gon.last_post_divesite;
+
+$(function(){
+  var ldsName = lastDivesite['name']
+  var ldsDivepoint = lastDivesite['divepoint']
+  var ldsId = lastDivesite['id']
+  $('.response').text(`${ldsName}`).css('color', '#FCFAF2').css('background-color', 'rgba(48,69,92,0.9)');
+
+  $("input[name='condition[divesite]']").val(`${ldsName}`);
+
+  $("input[name='condition[divesite]']").prop('disabled', true);
+
+  $("input[name='condition[divepoint]']").val(`${ldsDivepoint}`);
+
+  $("input[name='condition[divesite_id]']").val(`${ldsId}`);
+
+});
+
+
 // 新規投稿のダイブサイト選択
 // areaの選択結果でzoneの表示を変更
 $('#parent').on('click', 'button', function() {
