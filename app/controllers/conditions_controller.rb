@@ -14,7 +14,9 @@ class ConditionsController < ApplicationController
 
   def new
     last_post = current_user.conditions.last
-    gon.last_post_divesite = {id: last_post.divesite.id, name: last_post.divesite.name, divepoint: last_post.divepoint}
+    if last_post != nil
+      gon.last_post_divesite = {id: last_post.divesite.id, name: last_post.divesite.name, divepoint: last_post.divepoint}
+    end
     @condition = current_user.conditions.new
     divesites = Divesite.select(:id, :name, :area, :zone).order(id: :ASC)
     zones = divesites.pluck(:zone).uniq
